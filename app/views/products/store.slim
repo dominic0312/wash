@@ -1,0 +1,21 @@
+.container
+  .panel.panel-default.clear-fix.content-box
+    .panel-body.container
+
+
+      = form_tag(push_store_path(:id => @product.id), method: "post") do |f|
+        .panel.panel-default.col-xs-3.grid
+          h4
+            = @product.name
+          hr
+          h5
+            |库存
+            = @product.amount
+          br
+          h5
+            |数量
+            = number_field(:product, :amount, in: 1..100, step: 1, value:1)
+          h5
+            |说明
+            = @product.desc
+          = submit_tag("结算")

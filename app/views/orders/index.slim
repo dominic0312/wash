@@ -1,0 +1,24 @@
+.container
+  .panel.panel-default
+    .panel-heading
+      h4 历史订单
+    .panel-body
+      = flash[:info]
+      - @orders.each do |t|
+        .panel.panel-default
+          .panel-body
+            -t.order_items.each do |f|
+              h5
+                |产品:
+                = f.product.name
+              h5
+                |价格:
+                = f.product.price
+              h5
+                |数量:
+                = f.amount
+            br
+
+
+
+

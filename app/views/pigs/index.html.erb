@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Pigs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Amount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pigs.each do |pig| %>
+      <tr>
+        <td><%= pig.name %></td>
+        <td><%= pig.amount %></td>
+        <td><%= link_to 'Show', pig %></td>
+        <td><%= link_to 'Edit', edit_pig_path(pig) %></td>
+        <td><%= link_to 'Destroy', pig, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pig', new_pig_path %>

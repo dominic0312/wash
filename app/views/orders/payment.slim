@@ -1,0 +1,44 @@
+.container
+  .panel.panel-default
+    .panel-heading
+      h4 付款信息
+    .panel-body
+      = flash[:info]
+      - if @cart.cart_items.size == 0
+        .panel.panel-default
+          .panel-body
+            h4
+              |当前购物车中没有商品, 请前往商城购买
+      -else
+
+      - @cart.cart_items.each do |t|
+        .panel.panel-default
+          .panel-body
+            h5
+              |产品:
+              = link_to t.item.name, product_path(:id => t.item.id)
+              |     --说明:
+              = t.item.desc
+            h5
+              |数量:
+              = t.quantity
+              |     --价格:
+              = t.item.price
+            br
+            = link_to "从购物车中删除", delete_item_cart_path(:cart_item => t)
+            br
+
+    - if @cart.cart_items.size > 0
+      .panel-footer
+        h4
+          |总价:
+          = @cart.subtotal
+          |元
+        hr
+        = link_to "支付", alipay_order_path(@cart), class:"btn btn-success btn-lg"
+
+
+
+
+
+

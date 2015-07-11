@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title 代理销售
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    = yield
+      /nav.navbar.navbar-default.footer
+      /  .container
+      /    .footer-content Weixing @2015 Copyright
+
+

@@ -1,0 +1,25 @@
+.panel.panel-default
+  .panel-body
+    h1
+      |此处放置大图
+.panel.panel-default
+  .panel-body
+    - @products.each do |product|
+
+      .panel.panel-default.col-xs-3.grid
+        h4
+          = link_to product.name, product_path(:id => product.id)
+        hr
+        h5
+          |库存数量:
+          = product.amount
+        br
+        h5
+          |说明:
+          = product.desc
+        br
+          |价格:
+          =product.price
+        br
+          |图片:
+          |此处放置图片

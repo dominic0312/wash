@@ -1,0 +1,36 @@
+.container
+  - if current_user.parent
+    .panel.panel-default
+      .panel-heading
+        h4 我的上线
+      .panel-body
+        |电话
+        = current_user.parent.mobile
+        br
+        |姓名
+        = current_user.parent.uname
+        br
+        |点数
+        = current_user.parent.point
+  - if @children.size > 0
+    .panel.panel-default
+      .panel-heading
+        h4 我的下线
+      .panel-body
+        - @children.each do |t|
+          |手机:
+          = t.mobile
+          |*******
+          |姓名:
+          = t.uname
+          |*******
+          |初始密码：
+          = t.pass
+
+  .panel.panel-default
+    .panel-heading
+      h4 下线注册
+    .panel-body.container
+      = simple_form_for @user, :url => url_for(:action => 'create', :controller => 'network'), :method => 'post' do |f|
+        = f.input :mobile
+        = f.button :submit, "添加下线"

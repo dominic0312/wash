@@ -1,0 +1,42 @@
+.no-underline
+{
+    text-decoration: none !important;
+
+}
+
+.content-box{
+    min-height: 1700px;
+
+}
+
+.footer{
+    margin:0;
+}
+
+.footer-content{
+    text-align: center;
+    padding-top:10px;
+}
+
+.grid{
+    min-height: 160px;
+   margin-top: 10px;
+}
+
+.user-icon{
+    padding-right:5px;
+}
+
+
+.login-box .back-to-login-link {
+    color: #FE9;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.25);
+}
+
+.login-box .toolbar {
+    background: #357ebd;
+    border-top: 2px solid #759759;
+    padding: 9px 18px;
+}

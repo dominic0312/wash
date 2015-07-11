@@ -1,0 +1,35 @@
+.container
+  .panel.panel-default.clear-fix.content-box
+    .panel-body.container
+
+      .panel.panel-default.col-xs-11.grid
+        = link_to "全部", products_path(:category => "all")
+        | ||
+        - @categories.each do |category|
+          = link_to category.name, products_path(:category => category)
+          | ||
+
+      - @products.each do |product|
+        = form_tag(buy_product_path(product.id), method: "post") do |f|
+          .panel.panel-default.col-xs-3.grid
+            h4
+              = product.name
+            hr
+            h5
+              |库存数量:
+              = product.amount
+            br
+            h5
+              |购买数量:
+              = number_field(:product, :amount, in: 1..100, step: 1, value:1)
+            h5
+              |说明:
+              = product.desc
+            h5
+              |图片:
+              |此处放置图片
+            = link_to "购买", product_path(:id => product.id), :class => "btn btn-success"
+            /= link_to "加入购物车", buy_product_path(id: product.id), class:'btn btn-success'
+            /= link_to "购买", payment_order_path(id: product.id), class:'btn btn-success'
+
+

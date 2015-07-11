@@ -1,0 +1,17 @@
+.container
+  .panel.panel-default
+    .panel-heading
+      h4 账户信息
+    .panel-body
+      = simple_form_for @user do |f|
+        = f.input :email, disabled: true
+        = f.input :address
+        = f.input :mobile
+        = f.input :brand_name
+        = f.input :alipay
+        = f.input :level, disabled:true
+        = f.input :point, disabled:true
+        = f.input :balance, disabled:true
+        = f.label "推广网址"
+        = f.hint @user.promotion_address
+        = f.button :submit

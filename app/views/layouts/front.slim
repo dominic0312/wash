@@ -1,0 +1,44 @@
+doctype html
+html
+  head
+    title 家家喜
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    .navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          a.navbar-brand.no-underline href='#' 家家喜
+        ul.nav.navbar-nav
+
+          = nav_link '首页', front_path, "home"
+
+          = nav_link '产品', products_path, "archive"
+          = nav_link '营销网络', network_path, "users"
+          = nav_link '囤货', store_path, "cubes"
+          = nav_link '订单', orders_path, "newspaper-o"
+        ul.nav.navbar-nav.navbar-right
+          li role="presentation"
+            = link_to payment_path , class:'no-underline'
+              i.fa.fa-shopping-cart.user-icon
+              |购物车
+              = @cart.cart_items.size
+          li role="presentation"
+            = link_to profile_path , class:'no-underline'
+              i.fa.fa-user.user-icon
+              = current_user.username
+              |-
+              = current_user.level
+          - if user_signed_in?
+            li role="presentation"
+              = link_to destroy_user_session_path , class:'no-underline', :method => :delete
+                i.fa.fa-sign-out.user-icon
+                |登出
+
+    = yield
+    nav.navbar.navbar-default.footer
+      .container
+        .footer-content Weixing @2015 Copyright
+  
+  
