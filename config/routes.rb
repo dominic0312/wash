@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'front#index'
-  root 'about#about'
+  root 'front#index'
   get 'front' => "front#index"
   get 'charge' => "users#charge"
   post 'charge_account' => "users#charge_account"
