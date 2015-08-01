@@ -1,25 +1,119 @@
-.panel.panel-default
-  .panel-body
-    h1
-      |此处放置大图
-.panel.panel-default
-  .panel-body
-    - @products.each do |product|
+body
+  .md-header
+    .center
+      span.logos.fl
+        /img src= assets_url("logo.png") /
+        = image_tag ("logo.png")
+      ul.nav.fr
+        li
+          a href="#"
+            span.f16 走进家家
+            br/
+            span.f12.f-999 HOME PAGE
+        li
+          a href="#"
+            span.f16 品牌优势
+            br/
+            span.f12.f-999 ADVANTAGE
+        li
+          a href="#"
+            span.f16 代理登陆
+            br/
+            span.f12.f-999 AGENCY
+        li
+          a href="#"
+            span.f16 权益保证
+            br/
+            span.f12.f-999 FREE SERVICE
+        li
+          a href="#"
+            span.f16 加盟培训
+            br/
+            span.f12.f-999 TRAINING
+  .md-banner
+    .flexslider
+      .loader
+        = image_tag ("loading.gif")
+      ul.slides
+        li style=("background:url(#{image_path('banner.jpg')}) center; z-index: 2; display:block;")
+        li style=("background:url(#{image_path('banner1.jpg')}) center; z-index: 1; display:none;")
+        li style=("background:url(#{image_path('banner2.jpg')}) center; z-index: 1; display:none;")
+  .md-about.center.clear
+    .title.f24.fb.m-t-30 公司简介
+    .cont.m-t-20
+      .left.fl
+        = image_tag ("aboutus.jpg")
+      .right.fr.f18
+        i.icon-img.icon-start
+        i.icon-img.icon-end
+        p.ind-30
+          | 东营家家喜电子商务有限责任公司是国内最早采用O2O模式运营的
+          | 大型综合性商城之一，它坐落在美丽富饶的黄河入海口，全国第二大油田
+          | 胜利油田驻地——山东东营。
+        p.ind-30
+          | 公司自成立初期就树立了“创国际一流电子商城品牌”的远大目标
+          | ，依托公司强大的管理团队，凭借在销售模式，销售实力，售后服务等方
+          | 面的核心优势，取得了广大客户的支持与信赖。
+  .md-best.center.clear
+    .title.f24.fb.m-t-30 精品展示
+    .cont.m-t-20
+      ul.left.fl
+        li.fl.rel
+          = image_tag ("goods1.jpg")
+          i.icon-img.icon-shadow-l
+          i.icon-img.icon-shadow-r
+          .goodsinfo 这里是产品介绍呀这里是产品介绍呀这里是产品介绍呀
+        li.fl.rel.m-t-20
+          = image_tag ("goods2.jpg")
+          i.icon-img.icon-shadow-l
+          i.icon-img.icon-shadow-r
+          .goodsinfo 这里是产品介绍呀这里是产品介绍呀这里是产品介绍呀
+        li.fr.rel.m-t-20
+          = image_tag ("goods3.jpg")
+          i.icon-img.icon-shadow-l
+          i.icon-img.icon-shadow-r
+          .goodsinfo 这里是产品介绍呀这里是产品介绍呀这里是产品介绍呀
+      ul.right.fr
+        li.fl.rel
+          = image_tag ("goods4.jpg")
+          i.icon-img.icon-shadow-l
+          i.icon-img.icon-shadow-r
+          .goodsinfo 这里是产品介绍呀这里是产品介绍呀这里是产品介绍呀
+        li.fl.rel.m-t-20
+          = image_tag ("goods5.jpg")
+          i.icon-img.icon-shadow-l
+          i.icon-img.icon-shadow-r
+          .goodsinfo 这里是产品介绍呀这里是产品介绍呀这里是产品介绍呀
+        li.fl.rel.m-t-20
+          = image_tag ("goods6.jpg")
+          i.icon-img.icon-shadow-l
+          i.icon-img.icon-shadow-r
+          .goodsinfo 这里是产品介绍呀这里是产品介绍呀这里是产品介绍呀
+  .md-footer.m-t-20
+    .footer-up
+      ul.center.clear.rel
+        li.fl.f12
+          | 服务热线
+          br>/
+          | (9:00-18:00)
+        li.fl.tel.f32.fb 0769-12345678
+        li.fl.f12.m-l-20
+          | 客服邮箱：service@qq.com    QQ：904982864
+          br/
+          | 地址：东营市 东营区 黄河路100号
+        li.weixin
+          = image_tag ("weixiin.png")
+    .footer-down.ct.f14
+      | 东营市家家喜电子商务服务有限公司©2014-2015版权所有 鲁ICP备15004416号-2
 
-      .panel.panel-default.col-xs-3.grid
-        h4
-          = link_to product.name, product_path(:id => product.id)
-        hr
-        h5
-          |库存数量:
-          = product.amount
-        br
-        h5
-          |说明:
-          = product.desc
-        br
-          |价格:
-          =product.price
-        br
-          |图片:
-          |此处放置图片
+  javascript:
+
+    $(function () {
+      $(".md-best li").mouseenter(function () {
+        $(this).find(".goodsinfo").stop().slideDown(300);
+      }).mouseleave(function () {
+        $(this).find(".goodsinfo").stop().slideUp(300);
+      });
+      $(".flexslider").flexslider();
+    });
+  

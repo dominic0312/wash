@@ -8,6 +8,16 @@ class UsersController < InheritedResources::Base
     @user = current_user
   end
 
+
+  def charge
+
+  end
+
+
+  def charge_account
+    redirect_to profile_path
+  end
+
   def update
     super do |format|
       format.html { redirect_to profile_path }

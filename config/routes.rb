@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   # root 'front#index'
   root 'about#about'
   get 'front' => "front#index"
+  get 'charge' => "users#charge"
+  post 'charge_account' => "users#charge_account"
   # Example of regular route:
   get 'profile' => 'users#profile'
   get 'products' => 'products#index'
