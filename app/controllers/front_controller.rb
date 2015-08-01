@@ -1,4 +1,4 @@
-class FrontController < BaseController
+class FrontController < ApplicationController
   # before_action :authenticate_user!
   layout "login"
   def index
