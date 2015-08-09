@@ -103,7 +103,7 @@ class RegController < Devise::RegistrationsController
     end
     verify_code = rand(10 ** 6)
 
-    # send_sms(params[:phone_num], verify_code)
+    send_sms(params[:phone_num], verify_code)
     if valid
       if valid.phonestatus == "verified"
         render :js => "alert('该手机号码已经被注册')" and return
