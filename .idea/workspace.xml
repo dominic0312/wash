@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58ae0855-fe3b-407f-8375-9648ddebcf7d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/development.sqlite3" afterPath="$PROJECT_DIR$/db/development.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/reg_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/reg_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
     </list>
     <ignored path="wash.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,21 +66,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="carts_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="carts_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/carts_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.56657964" vertical-offset="8" max-vertical-offset="713">
+            <state vertical-scroll-proportion="0.0" vertical-offset="8" max-vertical-offset="713">
               <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="store.slim" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/products/store.slim">
+      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="2384">
-              <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
+            <state vertical-scroll-proportion="1.2567568" vertical-offset="180" max-vertical-offset="1255">
+              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -146,7 +146,6 @@
         <option value="$PROJECT_DIR$/app/views/users/charge.slim" />
         <option value="$PROJECT_DIR$/db/migrate/20150807161111_change_product_desc_to_text.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20150807161538_change_product_desc_to_txt.rb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/active_admin.js.coffee" />
         <option value="$PROJECT_DIR$/config/initializers/rich.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20150808150036_add_pic_path_to_product.rb" />
@@ -184,6 +183,7 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/style.css.scss" />
         <option value="$PROJECT_DIR$/app/views/network/index.slim" />
         <option value="$PROJECT_DIR$/app/controllers/reg_controller.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -600,14 +600,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20150708180006_add_storeage_to_order.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.051369864" vertical-offset="0" max-vertical-offset="644">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20150707160035_change_storage_to_user.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.049423393" vertical-offset="0" max-vertical-offset="682">
@@ -988,8 +980,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/carts_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56657964" vertical-offset="8" max-vertical-offset="713">
+        <state vertical-scroll-proportion="0.0" vertical-offset="8" max-vertical-offset="713">
           <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2567568" vertical-offset="180" max-vertical-offset="1255">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
         </state>
       </provider>

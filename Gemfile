@@ -40,7 +40,7 @@ gem "paperclip", "~> 4.2"
 gem "font-awesome-rails"
 gem 'acts_as_shopping_cart', '~> 0.2.1'
 
-gem 'rich'
+# gem 'rich'
 
 
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'

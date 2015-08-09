@@ -204,8 +204,6 @@ GEM
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.2.0)
     rack (1.6.2)
-    rack-raw-upload (1.1.1)
-      multi_json
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.1)
@@ -249,14 +247,6 @@ GEM
     request_store (1.1.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
-    rich (1.4.6)
-      jquery-rails
-      kaminari
-      mime-types
-      paperclip
-      rack-raw-upload
-      rails (>= 3.2.0)
-      sass-rails
     safe_yaml (1.0.4)
     sass (3.2.19)
     sass-rails (4.0.5)
@@ -323,7 +313,6 @@ DEPENDENCIES
   paperclip (~> 4.2)
   pundit
   rails (= 4.2.1)
-  rich
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   simple_form
