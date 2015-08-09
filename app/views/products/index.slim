@@ -1,35 +1,147 @@
-.container
-  .panel.panel-default.clear-fix.content-box
-    .panel-body.container
+.goods-list.center.m-t-30.clear
+  - @products.each do |p|
+    .item
+      .product-wrap
+        .productimg-wrap
+          a.productimg data-p="1-10" href="/products/#{p.id}" target="_blank"
+            = image_tag(p.pic.url(:medium))
+        p.productprice.m-t-6
+          span.f-f00.f18
+            |零售价:
+            span.f14> ¥
+            = p.price
+          br
 
-      .panel.panel-default.col-xs-11.grid
-        = link_to "全部", products_path(:category => "all")
-        | ||
-        - @categories.each do |category|
-          = link_to category.name, products_path(:category => category)
-          | ||
-
-      - @products.each do |product|
-        = form_tag(buy_product_path(product.id), method: "post") do |f|
-          .panel.panel-default.col-xs-3.grid
-            h4
-              = product.name
-            hr
-            h5
-              |库存数量:
-              = product.amount
+          span.f-f00.f18
+            |会员价:
+            span.f14> ¥
+            = p.price * p.category.discount / 100
             br
-            h5
-              |购买数量:
-              = number_field(:product, :amount, in: 1..100, step: 1, value:1)
-            h5
-              |说明:
-              = product.desc
-            h5
-              |图片:
-              |此处放置图片
-            = link_to "购买", product_path(:id => product.id), :class => "btn btn-success"
-            /= link_to "加入购物车", buy_product_path(id: product.id), class:'btn btn-success'
-            /= link_to "购买", payment_order_path(id: product.id), class:'btn btn-success'
+          - if current_user
+            span.f-f00.f18
+              |囤货价:
+              span.f14> ¥
+              = p.price * p.category.store_discount / 100
+              br
+
+        p.producttitle.f12.m-t-6
+          a href="/products/#{p.id}" target="_blank" title=p.name
+            =p.name
+        p.productstatus.f12.m-t-6
+          span.f-999
+            | 月成交
+            em.f-ff7300 3857笔
+  .item
+    .product-wrap
+      .productimg-wrap
+        a.productimg data-p="1-10" href="#" target="_blank"
+          img src="images/item.jpg" /
+      p.productprice.m-t-6
+        span.f-f00.f18
+          span.f14> ¥
+          | 89.00
+      p.producttitle.f12.m-t-6
+        a href="#" target="_blank" title=("【天猫超市】蓝月亮洗衣液 自然清香亮白增艳500g*12袋装 大包装")
+          | 【天猫超市】蓝月亮洗衣自然大包装
+      p.productstatus.f12.m-t-6
+        span.f-999
+          | 月成交
+          em.f-ff7300 3857笔
+  .item
+    .product-wrap
+      .productimg-wrap
+        a.productimg data-p="1-10" href="#" target="_blank"
+          img src="images/item.jpg" /
+      p.productprice.m-t-6
+        span.f-f00.f18
+          span.f14> ¥
+          | 89.00
+      p.producttitle.f12.m-t-6
+        a href="#" target="_blank" title=("【天猫超市】蓝月亮洗衣液 自然清香亮白增艳500g*12袋装 大包装")
+          | 【天猫超市】蓝月亮洗衣自然清香亮白增艳500g*12袋装 大包装
+      p.productstatus.f12.m-t-6
+        span.f-999
+          | 月成交
+          em.f-ff7300 3857笔
+  .item.last
+    .product-wrap
+      .productimg-wrap
+        a.productimg data-p="1-10" href="#" target="_blank"
+          img src="images/item.jpg" /
+      p.productprice.m-t-6
+        span.f-f00.f18
+          span.f14> ¥
+          | 89.00
+      p.producttitle.f12.m-t-6
+        a href="#" target="_blank" title=("【天猫超市】蓝月亮洗衣液 自然清香亮白增艳500g*12袋装 大包装")
+          | 【天猫超市】蓝月亮洗衣自然清香亮白增艳500g*12袋装 大包装
+      p.productstatus.f12.m-t-6
+        span.f-999
+          | 月成交
+          em.f-ff7300 3857笔
+  .item
+    .product-wrap
+      .productimg-wrap
+        a.productimg data-p="1-10" href="#" target="_blank"
+          img src="images/item.jpg" /
+      p.productprice.m-t-6
+        span.f-f00.f18
+          span.f14> ¥
+          | 89.00
+      p.producttitle.f12.m-t-6
+        a href="#" target="_blank" title=("【天猫超市】蓝月亮洗衣液 自然清香亮白增艳500g*12袋装 大包装")
+          | 【天猫超市】蓝月亮洗衣自然清香亮白增艳500g*12袋装 大包装
+      p.productstatus.f12.m-t-6
+        span.f-999
+          | 月成交
+          em.f-ff7300 3857笔
+  .item
+    .product-wrap
+      .productimg-wrap
+        a.productimg data-p="1-10" href="#" target="_blank"
+          img src="images/item.jpg" /
+      p.productprice.m-t-6
+        span.f-f00.f18
+          span.f14> ¥
+          | 89.00
+      p.producttitle.f12.m-t-6
+        a href="#" target="_blank" title=("【天猫超市】蓝月亮洗衣液 自然清香亮白增艳500g*12袋装 大包装")
+          | 【天猫超市】蓝月亮洗衣自然大包装
+      p.productstatus.f12.m-t-6
+        span.f-999
+          | 月成交
+          em.f-ff7300 3857笔
+  .item
+    .product-wrap
+      .productimg-wrap
+        a.productimg data-p="1-10" href="#" target="_blank"
+          img src="images/item.jpg" /
+      p.productprice.m-t-6
+        span.f-f00.f18
+          span.f14> ¥
+          | 89.00
+      p.producttitle.f12.m-t-6
+        a href="#" target="_blank" title=("【天猫超市】蓝月亮洗衣液 自然清香亮白增艳500g*12袋装 大包装")
+          | 【天猫超市】蓝月亮洗衣自然清香亮白增艳500g*12袋装 大包装
+      p.productstatus.f12.m-t-6
+        span.f-999
+          | 月成交
+          em.f-ff7300 3857笔
+  .item.last
+    .product-wrap
+      .productimg-wrap
+        a.productimg data-p="1-10" href="#" target="_blank"
+          img src="images/item.jpg" /
+      p.productprice.m-t-6
+        span.f-f00.f18
+          span.f14> ¥
+          | 89.00
+      p.producttitle.f12.m-t-6
+        a href="#" target="_blank" title=("【天猫超市】蓝月亮洗衣液 自然清香亮白增艳500g*12袋装 大包装")
+          | 【天猫超市】蓝月亮洗衣自然清香亮白增艳500g*12袋装 大包装
+      p.productstatus.f12.m-t-6
+        span.f-999
+          | 月成交
+          em.f-ff7300 3857笔
 
 

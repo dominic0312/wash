@@ -1,12 +1,15 @@
-.container
-  .panel.panel-default
-    .panel-heading
-      h4 账户信息
-    .panel-body
+.md-profile.center.clear
+  .left.fl
+    /= image_tag ("user.png")
+  .right.fr
+    .profile-box
+      h2.user-hd 账户信息
+      hr
       = simple_form_for @user do |f|
-        = f.input :email, disabled: true
+
+        = f.input :email, disabled: false
         = f.input :address
-        = f.input :mobile
+        = f.input :mobile, disabled: true, label: "手机(不可修改)"
         = f.input :brand_name
         = f.input :alipay
         = f.input :level, disabled:true
@@ -14,5 +17,10 @@
         = f.input :balance, disabled:true
         = f.label "推广网址"
         = f.hint @user.promotion_address
-        = f.button :submit
-        = link_to "充值", charge_path
+
+
+
+        = f.button :submit, class: "btn"
+
+        /= link_to "充值", charge_path
+        = link_to "登出", logout_path , class:"logout link"

@@ -1,6 +1,6 @@
 class ProductsController < BaseController
 
-  layout "front"
+  layout "shop"
   before_filter :extract_shopping_cart
   def index
     @categories = Category.all
@@ -20,6 +20,7 @@ class ProductsController < BaseController
 
   def show
     @product = Product.find(params[:id])
+    @items = Product.limit(5)
   end
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709135752) do
+ActiveRecord::Schema.define(version: 20150809065940) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -63,10 +63,11 @@ ActiveRecord::Schema.define(version: 20150709135752) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "level"
     t.integer  "discount"
+    t.integer  "store_discount"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -96,7 +97,6 @@ ActiveRecord::Schema.define(version: 20150709135752) do
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.integer  "amount"
-    t.string   "desc"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.string   "pic_file_name"
@@ -106,6 +106,27 @@ ActiveRecord::Schema.define(version: 20150709135752) do
     t.decimal  "price",            default: 0.0
     t.integer  "category_id"
     t.boolean  "storage",          default: false
+    t.text     "desc"
+    t.string   "pic1"
+    t.string   "pic2"
+    t.string   "pic3"
+    t.string   "pic4"
+    t.string   "pic5"
+    t.string   "pic6"
+    t.string   "pic7"
+  end
+
+  create_table "rich_rich_files", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "rich_file_file_name"
+    t.string   "rich_file_content_type"
+    t.integer  "rich_file_file_size"
+    t.datetime "rich_file_updated_at"
+    t.string   "owner_type"
+    t.integer  "owner_id"
+    t.text     "uri_cache"
+    t.string   "simplified_type",        default: "file"
   end
 
   create_table "users", force: :cascade do |t|
@@ -139,11 +160,31 @@ ActiveRecord::Schema.define(version: 20150709135752) do
     t.string   "source",                 default: "self"
     t.string   "storage",                default: "empty"
     t.string   "reject_msg",             default: "无"
+    t.text     "desc"
   end
 
   add_index "users", ["manager_id"], name: "index_users_on_manager_id"
   add_index "users", ["mobile"], name: "index_users_on_mobile", unique: true
   add_index "users", ["parent_id"], name: "index_users_on_parent_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "verifications", force: :cascade do |t|
+    t.string   "phone"
+    t.string   "email"
+    t.datetime "phonetime"
+    t.string   "personalid"
+    t.string   "phonestatus",          default: "confirming"
+    t.string   "emailstatus",          default: "confirming"
+    t.string   "idstatus",             default: "confirming"
+    t.integer  "securyscore",          default: 0
+    t.integer  "user_info_id"
+    t.string   "verify_code"
+    t.boolean  "phone_confirm_status", default: false
+    t.string   "realname"
+    t.string   "email_code"
+    t.string   "passwd"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

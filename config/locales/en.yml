@@ -182,7 +182,8 @@
       category:
         name: "名称"
         level: "级别"
-        discount: "折扣"
+        discount: "会员折扣"
+        store_discount: "囤货折扣"
         created_at: "创建时间"
         updated_at: "更新时间"
         products: "产品"

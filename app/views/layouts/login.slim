@@ -1,4 +1,3 @@
-doctype html
 html
   head
     title 家家商城
@@ -6,9 +5,67 @@ html
     = stylesheet_link_tag  'base'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+  body
+    .md-header
+      .center
+        span.logos.fl
+          = image_tag ("jjx.png")
+        ul.nav.fr
+          li
+            a href="/"
+              span.f16 首页
+              br
+              span.f12.f-999 HOME PAGE
+          li
+            a href="/products"
+              span.f16 商城
+              br
+              span.f12.f-999 SHOP
+
+          - if current_user
+            li
+              a href="#"
+                span.f16 囤货
+                br
+                span.f12.f-999 STORAGE
+            li
+              a href="#"
+                span.f16 订单
+                br
+                span.f12.f-999 ORDERS
+            li
+              a href="#"
+                span.f16 营销网络
+                br
+                span.f12.f-999 NETWORK
+          - else
+            ul.nav.navbar-nav.navbar-right
+              li role="presentation"
+                = link_to payment_path , class:'no-underline'
+                  span.f16 注册/登录
+                  br
+                  span.f12.f-999 LOGIN
+
+
+
     = yield
-      /nav.navbar.navbar-default.footer
-      /  .container
-      /    .footer-content Weixing @2015 Copyright
+
+    .md-footer.m-t-20
+      .footer-up
+        ul.center.clear.rel
+          li.fl.f12
+            | 服务热线
+            br>/
+            | (9:00-18:00)
+          li.fl.tel.f32.fb 400-877-1383
+          li.fl.f12.m-l-20
+            | 客服邮箱：jiajiashangcheng@163.com    QQ：1208364511
+            br
+            | 地址：山东省 东营市黄河路150号
+          li.weixin
+            = image_tag ("jiajiawx.png")
+      .footer-down.ct.f14
+        | 东营市家家喜电子商务服务有限公司©2014-2015版权所有  鲁ICP备15004416号-2
+
 
 

@@ -1,138 +1,93 @@
-body
-  .md-header
-    .center
-      span.logos.fl
-        /img src= assets_url("logo.png") /
-        = image_tag ("jjx.png")
-      ul.nav.fr
-        li
-          a href="#"
-            span.f16 进入商城
-            br/
-            span.f12.f-999 HOME PAGE
-        li
-          a href="#"
-            span.f16 品牌优势
-            br/
-            span.f12.f-999 ADVANTAGE
-        li
-          a href="#"
-            span.f16 代理政策
-            br/
-            span.f12.f-999 AGENCY
-        li
-          a href="#"
-            span.f16 权益保证
-            br/
-            span.f12.f-999 FREE SERVICE
-        li
-          a href="#"
-            span.f16 加盟培训
-            br/
-            span.f12.f-999 TRAINING
-  .md-banner
-    .flexslider
-      .loader
-        = image_tag ("loading.gif")
-      ul.slides
-        li style=("background:url(#{image_path('JJSC1.jpg')}) center; z-index: 2; display:block;")
-        li style=("background:url(#{image_path('JJSC.jpg')}) center; z-index: 1; display:none;")
-        li style=("background:url(#{image_path('.jpg')}) center; z-index: 1; display:none;")
-  .md-about.center.clear
-    .title.f24.fb.m-t-30 公司简介
-    .cont.m-t-20
-      .left.fl
-        = image_tag ("company.png")
-      .right.fr.f18
-        i.icon-img.icon-start
-        i.icon-img.icon-end
-        p.ind-30
-          | 东营家家喜电子商务有限责任公司是国内最早采用O2O模式运营的
-          | 大型综合性商城之一，它坐落在美丽富饶的黄河入海口，全国第二大油田
-          | 胜利油田驻地——山东东营。
-        p.ind-30
-          | 公司自成立初期就树立了“创国际一流电子商城品牌”的远大目标
-          | ，依托公司强大的管理团队，凭借在销售模式，销售实力，售后服务等方
-          | 面的核心优势，取得了广大客户的支持与信赖。
-  .md-best.center.clear
-    .title.f24.fb.m-t-30 精品展示
-    .cont.m-t-20
-      ul.left.fl
-        li.fl.rel
-          = image_tag ("prod3.jpg")
+.md-banner
+  .flexslider
+    .loader
+      = image_tag ("loading.gif")
+    ul.slides
+      li style=("background:url(#{image_path('JJSC1.jpg')}) center; z-index: 2; display:block;")
+      li style=("background:url(#{image_path('JJSC.jpg')}) center; z-index: 1; display:none;")
+      li style=("background:url(#{image_path('JJSC2.jpg')}) center; z-index: 1; display:none;")
+.md-about.center.clear
+  .title.f24.fb.m-t-30 公司简介
+  .cont.m-t-20
+    .left.fl
+      = image_tag ("company.png")
+    .right.fr.f18
+      i.icon-img.icon-start
+      i.icon-img.icon-end
+      p.ind-30
+        | 东营家家喜电子商务有限责任公司是国内最早采用O2O模式运营的
+        | 大型综合性商城之一，它坐落在美丽富饶的黄河入海口，全国第二大油田
+        | 胜利油田驻地——山东东营。
+      p.ind-30
+        | 公司自成立初期就树立了“创国际一流电子商城品牌”的远大目标
+        | ，依托公司强大的管理团队，凭借在销售模式，销售实力，售后服务等方
+        | 面的核心优势，取得了广大客户的支持与信赖。
+.md-best.center.clear
+  .title.f24.fb.m-t-30 精品展示
+  .cont.m-t-20
+    ul.left.fl
+      li.fl.rel
+        a href="/products/2"
+          = image_tag ("prod1a.jpg")
           i.icon-img.icon-shadow-l
           i.icon-img.icon-shadow-r
           .goodsinfo
             |福牌阿胶
             br
-            |价格:188 元
+            |价格:168 元
 
-        li.fl.rel.m-t-20
-          = image_tag ("prod6.jpg")
+      li.fl.rel.m-t-20
+        a href="/products/4"
+          = image_tag ("prod3a.jpg")
           i.icon-img.icon-shadow-l
           i.icon-img.icon-shadow-r
           .goodsinfo
-            |醇素熟油
+            |洁灵植物甙功效牙膏
             br
-            |价格:35 元
-        li.fr.rel.m-t-20
-          = image_tag ("prod2.jpg")
-          i.icon-img.icon-shadow-l
-          i.icon-img.icon-shadow-r
-          .goodsinfo
-            |非凡女人 夜用装
-            br
-            |价格:20 元
-      ul.right.fr
-        li.fl.rel
-          = image_tag ("prod8.jpg")
-          i.icon-img.icon-shadow-l
-          i.icon-img.icon-shadow-r
-          .goodsinfo
-            |黄河口黑花生
-            br
-            |价格:20 元
-        li.fl.rel.m-t-20
-          = image_tag ("prod5.jpg")
-          i.icon-img.icon-shadow-l
-          i.icon-img.icon-shadow-r
-          .goodsinfo
-            |长绒棉毛巾
-            br
-            |价格:20 元
-        li.fl.rel.m-t-20
-          = image_tag ("prod4.jpg")
-          i.icon-img.icon-shadow-l
-          i.icon-img.icon-shadow-r
-          .goodsinfo
-            |小蜜蜂蜜
-            br
-            |价格:88 元
-  .md-footer.m-t-20
-    .footer-up
-      ul.center.clear.rel
-        li.fl.f12
-          | 服务热线
-          br>/
-          | (9:00-18:00)
-        li.fl.tel.f32.fb 400-877-1383
-        li.fl.f12.m-l-20
-          | 客服邮箱：jiajiashangcheng@163.com    QQ：1208364511
-          br/
-          | 地址：山东省 东营市黄河路150号
-        li.weixin
-          = image_tag ("jiajiawx.png")
-    .footer-down.ct.f14
-      | 东营市家家喜电子商务服务有限公司©2014-2015版权所有  鲁ICP备15004416号-2
+            |价格:36.8 元
+      li.fr.rel.m-t-20
+        = image_tag ("prod2.jpg")
+        i.icon-img.icon-shadow-l
+        i.icon-img.icon-shadow-r
+        .goodsinfo
+          |非凡女人 夜用装
+          br
+          |价格:20 元
+    ul.right.fr
+      li.fl.rel
+        = image_tag ("prod2a.jpg")
+        i.icon-img.icon-shadow-l
+        i.icon-img.icon-shadow-r
+        .goodsinfo
+          |醇素熟油 1.6L装
+          br
+          |价格:128 元
+      li.fl.rel.m-t-20
+        = image_tag ("prod5.jpg")
+        i.icon-img.icon-shadow-l
+        i.icon-img.icon-shadow-r
+        .goodsinfo
+          |长绒棉毛巾
+          br
+          |价格:20 元
+      li.fl.rel.m-t-20
+        = image_tag ("prod4.jpg")
+        i.icon-img.icon-shadow-l
+        i.icon-img.icon-shadow-r
+        .goodsinfo
+          |小蜜蜂蜜
+          br
+          |价格:88 元
 
-  javascript:
 
-    $(function () {
-      $(".md-best li").mouseenter(function () {
-        $(this).find(".goodsinfo").stop().slideDown(300);
-      }).mouseleave(function () {
-        $(this).find(".goodsinfo").stop().slideUp(300);
-      });
-      $(".flexslider").flexslider();
+javascript:
+
+  $(function () {
+    $(".md-best li").mouseenter(function () {
+      $(this).find(".goodsinfo").stop().slideDown(300);
+    }).mouseleave(function () {
+      $(this).find(".goodsinfo").stop().slideUp(300);
     });
-  
+    $(".flexslider").flexslider();
+  });
+

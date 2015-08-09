@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "reg", sessions: "login", passwords:"passwds"}
   devise_scope :user do
     get 'promotion/:id' => 'reg#promotion'
+    get 'logout' => 'login#destroy'
+    post "get_code" => "reg#get_code"
+    post "/checkmobile" => "reg#checkmobile"
   end
   # devise_for :users, :controllers => {:registrations => "reg"}
   # The priority is based upon order of creation: first created -> highest priority.
@@ -15,6 +18,7 @@ Rails.application.routes.draw do
   # root 'front#index'
   root 'front#index'
   get 'front' => "front#index"
+  get 'logout' => "login#destroy"
   get 'charge' => "users#charge"
   post 'charge_account' => "users#charge_account"
   # Example of regular route:

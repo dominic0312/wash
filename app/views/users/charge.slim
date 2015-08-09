@@ -8,5 +8,5 @@
         .panel.panel-default.col-xs-3.grid
           h5
             |充值金额
-            = number_field(:product, :amount, in: 1..100, step: 1, value:1)
+            = number_field(:product, :amount, in: 1..10000, step: 1, value:1)
           = submit_tag("充值")

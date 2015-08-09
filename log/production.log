@@ -3662,3 +3662,1070 @@ I, [2015-08-04T13:22:14.783647 #39629]  INFO -- :   Rendered /usr/local/lib/ruby
 I, [2015-08-04T13:22:14.793466 #39629]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.4ms)
 I, [2015-08-04T13:22:14.803382 #39629]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
 I, [2015-08-04T13:22:14.803479 #39629]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (160.7ms)
+I, [2015-08-05T14:25:40.622386 #43768]  INFO -- : Started GET "/profile" for 127.0.0.1 at 2015-08-05 14:25:40 +0800
+I, [2015-08-05T14:25:40.769071 #43768]  INFO -- : Processing by UsersController#profile as HTML
+I, [2015-08-05T14:25:40.836094 #43768]  INFO -- : Completed 401 Unauthorized in 67ms (ActiveRecord: 5.1ms)
+I, [2015-08-05T14:25:40.850498 #43768]  INFO -- : Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-05 14:25:40 +0800
+I, [2015-08-05T14:25:40.854688 #43768]  INFO -- : Processing by LoginController#new as HTML
+I, [2015-08-05T14:25:41.099614 #43768]  INFO -- :   Rendered login/new.slim within layouts/login (201.1ms)
+I, [2015-08-05T14:25:41.103648 #43768]  INFO -- : Completed 200 OK in 249ms (Views: 211.7ms | ActiveRecord: 0.5ms)
+I, [2015-08-05T14:25:52.442073 #43768]  INFO -- : Started POST "/users/sign_in" for 127.0.0.1 at 2015-08-05 14:25:52 +0800
+I, [2015-08-05T14:25:52.442892 #43768]  INFO -- : Processing by LoginController#create as HTML
+I, [2015-08-05T14:25:52.442946 #43768]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"LRxk/gQH4mKi64F0BuPbEuphOhaqmJ41VHxalYTlO1qpJvXo1dLYvYXWV5zSoVd0ajn/xqpa04IqwqHQJU4SgQ==", "user"=>{"login"=>"dominic0312@126.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "button"=>""}
+I, [2015-08-05T14:25:52.446176 #43768]  INFO -- : Completed 401 Unauthorized in 3ms (ActiveRecord: 0.5ms)
+I, [2015-08-05T14:25:52.446968 #43768]  INFO -- : Processing by LoginController#new as HTML
+I, [2015-08-05T14:25:52.447034 #43768]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"LRxk/gQH4mKi64F0BuPbEuphOhaqmJ41VHxalYTlO1qpJvXo1dLYvYXWV5zSoVd0ajn/xqpa04IqwqHQJU4SgQ==", "user"=>{"login"=>"dominic0312@126.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "button"=>""}
+I, [2015-08-05T14:25:52.531335 #43768]  INFO -- :   Rendered login/new.slim within layouts/login (4.1ms)
+I, [2015-08-05T14:25:52.531826 #43768]  INFO -- : Completed 200 OK in 85ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+I, [2015-08-05T14:25:56.837269 #43768]  INFO -- : Started POST "/users/sign_in" for 127.0.0.1 at 2015-08-05 14:25:56 +0800
+I, [2015-08-05T14:25:56.838302 #43768]  INFO -- : Processing by LoginController#create as HTML
+I, [2015-08-05T14:25:56.838390 #43768]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"SRcGYVn2pa8Kz6CAKSCGMghru02Nlcc+OI9AVkt2FQ3NLZd3iCOfcC3ydmj9YgpUiDN+nY1XiolGMbsT6t081g==", "user"=>{"login"=>"dominic0312@126.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "button"=>""}
+I, [2015-08-05T14:25:56.840260 #43768]  INFO -- : Completed 401 Unauthorized in 2ms (ActiveRecord: 0.2ms)
+I, [2015-08-05T14:25:56.841056 #43768]  INFO -- : Processing by LoginController#new as HTML
+I, [2015-08-05T14:25:56.841119 #43768]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"SRcGYVn2pa8Kz6CAKSCGMghru02Nlcc+OI9AVkt2FQ3NLZd3iCOfcC3ydmj9YgpUiDN+nY1XiolGMbsT6t081g==", "user"=>{"login"=>"dominic0312@126.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "button"=>""}
+I, [2015-08-05T14:25:56.922343 #43768]  INFO -- :   Rendered login/new.slim within layouts/login (4.6ms)
+I, [2015-08-05T14:25:56.922883 #43768]  INFO -- : Completed 200 OK in 82ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+I, [2015-08-05T14:26:01.638215 #43768]  INFO -- : Started POST "/users/sign_in" for 127.0.0.1 at 2015-08-05 14:26:01 +0800
+I, [2015-08-05T14:26:01.639326 #43768]  INFO -- : Processing by LoginController#create as HTML
+I, [2015-08-05T14:26:01.639427 #43768]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"h14pV4g+ZcRH5yiS4zVzKy42ucLETllM8y8PNj3ab1QDZLhBWetfG2Da/no3d/9Nrm58EsSMFPuNkfRznHFGjw==", "user"=>{"login"=>"dominic0312@126.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "button"=>""}
+I, [2015-08-05T14:26:01.641319 #43768]  INFO -- : Completed 401 Unauthorized in 2ms (ActiveRecord: 0.2ms)
+I, [2015-08-05T14:26:01.642071 #43768]  INFO -- : Processing by LoginController#new as HTML
+I, [2015-08-05T14:26:01.642164 #43768]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"h14pV4g+ZcRH5yiS4zVzKy42ucLETllM8y8PNj3ab1QDZLhBWetfG2Da/no3d/9Nrm58EsSMFPuNkfRznHFGjw==", "user"=>{"login"=>"dominic0312@126.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "button"=>""}
+I, [2015-08-05T14:26:01.721807 #43768]  INFO -- :   Rendered login/new.slim within layouts/login (4.6ms)
+I, [2015-08-05T14:26:01.722424 #43768]  INFO -- : Completed 200 OK in 80ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+I, [2015-08-05T14:26:11.647738 #43768]  INFO -- : Started GET "/users/sign_up" for 127.0.0.1 at 2015-08-05 14:26:11 +0800
+I, [2015-08-05T14:26:11.650671 #43768]  INFO -- : Processing by RegController#new as HTML
+I, [2015-08-05T14:26:11.688662 #43768]  INFO -- :   Rendered reg/new.slim within layouts/application (24.7ms)
+I, [2015-08-05T14:26:11.693060 #43768]  INFO -- : Completed 200 OK in 42ms (Views: 41.2ms | ActiveRecord: 0.0ms)
+I, [2015-08-05T14:26:11.903573 #43768]  INFO -- : Started GET "/fonts/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:26:11 +0800
+F, [2015-08-05T14:26:11.904915 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont.woff"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:26:11.947286 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+I, [2015-08-05T14:26:12.025523 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (16.4ms)
+I, [2015-08-05T14:26:12.043717 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.1ms)
+I, [2015-08-05T14:26:12.057541 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+I, [2015-08-05T14:26:12.057635 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (121.5ms)
+I, [2015-08-05T14:26:12.059915 #43768]  INFO -- : Started GET "/assets/images/pattern.jpg" for 127.0.0.1 at 2015-08-05 14:26:12 +0800
+F, [2015-08-05T14:26:12.062217 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/images/pattern.jpg"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:26:12.123203 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+I, [2015-08-05T14:26:12.180298 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (8.8ms)
+I, [2015-08-05T14:26:12.191112 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.2ms)
+I, [2015-08-05T14:26:12.201015 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+I, [2015-08-05T14:26:12.201120 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (91.1ms)
+I, [2015-08-05T14:26:12.202144 #43768]  INFO -- : Started GET "/fonts/fontawesome-webfont.ttf?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:26:12 +0800
+F, [2015-08-05T14:26:12.202908 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont.ttf"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:26:12.227528 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+I, [2015-08-05T14:26:12.269573 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.1ms)
+I, [2015-08-05T14:26:12.276726 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+I, [2015-08-05T14:26:12.285108 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+I, [2015-08-05T14:26:12.285214 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (65.5ms)
+I, [2015-08-05T14:26:12.297678 #43768]  INFO -- : Started GET "/assets/fonts/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:26:12 +0800
+F, [2015-08-05T14:26:12.299595 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/fonts/fontawesome-webfont.woff"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:26:12.340444 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+I, [2015-08-05T14:26:12.392455 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.9ms)
+I, [2015-08-05T14:26:12.399831 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+I, [2015-08-05T14:26:12.408009 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+I, [2015-08-05T14:26:12.408134 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (79.3ms)
+I, [2015-08-05T14:26:12.413163 #43768]  INFO -- : Started GET "/assets/fonts/fontawesome-webfont.ttf?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:26:12 +0800
+F, [2015-08-05T14:26:12.414165 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/fonts/fontawesome-webfont.ttf"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:26:12.451694 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+I, [2015-08-05T14:26:12.506371 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.1ms)
+I, [2015-08-05T14:26:12.513999 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+I, [2015-08-05T14:26:12.522876 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+I, [2015-08-05T14:26:12.523035 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (79.5ms)
+I, [2015-08-05T14:26:15.612835 #43768]  INFO -- : Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-05 14:26:15 +0800
+I, [2015-08-05T14:26:15.616660 #43768]  INFO -- : Processing by LoginController#new as HTML
+I, [2015-08-05T14:26:15.638025 #43768]  INFO -- :   Rendered login/new.slim within layouts/login (16.1ms)
+I, [2015-08-05T14:26:15.641719 #43768]  INFO -- : Completed 200 OK in 25ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+I, [2015-08-05T14:26:15.661521 #43768]  INFO -- : Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-05 14:26:15 +0800
+I, [2015-08-05T14:26:15.662678 #43768]  INFO -- : Processing by LoginController#new as HTML
+I, [2015-08-05T14:26:15.675917 #43768]  INFO -- :   Rendered login/new.slim within layouts/login (10.3ms)
+I, [2015-08-05T14:26:15.676528 #43768]  INFO -- : Completed 200 OK in 14ms (Views: 11.7ms | ActiveRecord: 0.0ms)
+I, [2015-08-05T14:26:22.758509 #43768]  INFO -- : Started POST "/users/sign_in" for 127.0.0.1 at 2015-08-05 14:26:22 +0800
+I, [2015-08-05T14:26:22.760340 #43768]  INFO -- : Processing by LoginController#create as HTML
+I, [2015-08-05T14:26:22.760456 #43768]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"Kln3QY2matwv4s9C5SYiZXwUzwSD55FEGCMOCmuEJeWuY2ZXXHNQAwjfGaoxZK4D/EwK1IMl3PNmnfVPyi8MPg==", "user"=>{"login"=>"13590296140", "password"=>"[FILTERED]", "remember_me"=>"0"}, "button"=>""}
+I, [2015-08-05T14:26:22.851479 #43768]  INFO -- : Redirected to http://127.0.0.1:3000/profile
+I, [2015-08-05T14:26:22.851662 #43768]  INFO -- : Completed 302 Found in 91ms (ActiveRecord: 1.4ms)
+I, [2015-08-05T14:26:22.856220 #43768]  INFO -- : Started GET "/profile" for 127.0.0.1 at 2015-08-05 14:26:22 +0800
+I, [2015-08-05T14:26:22.856917 #43768]  INFO -- : Processing by UsersController#profile as HTML
+I, [2015-08-05T14:26:22.893829 #43768]  INFO -- :   Rendered users/profile.slim within layouts/front (29.4ms)
+I, [2015-08-05T14:26:22.917749 #43768]  INFO -- : Completed 200 OK in 61ms (Views: 55.5ms | ActiveRecord: 0.7ms)
+I, [2015-08-05T14:26:23.117229 #43768]  INFO -- : Started GET "/fonts/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:26:23 +0800
+F, [2015-08-05T14:26:23.118768 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont.woff"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:26:23.149098 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+I, [2015-08-05T14:26:23.213585 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.7ms)
+I, [2015-08-05T14:26:23.221463 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+I, [2015-08-05T14:26:23.231150 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+I, [2015-08-05T14:26:23.231267 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (95.0ms)
+I, [2015-08-05T14:26:23.240610 #43768]  INFO -- : Started GET "/fonts/fontawesome-webfont.ttf?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:26:23 +0800
+F, [2015-08-05T14:26:23.242615 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont.ttf"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:26:23.270170 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+I, [2015-08-05T14:26:23.324313 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.5ms)
+I, [2015-08-05T14:26:23.332779 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+I, [2015-08-05T14:26:23.341850 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+I, [2015-08-05T14:26:23.341993 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (80.3ms)
+I, [2015-08-05T14:26:23.353902 #43768]  INFO -- : Started GET "/assets/fonts/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:26:23 +0800
+F, [2015-08-05T14:26:23.355466 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/fonts/fontawesome-webfont.woff"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:26:23.388385 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+I, [2015-08-05T14:26:23.431561 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.1ms)
+I, [2015-08-05T14:26:23.439526 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+I, [2015-08-05T14:26:23.446755 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+I, [2015-08-05T14:26:23.446832 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (66.5ms)
+I, [2015-08-05T14:26:23.451609 #43768]  INFO -- : Started GET "/assets/fonts/fontawesome-webfont.ttf?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:26:23 +0800
+F, [2015-08-05T14:26:23.452434 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/fonts/fontawesome-webfont.ttf"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:26:23.486863 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+I, [2015-08-05T14:26:23.547103 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (11.0ms)
+I, [2015-08-05T14:26:23.555697 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+I, [2015-08-05T14:26:23.564818 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+I, [2015-08-05T14:26:23.564914 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (86.4ms)
+I, [2015-08-05T14:26:26.069277 #43768]  INFO -- : Started GET "/profile" for 127.0.0.1 at 2015-08-05 14:26:26 +0800
+I, [2015-08-05T14:26:26.070003 #43768]  INFO -- : Processing by UsersController#profile as HTML
+I, [2015-08-05T14:26:26.094292 #43768]  INFO -- :   Rendered users/profile.slim within layouts/front (21.4ms)
+I, [2015-08-05T14:26:26.096420 #43768]  INFO -- : Completed 200 OK in 26ms (Views: 24.4ms | ActiveRecord: 0.3ms)
+I, [2015-08-05T14:26:28.394959 #43768]  INFO -- : Started GET "/profile" for 127.0.0.1 at 2015-08-05 14:26:28 +0800
+I, [2015-08-05T14:26:28.395667 #43768]  INFO -- : Processing by UsersController#profile as HTML
+I, [2015-08-05T14:26:28.415988 #43768]  INFO -- :   Rendered users/profile.slim within layouts/front (18.4ms)
+I, [2015-08-05T14:26:28.418249 #43768]  INFO -- : Completed 200 OK in 22ms (Views: 20.7ms | ActiveRecord: 0.3ms)
+I, [2015-08-05T14:26:31.769372 #43768]  INFO -- : Started GET "/payment" for 127.0.0.1 at 2015-08-05 14:26:31 +0800
+I, [2015-08-05T14:26:31.771683 #43768]  INFO -- : Processing by OrdersController#payment as HTML
+I, [2015-08-05T14:26:31.784682 #43768]  INFO -- :   Rendered orders/payment.slim within layouts/front (7.8ms)
+I, [2015-08-05T14:26:31.786390 #43768]  INFO -- : Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 1.2ms)
+I, [2015-08-05T14:26:38.144348 #43768]  INFO -- : Started GET "/profile" for 127.0.0.1 at 2015-08-05 14:26:38 +0800
+I, [2015-08-05T14:26:38.145214 #43768]  INFO -- : Processing by UsersController#profile as HTML
+I, [2015-08-05T14:26:38.169909 #43768]  INFO -- :   Rendered users/profile.slim within layouts/front (22.4ms)
+I, [2015-08-05T14:26:38.172339 #43768]  INFO -- : Completed 200 OK in 27ms (Views: 25.0ms | ActiveRecord: 0.3ms)
+I, [2015-08-05T14:26:47.147533 #43768]  INFO -- : Started GET "/charge" for 127.0.0.1 at 2015-08-05 14:26:47 +0800
+I, [2015-08-05T14:26:47.150633 #43768]  INFO -- : Processing by UsersController#charge as HTML
+I, [2015-08-05T14:26:47.173847 #43768]  INFO -- :   Rendered users/charge.slim within layouts/front (12.7ms)
+I, [2015-08-05T14:26:47.177965 #43768]  INFO -- : Completed 200 OK in 27ms (Views: 18.7ms | ActiveRecord: 1.9ms)
+I, [2015-08-05T14:26:55.619739 #43768]  INFO -- : Started POST "/charge_account?id=45" for 127.0.0.1 at 2015-08-05 14:26:55 +0800
+I, [2015-08-05T14:26:55.622205 #43768]  INFO -- : Processing by UsersController#charge_account as HTML
+I, [2015-08-05T14:26:55.622514 #43768]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"M/IKx0uGiFXulWHWEPwnPjJkblTB2ia8rKArVHe6R54IrGjKZ32G37VjgFTzUlseoanO4lOZIocO3MHENEoFjw==", "product"=>{"amount"=>"100"}, "commit"=>"充值", "id"=>"45"}
+I, [2015-08-05T14:26:55.628602 #43768]  INFO -- : Redirected to http://127.0.0.1:3000/profile
+I, [2015-08-05T14:26:55.628868 #43768]  INFO -- : Completed 302 Found in 6ms (ActiveRecord: 0.4ms)
+I, [2015-08-05T14:26:55.634243 #43768]  INFO -- : Started GET "/profile" for 127.0.0.1 at 2015-08-05 14:26:55 +0800
+I, [2015-08-05T14:26:55.634878 #43768]  INFO -- : Processing by UsersController#profile as HTML
+I, [2015-08-05T14:26:55.678902 #43768]  INFO -- :   Rendered users/profile.slim within layouts/front (37.9ms)
+I, [2015-08-05T14:26:55.681594 #43768]  INFO -- : Completed 200 OK in 47ms (Views: 40.9ms | ActiveRecord: 0.5ms)
+I, [2015-08-05T14:26:55.891567 #43768]  INFO -- : Started GET "/fonts/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:26:55 +0800
+F, [2015-08-05T14:26:55.892479 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont.woff"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:26:55.931786 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+I, [2015-08-05T14:26:55.984448 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.2ms)
+I, [2015-08-05T14:26:55.992439 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+I, [2015-08-05T14:26:56.000962 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+I, [2015-08-05T14:26:56.001106 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (80.1ms)
+I, [2015-08-05T14:26:56.006505 #43768]  INFO -- : Started GET "/fonts/fontawesome-webfont.ttf?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:26:56 +0800
+F, [2015-08-05T14:26:56.007354 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont.ttf"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:26:56.037649 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+I, [2015-08-05T14:26:56.095058 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (10.8ms)
+I, [2015-08-05T14:26:56.109850 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.7ms)
+I, [2015-08-05T14:26:56.122290 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+I, [2015-08-05T14:26:56.122437 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (93.5ms)
+I, [2015-08-05T14:26:56.152620 #43768]  INFO -- : Started GET "/assets/fonts/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:26:56 +0800
+F, [2015-08-05T14:26:56.155622 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/fonts/fontawesome-webfont.woff"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:26:56.199282 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+I, [2015-08-05T14:26:56.335536 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (20.0ms)
+I, [2015-08-05T14:26:56.343027 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+I, [2015-08-05T14:26:56.352818 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+I, [2015-08-05T14:26:56.352939 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (168.2ms)
+I, [2015-08-05T14:26:56.360065 #43768]  INFO -- : Started GET "/assets/fonts/fontawesome-webfont.ttf?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:26:56 +0800
+F, [2015-08-05T14:26:56.360896 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/fonts/fontawesome-webfont.ttf"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:26:56.395579 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+I, [2015-08-05T14:26:56.441787 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.7ms)
+I, [2015-08-05T14:26:56.449381 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+I, [2015-08-05T14:26:56.459009 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+I, [2015-08-05T14:26:56.459131 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (75.7ms)
+I, [2015-08-05T14:27:00.504470 #43768]  INFO -- : Started GET "/profile" for 127.0.0.1 at 2015-08-05 14:27:00 +0800
+I, [2015-08-05T14:27:00.505098 #43768]  INFO -- : Processing by UsersController#profile as HTML
+I, [2015-08-05T14:27:00.532899 #43768]  INFO -- :   Rendered users/profile.slim within layouts/front (20.8ms)
+I, [2015-08-05T14:27:00.535417 #43768]  INFO -- : Completed 200 OK in 30ms (Views: 23.7ms | ActiveRecord: 2.2ms)
+I, [2015-08-05T14:27:00.755747 #43768]  INFO -- : Started GET "/fonts/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:27:00 +0800
+F, [2015-08-05T14:27:00.757304 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont.woff"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:27:00.799597 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+I, [2015-08-05T14:27:00.846915 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.7ms)
+I, [2015-08-05T14:27:00.856950 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.2ms)
+I, [2015-08-05T14:27:00.865331 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+I, [2015-08-05T14:27:00.865422 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (80.2ms)
+I, [2015-08-05T14:27:00.869734 #43768]  INFO -- : Started GET "/fonts/fontawesome-webfont.ttf?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:27:00 +0800
+F, [2015-08-05T14:27:00.870544 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont.ttf"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:27:00.904706 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+I, [2015-08-05T14:27:00.949997 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.7ms)
+I, [2015-08-05T14:27:00.958822 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+I, [2015-08-05T14:27:00.969626 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+I, [2015-08-05T14:27:00.969732 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (76.5ms)
+I, [2015-08-05T14:27:00.994020 #43768]  INFO -- : Started GET "/assets/fonts/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:27:00 +0800
+F, [2015-08-05T14:27:00.995774 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/fonts/fontawesome-webfont.woff"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:27:01.027753 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+I, [2015-08-05T14:27:01.072213 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.6ms)
+I, [2015-08-05T14:27:01.079824 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+I, [2015-08-05T14:27:01.087955 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+I, [2015-08-05T14:27:01.088073 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (69.4ms)
+I, [2015-08-05T14:27:01.094687 #43768]  INFO -- : Started GET "/assets/fonts/fontawesome-webfont.ttf?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:27:01 +0800
+F, [2015-08-05T14:27:01.095657 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/fonts/fontawesome-webfont.ttf"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:27:01.140455 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+I, [2015-08-05T14:27:01.272048 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (20.8ms)
+I, [2015-08-05T14:27:01.300075 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.4ms)
+I, [2015-08-05T14:27:01.316222 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.3ms)
+I, [2015-08-05T14:27:01.316489 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (192.3ms)
+I, [2015-08-05T14:27:06.221038 #43768]  INFO -- : Started GET "/charge" for 127.0.0.1 at 2015-08-05 14:27:06 +0800
+I, [2015-08-05T14:27:06.223249 #43768]  INFO -- : Processing by UsersController#charge as HTML
+I, [2015-08-05T14:27:06.231229 #43768]  INFO -- :   Rendered users/charge.slim within layouts/front (3.8ms)
+I, [2015-08-05T14:27:06.239299 #43768]  INFO -- : Completed 200 OK in 16ms (Views: 13.4ms | ActiveRecord: 0.6ms)
+I, [2015-08-05T14:27:10.477416 #43768]  INFO -- : Started POST "/charge_account?id=45" for 127.0.0.1 at 2015-08-05 14:27:10 +0800
+I, [2015-08-05T14:27:10.478256 #43768]  INFO -- : Processing by UsersController#charge_account as HTML
+I, [2015-08-05T14:27:10.478515 #43768]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"9JY+8rn7pFXR6cP3ia5xBWRc9HN4he5k94Y9BKkoLyjPyFz/lQCq34ofInVqAA0l95FUxerG6l9V+teU6thtOQ==", "product"=>{"amount"=>"99"}, "commit"=>"充值", "id"=>"45"}
+I, [2015-08-05T14:27:10.486353 #43768]  INFO -- : Redirected to http://127.0.0.1:3000/profile
+I, [2015-08-05T14:27:10.486520 #43768]  INFO -- : Completed 302 Found in 8ms (ActiveRecord: 0.7ms)
+I, [2015-08-05T14:27:10.491509 #43768]  INFO -- : Started GET "/profile" for 127.0.0.1 at 2015-08-05 14:27:10 +0800
+I, [2015-08-05T14:27:10.492047 #43768]  INFO -- : Processing by UsersController#profile as HTML
+I, [2015-08-05T14:27:10.528914 #43768]  INFO -- :   Rendered users/profile.slim within layouts/front (32.7ms)
+I, [2015-08-05T14:27:10.531009 #43768]  INFO -- : Completed 200 OK in 39ms (Views: 34.9ms | ActiveRecord: 0.8ms)
+I, [2015-08-05T14:27:10.747807 #43768]  INFO -- : Started GET "/fonts/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:27:10 +0800
+F, [2015-08-05T14:27:10.748712 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont.woff"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:27:10.795834 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+I, [2015-08-05T14:27:10.846359 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.5ms)
+I, [2015-08-05T14:27:10.853465 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+I, [2015-08-05T14:27:10.861434 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+I, [2015-08-05T14:27:10.861545 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (76.0ms)
+I, [2015-08-05T14:27:10.884242 #43768]  INFO -- : Started GET "/fonts/fontawesome-webfont.ttf?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:27:10 +0800
+F, [2015-08-05T14:27:10.885004 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont.ttf"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:27:10.925158 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+I, [2015-08-05T14:27:10.971798 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.2ms)
+I, [2015-08-05T14:27:10.979021 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+I, [2015-08-05T14:27:10.986615 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+I, [2015-08-05T14:27:10.986735 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (77.1ms)
+I, [2015-08-05T14:27:10.997266 #43768]  INFO -- : Started GET "/assets/fonts/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:27:10 +0800
+F, [2015-08-05T14:27:10.998906 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/fonts/fontawesome-webfont.woff"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:27:11.034446 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+I, [2015-08-05T14:27:11.088419 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (11.8ms)
+I, [2015-08-05T14:27:11.104386 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.1ms)
+I, [2015-08-05T14:27:11.124307 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.6ms)
+I, [2015-08-05T14:27:11.125039 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (99.7ms)
+I, [2015-08-05T14:27:11.134812 #43768]  INFO -- : Started GET "/assets/fonts/fontawesome-webfont.ttf?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:27:11 +0800
+F, [2015-08-05T14:27:11.137456 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/fonts/fontawesome-webfont.ttf"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:27:11.194053 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.7ms)
+I, [2015-08-05T14:27:11.257148 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.5ms)
+I, [2015-08-05T14:27:11.264653 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+I, [2015-08-05T14:27:11.273169 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+I, [2015-08-05T14:27:11.273272 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (99.4ms)
+I, [2015-08-05T14:28:06.347699 #43768]  INFO -- : Started GET "/profile" for 127.0.0.1 at 2015-08-05 14:28:06 +0800
+I, [2015-08-05T14:28:06.349175 #43768]  INFO -- : Processing by UsersController#profile as HTML
+I, [2015-08-05T14:28:06.368832 #43768]  INFO -- :   Rendered users/profile.slim within layouts/front (17.6ms)
+I, [2015-08-05T14:28:06.372500 #43768]  INFO -- : Completed 200 OK in 23ms (Views: 21.3ms | ActiveRecord: 0.3ms)
+I, [2015-08-05T14:28:06.566298 #43768]  INFO -- : Started GET "/fonts/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:28:06 +0800
+F, [2015-08-05T14:28:06.567235 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont.woff"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:28:06.609402 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+I, [2015-08-05T14:28:06.656577 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (7.8ms)
+I, [2015-08-05T14:28:06.666653 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+I, [2015-08-05T14:28:06.676721 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+I, [2015-08-05T14:28:06.676908 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (76.8ms)
+I, [2015-08-05T14:28:06.684312 #43768]  INFO -- : Started GET "/fonts/fontawesome-webfont.ttf?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:28:06 +0800
+F, [2015-08-05T14:28:06.685224 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont.ttf"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:28:06.715189 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+I, [2015-08-05T14:28:06.777818 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.8ms)
+I, [2015-08-05T14:28:06.785414 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+I, [2015-08-05T14:28:06.797324 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.2ms)
+I, [2015-08-05T14:28:06.798232 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (91.2ms)
+I, [2015-08-05T14:28:06.819392 #43768]  INFO -- : Started GET "/assets/fonts/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:28:06 +0800
+F, [2015-08-05T14:28:06.823077 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/fonts/fontawesome-webfont.woff"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:28:06.873671 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.5ms)
+I, [2015-08-05T14:28:06.991934 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (14.0ms)
+I, [2015-08-05T14:28:07.006761 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.8ms)
+I, [2015-08-05T14:28:07.024958 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.8ms)
+I, [2015-08-05T14:28:07.025498 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (172.5ms)
+I, [2015-08-05T14:28:07.039432 #43768]  INFO -- : Started GET "/assets/fonts/fontawesome-webfont.ttf?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:28:07 +0800
+F, [2015-08-05T14:28:07.042303 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/fonts/fontawesome-webfont.ttf"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:28:07.093907 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+I, [2015-08-05T14:28:07.207140 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (30.3ms)
+I, [2015-08-05T14:28:07.231345 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.4ms)
+I, [2015-08-05T14:28:07.243733 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.9ms)
+I, [2015-08-05T14:28:07.244032 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (161.6ms)
+I, [2015-08-05T14:28:08.807491 #43768]  INFO -- : Started GET "/charge" for 127.0.0.1 at 2015-08-05 14:28:08 +0800
+I, [2015-08-05T14:28:08.808264 #43768]  INFO -- : Processing by UsersController#charge as HTML
+I, [2015-08-05T14:28:08.810835 #43768]  INFO -- :   Rendered users/charge.slim within layouts/front (0.6ms)
+I, [2015-08-05T14:28:08.812817 #43768]  INFO -- : Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.3ms)
+I, [2015-08-05T14:28:18.534161 #43768]  INFO -- : Started GET "/charge" for 127.0.0.1 at 2015-08-05 14:28:18 +0800
+I, [2015-08-05T14:28:18.534824 #43768]  INFO -- : Processing by UsersController#charge as HTML
+I, [2015-08-05T14:28:18.543688 #43768]  INFO -- :   Rendered users/charge.slim within layouts/front (5.5ms)
+I, [2015-08-05T14:28:18.546716 #43768]  INFO -- : Completed 200 OK in 12ms (Views: 9.7ms | ActiveRecord: 0.4ms)
+I, [2015-08-05T14:28:18.740182 #43768]  INFO -- : Started GET "/fonts/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:28:18 +0800
+F, [2015-08-05T14:28:18.741230 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont.woff"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:28:18.775786 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+I, [2015-08-05T14:28:18.827211 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (7.0ms)
+I, [2015-08-05T14:28:18.836963 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+I, [2015-08-05T14:28:18.846492 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+I, [2015-08-05T14:28:18.846595 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (80.3ms)
+I, [2015-08-05T14:28:18.851960 #43768]  INFO -- : Started GET "/fonts/fontawesome-webfont.ttf?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:28:18 +0800
+F, [2015-08-05T14:28:18.855619 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont.ttf"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:28:18.893333 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+I, [2015-08-05T14:28:18.956652 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (14.4ms)
+I, [2015-08-05T14:28:18.968825 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+I, [2015-08-05T14:28:18.978242 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+I, [2015-08-05T14:28:18.978343 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (98.4ms)
+I, [2015-08-05T14:28:18.988554 #43768]  INFO -- : Started GET "/assets/fonts/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:28:18 +0800
+F, [2015-08-05T14:28:18.990116 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/fonts/fontawesome-webfont.woff"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:28:19.020017 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+I, [2015-08-05T14:28:19.077568 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (7.1ms)
+I, [2015-08-05T14:28:19.086605 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+I, [2015-08-05T14:28:19.097111 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+I, [2015-08-05T14:28:19.097599 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (87.7ms)
+I, [2015-08-05T14:28:19.107906 #43768]  INFO -- : Started GET "/assets/fonts/fontawesome-webfont.ttf?v=4.2.0" for 127.0.0.1 at 2015-08-05 14:28:19 +0800
+F, [2015-08-05T14:28:19.109464 #43768] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/fonts/fontawesome-webfont.ttf"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-08-05T14:28:19.154200 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+I, [2015-08-05T14:28:19.203084 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.4ms)
+I, [2015-08-05T14:28:19.212783 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+I, [2015-08-05T14:28:19.223884 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+I, [2015-08-05T14:28:19.224016 #43768]  INFO -- :   Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (78.9ms)

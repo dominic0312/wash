@@ -48,7 +48,7 @@ ActiveAdmin.register User do
 
 
   member_action :reject, method: :get do
-    resource.reject_msg = "您不满足成为囤货商的条件, 请确认后再次申请, 如有疑问, 请致电XXXXXXX"
+    resource.reject_msg = "您不满足成为囤货商的条件, 请确认后再次申请, 如有疑问, 请致电400"
     resource.storage = "rejected"
     resource.save(:validate => false)
     redirect_to admin_reque_path, notice: "用户"+ resource.mobile + "被拒绝成为囤货商"

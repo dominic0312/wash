@@ -1,6 +1,6 @@
 class StoreController < BaseController
   before_action :authenticate_user!
-  layout "front"
+  layout "shop"
   def index
     @products = Product.where(:storage => true)
     @storages = current_user.orders.stored
@@ -29,6 +29,7 @@ class StoreController < BaseController
 
 
   def put_store
+    @items = Product.limit(5)
      @product = Product.find(params[:id])
      render "products/store"
   end

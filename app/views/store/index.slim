@@ -1,42 +1,56 @@
-.container
-  .panel.panel-default
-    .panel-heading
-      h4 囤货管理
-    .panel-body
-      = flash[:info]
-
+.md-store.center.clear
+  .left.fl
+    .store-box
       - if current_user.storage == "empty"
         h4 您还不是囤货商, 成为囤货商的条件为:
         br
-        h5
+        .comment
           |1.成交货款在10万以上
           br
+        .comment
           |2.通过电话与实名验证
           br
-          |3.通过支付宝充值过家家喜
-          hr
-          = link_to "申请成为囤货商", request_store_path, :class => "btn btn-info"
+        .comment
+          |3.通过支付宝充值过家家商城
+        hr
+        = link_to "申请成为囤货商", request_store_path, :class => "btn btn-info"
+        = flash[:info]
+
 
       -elsif current_user.storage == "request"
         h4 您的囤货申请正在处理, 请等待.
 
       -elsif current_user.storage == "rejected"
         h4 您的囤货申请被驳回. 驳回原因为：
-        br
-        h5
+        h4
           = current_user.reject_msg
+        hr
+        .comment 成为囤货商的条件为:
 
-        h5 成为囤货商的条件为:
-
-        h5
+        .comment
           |1.成交货款在10万以上
-          br
+        br
+        .comment
           |2.通过电话与实名验证
-          br
-          |3.通过支付宝充值过家家喜
-
+        br
+        .comment
+          |3.通过支付宝充值过家家商城
+        hr
         = link_to "申请成为囤货商", request_store_path, :class => "btn btn-info"
-      - else
+      -else
+       h3
+         |囤货商:
+         = current_user.mobile
+
+
+
+
+
+
+
+  .right.fr
+    .profile-box
+      - if current_user.storage == "normal"
         h4 以下是您的当前囤货
         - @storages.each do |s|
           |产品:
@@ -62,9 +76,13 @@
               |说明:
               = p.desc
             h5
-              |图片:
-              |此处放置图片
+              = image_tag(p.pic.url(:medium))
             = link_to "囤货", put_store_path(:id => p.id), :class => "btn btn-info"
+      - else
+        | 您没有正在囤货的商品
+
+
+
 
 
 

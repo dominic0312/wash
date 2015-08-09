@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   end
 
   def promotion_address
-    return "http://www.xiliwang.com/promotion/" + self.promotion_code
+    return "http://www.jiajiaxishangcheng.com/promotion/" + self.promotion_code
   end
 
 

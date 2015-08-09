@@ -3,7 +3,7 @@ class UsersController < InheritedResources::Base
   # before_filter :extract_shopping_cart
   before_action :authenticate_user!
 
-  layout "front"
+  layout "shop"
   def profile
     @user = current_user
   end
@@ -15,6 +15,7 @@ class UsersController < InheritedResources::Base
 
 
   def charge_account
+
     redirect_to profile_path
   end
 

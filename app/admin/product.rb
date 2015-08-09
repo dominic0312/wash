@@ -10,7 +10,7 @@ ActiveAdmin.register Product do
   filter :desc
 
 
-  permit_params :name, :amount, :desc, :pic, :price, :category_id, :storage
+  permit_params :name, :amount, :desc, :pic, :price, :category_id, :storage, :pic1, :pic2, :pic3, :pic4, :pic5, :pic6, :pic7
   form do |f|
     f.inputs "产品详情" do
       f.input :name
@@ -24,6 +24,15 @@ ActiveAdmin.register Product do
       # f.input :description
 
       f.input :pic, :required => false, :as => :file
+      f.input :pic1
+      f.input :pic2
+      f.input :pic3
+      f.input :pic4
+      f.input :pic5
+      f.input :pic6
+      f.input :pic7
+
+
       # Will preview the image when the object is edited
     end
     f.actions
@@ -40,6 +49,47 @@ ActiveAdmin.register Product do
       row :is_storage
       row :pic do
         image_tag(ad.pic.url(:thumb))
+      end
+      row :pic1 do
+        if ad.pic1
+         image_tag(ad.pic1)
+        end
+      end
+
+      row :pic2 do
+        if ad.pic2
+          image_tag(ad.pic2)
+        end
+      end
+
+      row :pic3 do
+        if ad.pic3
+          image_tag(ad.pic3)
+        end
+      end
+
+      row :pic4 do
+        if ad.pic4
+          image_tag(ad.pic4)
+        end
+      end
+
+      row :pic5 do
+        if ad.pic5
+          image_tag(ad.pic5)
+        end
+      end
+
+      row :pic6 do
+        if ad.pic6
+          image_tag(ad.pic6)
+        end
+      end
+
+      row :pic7 do
+        if ad.pic7
+          image_tag(ad.pic7)
+        end
       end
       # Will display the image on show object page
     end
