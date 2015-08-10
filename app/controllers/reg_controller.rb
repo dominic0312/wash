@@ -84,8 +84,8 @@ class RegController < Devise::RegistrationsController
                     :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
 
       request = Net::HTTP::Post.new uri.path
-      mobile2='13590296140'
-      data = {'mobile' => mobile2, 'cb' => 'callback', 'message' => message}
+      # mobile2='13590296140'
+      data = {'mobile' => mobile, 'cb' => 'callback', 'message' => message}
       request.form_data = data
       request.basic_auth 'api', '618b92cc656f8e532bb2c08a0d8d205a'
       response = http.request request # Net::HTTPResponse object
@@ -103,7 +103,7 @@ class RegController < Devise::RegistrationsController
     end
     verify_code = rand(10 ** 6)
 
-    send_sms(params[:phone_num], verify_code)
+    # send_sms(params[:phone_num], verify_code)
     if valid
       if valid.phonestatus == "verified"
         render :js => "alert('该手机号码已经被注册')" and return
@@ -118,8 +118,9 @@ class RegController < Devise::RegistrationsController
       valid.phone = params[:phone_num]
       valid.verify_code = verify_code
       valid.save!
-      # send_sms('13590296140', verify_code)
-      render :js => "alert('验证码为#{verify_code}')"  and return
+      send_sms(params[:phone_num], verify_code)
+      return
+      # render :js => "alert('验证码为#{verify_code}')"  and return
     end
   end
 
