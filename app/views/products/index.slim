@@ -19,8 +19,9 @@
             br
           - if current_user
             span.f-f00.f18
-              |囤货价:
-              span.f14> ¥
+              = p.category.level
+              span.f14
+                |:¥
               = number_with_precision p.price * p.category.discount * p.category.store_discount / 10000, precision: 2, delimiter: '.'
               br
 

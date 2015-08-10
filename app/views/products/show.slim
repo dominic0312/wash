@@ -10,12 +10,13 @@
         |零售价：  ¥
         = @product.price
       p
-        | 七折价：  ¥ &nbsp;
+        | 会员价：  ¥ &nbsp;
         b.f24.f-f00
           = number_with_precision @product.price * @product.category.discount / 100, precision: 2, delimiter: '.'
       - if current_user
         p
-          | 囤货价：  ¥ &nbsp;
+          = @product.category.level
+          | :¥ &nbsp;
           b.f24.f-f00
             = number_with_precision @product.price *  @product.category.discount * @product.category.store_discount / 10000, precision: 2, delimiter: '.'
 
