@@ -56,11 +56,11 @@
              = t.last_sign_in_at
 
       hr
-      h4 添加下线
+      h4 添加我的会员
       = simple_form_for @user, :url => url_for(:action => 'create', :controller => 'network'), :method => 'post' do |f|
         = f.input :mobile
         = f.input :brand_name
-        = f.button :submit, "添加下线"
+        = f.button :submit, "添加会员"
 
 
 

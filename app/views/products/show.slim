@@ -12,7 +12,14 @@
       p
         | 七折价：  ¥ &nbsp;
         b.f24.f-f00
-          = @product.price * 0.7
+          = number_with_precision @product.price * @product.category.discount / 100, precision: 2, delimiter: '.'
+      - if current_user
+        p
+          | 囤货价：  ¥ &nbsp;
+          b.f24.f-f00
+            = number_with_precision @product.price *  @product.category.discount * @product.category.store_discount / 10000, precision: 2, delimiter: '.'
+
+
 
     .goods-count.m-t-20.clear
       span.fl.f12.f-999 采购量
