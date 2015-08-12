@@ -148,6 +148,9 @@
       product:
         one: "产品"
         other: "产品"
+      picture:
+        one: "图片"
+        other: "图片"
       category:
         one: "分类"
         other: "分类"
@@ -171,6 +174,10 @@
         pic: "图片"
         storage: "可否囤货"
         is_storage: "可否囤货"
+      picture:
+        pic: "上传图片"
+        id: "编号"
+        full_url: "地址"
       user:
         email: "邮件"
         uname: "姓名"
