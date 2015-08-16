@@ -39,7 +39,8 @@ html
 
             .login_info.f12
               p.f-999
-              |您好，
+              = current_user.level
+              |**
               = current_user.mobile
               p
                 a.f-3366cc href="/profile"  进入会员中心

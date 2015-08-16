@@ -81,6 +81,17 @@
     transition: border-color 0.2s ease-in 0s;}
 .producttitle{ line-height:20px; height:40px;}
 .productstatus em{ font-style:normal;}
+.category-box{width:100%; border:1px solid #eee;height:63px;font-size:18px}
+.category-item{width:15%;
+  background-color: #eee;
+  color:grey;
+
+  border:1px solid #eee;height:40px; text-align: center; padding-top:12px; margin:5px;display: inline-block}
+
+.category-item:hover{ background:#ff3c3c; color:white}
+.category-item-active{ background:#ff3c3c;color:white}
+.category-item-active:hover{ color:white}
+
 /*列表页end*/
 
 

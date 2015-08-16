@@ -13,10 +13,14 @@
         = f.input :brand_name
         = f.input :alipay
         = f.input :level, disabled:true
-        = f.input :point, disabled:true
+        = f.input :pointa, disabled:true
+        = f.input :pointb, disabled:true
+        = f.input :pointc, disabled:true
+        = f.input :pointd, disabled:true
         = f.input :balance, disabled:true
-        = f.label "推广网址"
-        = f.hint @user.promotion_address
+        - if @user.level != "注册用户"
+          = f.label "推广网址"
+          = f.hint @user.promotion_address
 
 
 

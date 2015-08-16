@@ -10,6 +10,7 @@ class ProductsController < BaseController
       category = Category.find(params[:category])
       @products = category.products
     end
+    @category = params[:category]
  end
 
   def buy

@@ -11,7 +11,7 @@ ActiveAdmin.register User do
   filter :balance
 
 
-  permit_params  :email, :balance, :mobile, :address, :alipay, :uname
+  permit_params  :email, :balance, :mobile, :address, :alipay, :uname, :pointa, :pointb, :pointc, :pointd, :level
   form do |f|
     f.inputs "用户详情" do
       f.input :uname
@@ -20,6 +20,14 @@ ActiveAdmin.register User do
       f.input :alipay
       f.input :email
       f.input :balance
+      f.input :pointa
+      f.input :pointb
+      f.input :pointc
+      f.input :pointd
+
+      f.input :level, :label => '级别', :as => :select, :collection => [['注册用户', '注册用户'], ['一级会员', '一级会员']],
+              :include_blank => false
+      # f.input :level
     end
     f.actions
   end
@@ -34,6 +42,12 @@ ActiveAdmin.register User do
       row :email
       row :alipay
       row :pass
+      row :balance
+      row :pointa
+      row :pointb
+      row :pointc
+      row :pointd
+      row :level
       # Will display the image on show object page
     end
   end
