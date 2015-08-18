@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   belongs_to :parent, class_name: "User"
   scope :requested, -> { where(storage: "request") }
+  scope :members, -> { where("pointa > 200") }
 
   validates_uniqueness_of :mobile
   validates_presence_of :mobile

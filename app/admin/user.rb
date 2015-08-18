@@ -27,7 +27,7 @@ ActiveAdmin.register User do
 
       f.input :level, :label => '级别', :as => :select, :collection => [['注册用户', '注册用户'], ['一级会员', '一级会员']],
               :include_blank => false
-      f.input :parent, :label => '上级', :as => :select, :collection =>User.all.map { |u| ["#{u.mobile}", u.id] },
+      f.input :parent, :label => '上级', :as => :select, :collection =>User.members.map { |u| ["#{u.mobile}", u.id] },
               :include_blank => false
       # f.input :level
     end
