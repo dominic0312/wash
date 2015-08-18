@@ -11,7 +11,7 @@ ActiveAdmin.register User do
   filter :balance
 
 
-  permit_params  :email, :balance, :mobile, :address, :alipay, :uname, :pointa, :pointb, :pointc, :pointd, :level
+  permit_params  :email, :balance, :mobile, :address, :alipay, :uname, :pointa, :pointb, :pointc, :pointd, :level, :parent_id
   form do |f|
     f.inputs "用户详情" do
       f.input :uname
@@ -26,6 +26,8 @@ ActiveAdmin.register User do
       f.input :pointd
 
       f.input :level, :label => '级别', :as => :select, :collection => [['注册用户', '注册用户'], ['一级会员', '一级会员']],
+              :include_blank => false
+      f.input :parent, :label => '上级', :as => :select, :collection =>User.all.map { |u| ["#{u.mobile}", u.id] },
               :include_blank => false
       # f.input :level
     end
@@ -48,6 +50,11 @@ ActiveAdmin.register User do
       row :pointc
       row :pointd
       row :level
+      row :parent do
+        if ad.parent
+          link_to ad.parent.mobile, admin_user_path(ad.parent)
+        end
+      end
       # Will display the image on show object page
     end
   end

@@ -191,6 +191,7 @@
         pointc: "C类积分"
         pointd: "D类积分"
         level: "级别"
+        parent: "上级"
       category:
         name: "名称"
         level: "级别"

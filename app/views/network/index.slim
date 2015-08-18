@@ -3,9 +3,9 @@
     .store-box
       - if current_user.parent
         h4
-          |我的上级会员:
-          br
-          br
+          |我的上级会员
+          hr
+
           |电话:
           = current_user.parent.mobile
           br
@@ -14,8 +14,8 @@
           = current_user.parent.uname
           br
           br
-          |点数:
-          = current_user.parent.point
+          |A类商品点数:
+          = current_user.parent.pointa
       - else
          h4
            |您没有上级会员
@@ -56,11 +56,14 @@
              = t.last_sign_in_at
 
       hr
-      h4 添加我的会员
-      = simple_form_for @user, :url => url_for(:action => 'create', :controller => 'network'), :method => 'post' do |f|
-        = f.input :mobile
-        = f.input :brand_name
-        = f.button :submit, "添加会员"
+      - if current_user.pointa < 200
+        h4 您目前还不是会员, 添加会员请充值.
+      - else
+        h4 添加我的会员
+        = simple_form_for @user, :url => url_for(:action => 'create', :controller => 'network'), :method => 'post' do |f|
+          = f.input :mobile
+          = f.input :brand_name
+          = f.button :submit, "添加会员"
 
 
 
