@@ -192,6 +192,10 @@
         pointd: "D类积分"
         level: "级别"
         parent: "上级"
+        children: "下级"
+        created_at: "登记时间"
+        id: "下线序列号"
+        uname: "名称"
       category:
         name: "名称"
         level: "级别"

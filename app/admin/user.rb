@@ -35,7 +35,7 @@ ActiveAdmin.register User do
   end
 
 
-  show do |ad|
+  show do
     attributes_table do
       row :uname
       row :mobile
@@ -50,12 +50,41 @@ ActiveAdmin.register User do
       row :pointc
       row :pointd
       row :level
-      row :parent do
+      row :parent do |ad|
         if ad.parent
           link_to ad.parent.mobile, admin_user_path(ad.parent)
         end
       end
+
+
+
+
       # Will display the image on show object page
+    end
+
+    div do
+
+      table_for user.children do
+        column :id
+        column :mobile do |child|
+          link_to "#{child.mobile} ", admin_user_path(child)
+        end
+        column :uname
+        column :pointa
+        column :pointb
+        column :pointc
+        column :pointd
+        column :created_at
+
+
+      end
+      # if user.children.size > 0
+      #   user.children.each do |c|
+      #     link_to "下级", admin_user_path(user)
+      #   end
+      # else
+      #   "0"
+      # end
     end
   end
 
