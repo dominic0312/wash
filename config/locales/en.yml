@@ -148,6 +148,9 @@
       product:
         one: "产品"
         other: "产品"
+      site:
+        one: "账户"
+        other: "账户"
       picture:
         one: "图片"
         other: "图片"
@@ -178,6 +181,9 @@
         pic: "上传图片"
         id: "编号"
         full_url: "地址"
+      site:
+        account1: 银行账户
+        alipay: 支付宝
       user:
         email: "邮件"
         uname: "姓名"

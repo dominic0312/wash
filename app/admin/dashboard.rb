@@ -20,7 +20,7 @@ ActiveAdmin.register_page "Dashboard" do
           end
           ul do
             Order.recent(10).map do |item|
-              li link_to(item.user.email, orders_path)
+              li link_to(item.user.mobile, orders_path)
             end
           end
         end
@@ -31,6 +31,10 @@ ActiveAdmin.register_page "Dashboard" do
     #       para "Welcome to ActiveAdmin."
     #     end
     #   end
-     end
+    end
+
+
+
+
   end # content
 end

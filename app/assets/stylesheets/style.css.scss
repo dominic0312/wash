@@ -60,7 +60,7 @@
 .count-op .count-input{ width:70px; height:26px; border-width:1px 0; border-style:solid; border-color:#e5e5e5;}
 .count-op .count-input input{ border:none; height:24px; line-height:24px; padding-left:10px; width:60px;}
 .buybtn a{ display:block; width:180px; height:40px; text-align:center; line-height:40px; background:#c40000;}
-
+.buybtn .input-sub{ display:block; width:180px; height:40px; text-align:center; line-height:40px; background:#c40000;}
 .md-goodsbox {}
 .md-goodsbox .left{ width:190px;}
 .md-goodsbox .left .title{ height:28px; line-height:28px;}
@@ -160,8 +160,15 @@
 
 
 /*用户中心title*/
-.login_reg,.login_info{ position:absolute; right:0; top:28px; padding:10px 15px; border:1px solid #dfdfdf; background:#f9f9f9;}
+.login_reg,.login_info{ position:absolute; right:0; top:28px; padding:15px 15px; border:1px solid #dfdfdf; background:#f9f9f9;}
 .login_reg{}
+//.login_info2{ position:absolute; right:2; top:28px; padding:10px 15px; border:1px solid #dfdfdf; background:#f9f9f9;}
+.cart{margin-bottom:4px}
+.red{color:#c50000}
+
+
+
+
 .login_info{ padding:5px 15px;}
 .userinfo .submit button{ width:308px;}
 .userinfo .exit button{ background:#ccc;}
@@ -194,3 +201,29 @@ table.gridtable td {
 {margin-bottom: 10px}
 
 
+
+/*购物车*/
+.md-cart th{ padding-bottom:20px; text-align:left; padding-left:10px;}
+.md-cart td{ padding:10px 0 10px 10px; margin:0; border-bottom:10px solid #fff;}
+.md-cart tbody{ background:#fff4e8;}
+.md-cart .gdsname{ max-width:270px; margin-left:10px; line-height:24px;}
+.md-cart .tips{ position:absolute; left:0px; top:-22px; width:124px; height:20px; line-height:20px; border:1px solid #fce3a6; background:#fffdea; text-align:center; color:#ff8c11;}
+.md-cart .panel{height: 300px;
+  text-align: center;}
+
+.md-cart .buybtn {color:white; display:block; width:180px; height:40px; text-align:center; line-height:40px; background:#c40000; right:0}
+
+/*订单页*/
+.order-list{}
+.order-list .order-hd{ line-height:32px;}
+.order-list table{ border:1px solid #ddd;}
+.order-list th{ background:#f3f3f3; padding-left:40px; line-height:32px; font-size:12px; text-align:left;}
+.order-list td{ border-top:1px solid #ddd; line-height:20px; padding:10px 0 10px 40px; font-size:12px;}
+.order-list td img{ margin-right:5px;}
+.order-info{ border-width:0px 1px 1px; border-style:solid; border-color:#ddd; padding:20px;}
+.order-info .left{ width:378px; line-height:30px;}
+.order-info .text{ width:280px; padding:5px; line-height:20px; height:80px;}
+.order-info .right{ width:580px; text-align:right;}
+.order-info .integral{ width:50px; padding:5px 10px; border:1px solid #ddd;}
+.order-info .payment {font-size: 16px}
+.order-info .highlight {color: #c40000}

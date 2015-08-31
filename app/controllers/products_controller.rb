@@ -15,8 +15,9 @@ class ProductsController < BaseController
 
   def buy
     @product = Product.find(params[:id])
-    @cart.add(@product, @product.price, params[:product][:amount].to_i)
-    redirect_to products_path
+    price = params[:product][:discounted_value]
+    @cart.add(@product, price, params[:product][:amount].to_i)
+    redirect_to product_path(@product)
   end
 
   def show

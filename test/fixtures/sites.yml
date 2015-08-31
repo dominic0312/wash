@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account1: MyString
+  account2: MyString
+  alipay: MyString
+
+two:
+  account1: MyString
+  account2: MyString
+  alipay: MyString

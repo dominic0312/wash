@@ -34,15 +34,27 @@ html
                 span.f16 营销网络
                 br
                 span.f12.f-999 NETWORK
+            li
+              a href="/orders"
+                span.f16 订单
+                br
+                span.f12.f-999 ORDER
 
 
 
             .login_info.f12
-              p.f-999
-              = current_user.level
-              |**
-              = current_user.mobile
+              p.f-999.cart.red
+                = link_to payment_path , class:'no-underline'
+                  i.fa.fa-shopping-cart.user-icon
+                  |购物车内有#{@cart.cart_items.size}组商品
+                  =
+              p.f-999.cart
+                = current_user.level
+                |**
+                = current_user.mobile
               p
+
+
                 a.f-3366cc href="/profile"  进入会员中心
                 | &nbsp;&nbsp;
                 a.f-3366cc href="/logout"  退出

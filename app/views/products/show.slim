@@ -12,32 +12,42 @@
       p
         | 会员价：  ¥ &nbsp;
         b.f24.f-f00
-          = number_with_precision @product.price * @product.category.discount / 100, precision: 2, delimiter: '.'
+          - member_price = @product.price *  @product.category.discount / 100
+          - store_price = @product.price *  @product.category.discount * @product.category.store_discount / 10000
+          = number_with_precision member_price, precision: 2, delimiter: '.'
       - if current_user
         p
           = @product.category.level
           | :¥ &nbsp;
           b.f24.f-f00
-            = number_with_precision @product.price *  @product.category.discount * @product.category.store_discount / 10000, precision: 2, delimiter: '.'
+            = number_with_precision store_price, precision: 2, delimiter: '.'
 
 
+    = form_tag(buy_product_path(@product.id), method: "post") do |f|
+      .goods-count.m-t-20.clear
+        span.fl.f12.f-999 采购量
+        .count-op.fl.m-l-20
+          span.reduce.fl
+            i.heng
+          span.fl.count-input
+            = text_field(:product, :amount, size: 10, value:1)
+            - if current_user.level == "一级会员"
+              = hidden_field(:product, :discounted_value, size: 10, value:member_price)
+            - else
+              = hidden_field(:product, :discounted_value, size: 10, value:@product.price)
 
-    .goods-count.m-t-20.clear
-      span.fl.f12.f-999 采购量
-      .count-op.fl.m-l-20
-        span.reduce.fl
-          i.heng
-        span.fl.count-input
-          input#count type="text" value="1" /
-        span.add.fl
-          i.heng
-          i.shu
-      span.fl.f12.m-l-20
-        | (
-        span#store> 3112
-        | 个可售)
-    .buybtn.m-t-30
-      a.f16.f-fff href="#"  加入购物车
+            /input#count type="text" value="1"
+          span.add.fl
+            i.heng
+            i.shu
+        span.fl.f12.m-l-20
+          | (
+          span#store>
+            = @product.amount
+          | 个可售)
+      .buybtn.m-t-30
+        = submit_tag "加入购物车", class:"f16 f-fff input-sub"
+        /a.f16.f-fff href="#"  加入购物车
 .md-goodsbox.m-t-20.center.clear
   .left.fl
     .title.bg-45a3c8.f-fff.ct.f12.fb 热销排行榜
@@ -104,17 +114,17 @@ javascript:
 
     $(".goods-count .reduce").on("click", function () {
 
-      var count = Number($("#count").val());
+      var count = Number($("#product_amount").val());
       if (count - 1 >= 0) {
-        $("#count").val(count - 1);
+        $("#product_amount").val(count - 1);
       }
     });
 
     $(".goods-count .add").on("click", function () {
-      var count = Number($("#count").val());
+      var count = Number($("#product_amount").val());
       var store = Number($("#store").html());
       if (count + 1 <= store) {
-        $("#count").val(count + 1);
+        $("#product_amount").val(count + 1);
        }
     });
 
