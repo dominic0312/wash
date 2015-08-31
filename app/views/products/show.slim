@@ -31,10 +31,11 @@
             i.heng
           span.fl.count-input
             = text_field(:product, :amount, size: 10, value:1)
-            - if current_user.level == "一级会员"
-              = hidden_field(:product, :discounted_value, size: 10, value:member_price)
-            - else
-              = hidden_field(:product, :discounted_value, size: 10, value:@product.price)
+            - if current_user
+              - if current_user.level == "一级会员"
+                = hidden_field(:product, :discounted_value, size: 10, value:member_price)
+              - else
+                = hidden_field(:product, :discounted_value, size: 10, value:@product.price)
 
             /input#count type="text" value="1"
           span.add.fl
@@ -46,7 +47,10 @@
             = @product.amount
           | 个可售)
       .buybtn.m-t-30
-        = submit_tag "加入购物车", class:"f16 f-fff input-sub"
+        - if current_user
+          = submit_tag "加入购物车", class:"f16 f-fff input-sub"
+        - else
+          = link_to "加入购物车", new_user_session_path, class:"f16 f-fff input-sub"
         /a.f16.f-fff href="#"  加入购物车
 .md-goodsbox.m-t-20.center.clear
   .left.fl
