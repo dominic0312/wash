@@ -157,6 +157,9 @@
       category:
         one: "分类"
         other: "分类"
+      kind:
+        one: "种类"
+        other: "种类"
       user:
         one: "用户"
         other: "用户"
@@ -177,6 +180,7 @@
         pic: "图片"
         storage: "可否囤货"
         is_storage: "可否囤货"
+        kind: "种类"
       picture:
         pic: "上传图片"
         id: "编号"
@@ -213,6 +217,13 @@
       order:
         storage: "是否囤货"
         processed: "处理状况"
+
+      kind:
+        id: "序号"
+        name: "种类名称"
+        created_at: "创建时间"
+        updated_at: "更新时间"
+
       admin_user:
         email: "邮件"
         processed: "处理状况"

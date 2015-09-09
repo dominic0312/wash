@@ -3,14 +3,26 @@
   .category-box
 
     - if @category == "all" || !@category
-      = link_to "全部商品", products_path(:category => "all"), class:"category-item category-item-active"
+      = link_to "全部", products_path(:category => "all", :kind => @kind), class:"category-item category-item-active"
     - else
-      = link_to "全部商品", products_path(:category => "all"), class:"category-item"
+      = link_to "全部", products_path(:category => "all", :kind => @kind), class:"category-item"
     - @categories.each do |category|
       - if category.id == @category.to_i
-        = link_to category.name, products_path(:category => category), class:"category-item category-item-active"
+        = link_to category.name, products_path(:category => category, :kind => @kind), class:"category-item category-item-active"
       - else
-        = link_to category.name, products_path(:category => category), class:"category-item"
+        = link_to category.name, products_path(:category => category, :kind => @kind), class:"category-item"
+
+  .category-box
+
+    - if @kind == "all" || !@kind
+      = link_to "全部", products_path(:category => @category, :kind => "all"), class:"category-item category-item-active"
+    - else
+      = link_to "全部", products_path(:category => @category, :kind => "all"), class:"category-item"
+    - @kinds.each do |kind|
+      - if kind.id == @kind.to_i
+        = link_to kind.name, products_path(:kind => kind.id, :category => @category), class:"category-item category-item-active"
+      - else
+        = link_to kind.name, products_path(:kind => kind.id, :category => @category), class:"category-item"
 .goods-list.center.m-t-30.clear
   - @products.each do |p|
     .item

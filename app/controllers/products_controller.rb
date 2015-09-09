@@ -4,13 +4,23 @@ class ProductsController < BaseController
   before_filter :extract_shopping_cart
   def index
     @categories = Category.all
+    @kinds = Kind.all
+    @products = Product.all
     if params[:category] == "all" || !params[:category]
-      @products = Product.all
+
     else
-      category = Category.find(params[:category])
-      @products = category.products
+      # category = Category.find(params[:category])
+      @products = @products.where(:category_id => params[:category].to_i )
     end
-    @category = params[:category]
+
+    if params[:kind] == "all" || !params[:kind]
+
+    else
+      # category = Category.find(params[:category])
+      @products = @products.where(:kind_id => params[:kind].to_i )
+    end
+  @category = params[:category]
+    @kind = params[:kind]
  end
 
   def buy

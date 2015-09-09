@@ -10,7 +10,7 @@ ActiveAdmin.register Product do
   filter :desc
 
 
-  permit_params :name, :amount, :desc, :pic, :price, :category_id, :storage, :pic1, :pic2, :pic3, :pic4, :pic5, :pic6, :pic7
+  permit_params :name, :amount, :desc, :pic, :price, :kind_id, :category_id, :storage, :pic1, :pic2, :pic3, :pic4, :pic5, :pic6, :pic7
   form do |f|
     f.inputs "产品详情" do
       f.input :name
@@ -20,6 +20,9 @@ ActiveAdmin.register Product do
       f.input :storage
 
       f.input :category, :label => '分类', :as => :select, :collection => Category.all.map { |u| ["#{u.name}", u.id] },
+              :include_blank => false
+      # f.input :description
+      f.input :kind, :label => '种类', :as => :select, :collection => Kind.all.map { |u| ["#{u.name}", u.id] },
               :include_blank => false
       # f.input :description
 
@@ -45,6 +48,7 @@ ActiveAdmin.register Product do
       row :amount
       row :price
       row :category, ad.category.name
+      row :kind, ad.kind_name
       row :desc
       row :is_storage
       row :pic do
@@ -102,7 +106,7 @@ ActiveAdmin.register Product do
     column("数量", :amount)
     column("价格", :price)
     column("类别", :category) {|product| link_to "#{product.category.name} ", admin_category_path(product.category)}
-    column("说明", :desc)
+    column("种类", :kind)
     column("可否囤货", :is_storage)
     column("图片", :pic) { |product| image_tag(product.pic.url(:thumb)) }
     actions
