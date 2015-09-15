@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
     if !self.password && !self.password_confirmation && !self.id
       random_pass = rand(32**8).to_s(32)
       self.pass = random_pass
-      self.password = self.password_confirmation= random_pass
+      self.password = self.password_confirmation = random_pass
       puts "current password is:" + self.password
     end
   end
