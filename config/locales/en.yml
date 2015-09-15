@@ -133,17 +133,18 @@
         user:
           attributes:
             password:
-              blank: 密码不能为空
-              too_short: 密码太短
+              blank: "密码不能为空"
+              too_short: "密码太短"
             mobile:
-              taken: 手机号已经被注册
-              blank: 手机号不能为空
+              taken: "手机号已经被注册"
+              blank: "手机号不能为空"
             password_confirmation:
-              confirmation:
-                重复密码不一致
+              confirmation: "重复密码不一致"
             email:
-              invalid:
-                邮件地址无效
+              invalid: "邮件地址无效"
+    messages:
+      record_invalid: "用户数据无效"
+
     models:
       product:
         one: "产品"
