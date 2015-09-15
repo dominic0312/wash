@@ -110,18 +110,18 @@ class RegController < Devise::RegistrationsController
       else
         valid.verify_code = verify_code
         valid.save!
-        send_sms(params[:phone_num], verify_code)
+        # send_sms(params[:phone_num], verify_code)
         # return
-       # render :js => "alert('验证码为#{verify_code}')" and return
+       render :js => "alert('验证码为#{verify_code}')" and return
       end
     else
       valid = Verification.new
       valid.phone = params[:phone_num]
       valid.verify_code = verify_code
       valid.save!
-      send_sms(params[:phone_num], verify_code)
+      # send_sms(params[:phone_num], verify_code)
       # return
-      # render :js => "alert('验证码为#{verify_code}')"  and return
+      render :js => "alert('验证码为#{verify_code}')"  and return
     end
   end
 
