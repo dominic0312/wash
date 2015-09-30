@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  mount ChinaCity::Engine => '/china_city'
   resources :pigs
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -23,15 +25,21 @@ Rails.application.routes.draw do
   post 'charge_account' => "users#charge_account"
   # Example of regular route:
   get 'profile' => 'users#profile'
+  get 'password' => 'users#password'
+  post 'change_pass' => 'users#change_pass'
   get 'products' => 'products#index'
   get 'orders' => 'orders#index'
   get 'news' => 'news#index'
+
+  get 'process_order/:id' => 'admin/orders#finish'
+  get 'payback/:uid/:mon' => 'admin/users#payback'
   # get 'reg' => 'reg#new'
   post 'newaccount' => 'reg#create'
 
 
   # get 'logout' => 'users#logout'
   get 'payment' => 'orders#payment'
+  post 'notice/:id' => 'users#notice'
   # get 'logout' => 'users#logout'
   get 'store' => 'store#index'
   get 'request_store' => 'store#req_store'
@@ -63,7 +71,8 @@ Rails.application.routes.draw do
 
   resources :orders do
     member do
-      get 'alipay'
+      post 'alipay'
+
     end
   end
 

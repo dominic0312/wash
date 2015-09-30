@@ -10,11 +10,14 @@ ActiveAdmin.register Order do
   # filter :desc
 
 
-  permit_params :processed, :storage
+  permit_params :processed, :storage, :shipment
   form do |f|
     f.inputs "订单状态" do
-      f.input :processed
+      # f.input :processed
+      f.input :shipment
     end
+
+
     f.actions
   end
 
@@ -44,6 +47,28 @@ ActiveAdmin.register Order do
       row "订单总额" do
         ad.total_value
       end
+
+      row "送货地址" do
+        ad.full_address
+      end
+
+      row "送货电话" do
+        ad.phone
+      end
+
+      row "运费" do
+        ad.shipment
+      end
+
+      row "订单处理" do
+        if !order.processed
+          link_to "结束订单", "/process_order/#{ad.id}"
+        else
+          "无操作"
+        end
+
+      end
+
       # row :amount
       # row :price
       # row :category, ad.category.name
@@ -63,7 +88,7 @@ ActiveAdmin.register Order do
         end
 
         column "产品原价" do |item|
-           item.product.price
+          item.product.price
         end
 
         column "订货价格" do |item|
@@ -98,7 +123,6 @@ ActiveAdmin.register Order do
     end
 
 
-
     # attributes_table do
     #   ad.order_items.each do |item|
     #     row "产品名称" do
@@ -120,6 +144,8 @@ ActiveAdmin.register Order do
 
   end
 
+  #
+
 
   index do
     selectable_column
@@ -128,7 +154,57 @@ ActiveAdmin.register Order do
     column("下单时间") { |order| order.created_at }
     column("是否囤货") { |order| order.is_storage }
     column("处理状况") { |order| order.is_processed }
-    column("查看详情") { |order| link_to "查看", admin_order_path(order)}
+    column("查看详情") { |order| link_to "查看", admin_order_path(order) }
+  end
+
+
+  # member_action :finish, method: :get do
+  #   #   # resource.processed = true
+  #   #   # # resource.level = "囤货商"
+  #   #   # resource.save(:validate => false)
+  #   # redirect_to admin_order_path, notice: "订单"+ resource.id + "已经被处理成功"
+  # end
+
+
+  controller do
+    # This code is evaluated within the controller class
+
+    def finish
+      # resource.processed = true
+      # resource.save(:validate => false)
+      pointa = 0
+      pointb = 0
+      pointc = 0
+      pointd = 0
+      resource.order_items.each do |item|
+        puts "订单价格" + item.order_price.to_s
+        puts "产品类别" + item.product.category.name
+        cat = item.product.category.name
+        point = item.order_price.to_i
+        if cat == "A类"
+          pointa += point
+        elsif cat == "B类"
+          pointb += point
+        elsif cat == "C类"
+          pointc += point
+        elsif cat == "D类"
+          pointd += point
+        else
+        end
+
+        resource.user.pointa += pointa
+        resource.user.pointb += pointb
+        resource.user.pointc += pointc
+        resource.user.pointd += pointd
+        resource.user.save!
+        resource.user.record(pointa, pointb, pointc, pointd)
+
+
+      end
+
+
+      redirect_to admin_order_path(params[:id]), notice: "订单" + "已经被处理成功"
+    end
   end
 
 #

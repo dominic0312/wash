@@ -48,11 +48,18 @@
       p
 
       p.m-t-10
-        | 应付金额：
+        | 货款：
         b.f24.f-f00
           | ￥
           span#payMoney
             = @order.total_value
+          | 元
+      p.m-t-10
+        | 运费：
+        b.f24.f-f00
+          | ￥
+          span#payMoney
+            = @order.shipment
           | 元
       p.buybtn.m-t-20
         .payment
@@ -69,6 +76,16 @@
           = "注明订单号:"
           span.highlight
             = @order.sn
+          br
+          br
+          = "送货地址:"
+          span.highlight
+            = @order.full_address
+          br
+          br
+          = "送货联系电话:"
+          span.highlight
+            = @order.phone
   
   
   

@@ -39,8 +39,12 @@
         = link_to "申请成为囤货商", request_store_path, :class => "btn btn-info"
       -else
        h3
-         |囤货商:
+         |囤货商 -  -
          = current_user.mobile
+         br
+         br
+         |囤货级别 - -
+         = current_user.agent_level
 
 
 
@@ -50,41 +54,42 @@
 
   .right.fr
     .profile-box
-      - if current_user.storage == "normal"
-        h4 以下是您的当前囤货
-        - @storages.each do |s|
-          |产品:
-          = s.order_items[0].product.name
-          |----价格:
-          = s.order_items[0].product.price
-          |----数量:
-          = s.order_items[0].amount
+
+      h4 以下是系统中可囤货的产品
+      br
+      - @products.each do |p|
+        .panel.panel-default.col-xs-3.grid
+          h4
+            = p.name
+          hr
+          h5
+
+            |库存数量:
+            = p.amount
           br
-        hr
-        h4 以下是系统中可囤货的产品
-        br
-        - @products.each do |p|
-          .panel.panel-default.col-xs-3.grid
-            h4
-              = p.name
-            hr
-            h5
-              |库存数量:
-              = p.amount
-            br
-            h5
-              |说明:
-              = p.desc
-            h5
-              = image_tag(p.pic.url(:medium))
-            = link_to "囤货", put_store_path(:id => p.id), :class => "btn btn-info"
-      - else
-        | 您没有正在囤货的商品
+          h5
+            |说明:
+            = p.desc
+          h5
+            = image_tag(p.pic.url(:medium))
+          = link_to "囤货", put_store_path(:id => p.id), :class => "btn btn-info"
+      /- else
+      /  | 您没有正在囤货的商品
 
 
 
 
-
+          /- if current_user.storage == "normal"
+                    /  h4 以下是您的当前囤货
+                    /  - @storages.each do |s|
+                    /    |产品:
+                    /    = s.order_items[0].product.name
+                    /    |----价格:
+                    /    = s.order_items[0].product.price
+                    /    |----数量:
+                    /    = s.order_items[0].amount
+                    /    br
+                    /  hr
 
 
 

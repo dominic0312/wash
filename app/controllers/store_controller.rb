@@ -2,7 +2,12 @@ class StoreController < BaseController
   before_action :authenticate_user!
   layout "shop"
   def index
-    @products = Product.where(:storage => true)
+    @products = []
+    category = Category.where(:name => "D类").first
+    if category
+      @products = category.products
+    end
+    # @products = Product.where(:storage => true)
     @storages = current_user.orders.stored
   end
 

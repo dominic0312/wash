@@ -201,12 +201,25 @@
         pointb: "B类积分"
         pointc: "C类积分"
         pointd: "D类积分"
+        agent_level: "囤货级别"
         level: "级别"
         parent: "上级"
         children: "下级"
         created_at: "登记时间"
         id: "下线序列号"
         uname: "名称"
+
+      analyze:
+        mon: "月份"
+        pointa: "A类积分"
+        pointb: "B类积分"
+        pointc: "C类积分"
+        pointd: "D类积分"
+        returna: "A类返点"
+        returnb: "B类返点"
+        returnc: "C类返点"
+        processed: "有无支付"
+
       category:
         name: "名称"
         level: "级别"
@@ -218,6 +231,7 @@
       order:
         storage: "是否囤货"
         processed: "处理状况"
+        shipment: "运费"
 
       kind:
         id: "序号"

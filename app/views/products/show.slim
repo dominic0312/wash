@@ -48,9 +48,15 @@
           | 个可售)
       .buybtn.m-t-30
         - if current_user
-          = submit_tag "加入购物车", class:"f16 f-fff input-sub"
+          - if @product.category.name == "D类"
+            = link_to "本商品只供批发", "#", class:"f16 f-fff input-sub"
+          - else
+            = submit_tag "加入购物车", class:"f16 f-fff input-sub"
         - else
-          = link_to "加入购物车", new_user_session_path, class:"f16 f-fff input-sub"
+          - if @product.category.name == "D类"
+            = link_to "本商品只供批发", "#", class:"f16 f-fff input-sub"
+          - else
+            = link_to "加入购物车", new_user_session_path, class:"f16 f-fff input-sub"
         /a.f16.f-fff href="#"  加入购物车
 .md-goodsbox.m-t-20.center.clear
   .left.fl

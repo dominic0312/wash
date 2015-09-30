@@ -18,6 +18,27 @@ class Order < ActiveRecord::Base
    self.processed ? "已处理" : "未处理"
  end
 
+ def full_address
+   addr = ""
+   if self.province
+     addr = addr + ChinaCity.get(self.province)
+   end
+
+   if self.city
+     addr = addr + ChinaCity.get(self.city)
+   end
+
+   if self.district
+     addr = addr + ChinaCity.get(self.district)
+   end
+
+   if self.address
+     addr = addr + self.address
+   end
+
+   return addr
+ end
+
 
  def total_value
    t_value = 0

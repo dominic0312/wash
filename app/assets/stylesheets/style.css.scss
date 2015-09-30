@@ -125,9 +125,10 @@
 
 /*用户中心*/
 .md-profile{ margin:30px auto;}
-.md-profile .left{ width:135px;}
+.md-profile #submitbtn{ margin-top: 12px; margin-bottom:12px; display:block; height:30px;width:50%; border:none; padding:5px; text-align:center; background:#c50000; color:#fff; border-radius:2px; cursor:pointer;}
+.md-profile .left{ width:285px;}
 .md-profile .left img{ display:block; margin:0 auto;}
-.md-profile .right{ width:650px; padding-right:80px}
+.md-profile .right{ width:550px; padding-right:80px}
 .profile-box{ border:1px solid #cccccc; padding:20px; margin-top:25px; border-radius:5px; box-shadow:#ccc 2px 5px 5px;}
 
 .profile-box label{ font-weight:bold; display:block; line-height:24px; margin-bottom:3px}
@@ -212,6 +213,46 @@ table.gridtable td {
 .md-cart .tips{ position:absolute; left:0px; top:-22px; width:124px; height:20px; line-height:20px; border:1px solid #fce3a6; background:#fffdea; text-align:center; color:#ff8c11;}
 .md-cart .panel{height: 300px;
   text-align: center;}
+
+
+.city-group {
+  margin:10px;
+  display: inline-block;
+}
+
+.address-group{
+  font-size: 12px;
+  display: inline-block;
+}
+
+.detail-title{
+//  margin-left:3px;
+  margin-right:10px;
+  font-size:12px;
+  display: inline-block;
+}
+
+.detail-phone{
+  margin-left:8px;
+}
+
+
+
+.detail-info{
+
+  font-size:12px;
+  display: inline-block;
+}
+
+.address-info{margin-bottom:15px;}
+
+
+.city-select{
+  margin:10px;
+}
+
+
+
 
 .md-cart .buybtn {color:white; display:block; width:180px; height:40px; text-align:center; line-height:40px; background:#c40000; right:0}
 

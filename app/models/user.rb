@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   attr_accessor :login, :promotion_address, :promotion
 
   has_many :orders, dependent: :destroy
+  has_many :analyzes
   has_many :children, class_name: "User",
            foreign_key: "parent_id"
 
@@ -34,6 +35,8 @@ class User < ActiveRecord::Base
     puts 'here in init name'
     self.username = self.mobile if self.mobile != ""
   end
+
+
 
 
   def init_password
@@ -94,6 +97,22 @@ class User < ActiveRecord::Base
 
   def login
     @login || self.mobile || self.email
+  end
+
+
+  def record(pota, potb, potc, potd)
+     t = Time.now
+     mon_no = t.strftime("%Y%m")
+     rec = Analyze.where(:user_id => self.id, :mon => mon_no).first
+     if !rec
+       rec = Analyze.new(:user_id => self.id, :mon => mon_no, :pointa => 0, :pointb => 0, :pointc => 0, :pointd =>0 )
+     end
+
+     rec.pointa += pota
+     rec.pointb += potb
+     rec.pointc += potc
+     rec.pointd += potd
+     rec.save!
   end
 
 

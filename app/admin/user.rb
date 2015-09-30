@@ -9,9 +9,10 @@ ActiveAdmin.register User do
   filter :address
   filter :alipay
   filter :balance
+  filter :level
 
 
-  permit_params  :email, :balance, :mobile, :address, :alipay, :uname, :pointa, :pointb, :pointc, :pointd, :level, :parent_id
+  permit_params  :email, :balance, :mobile, :address, :alipay, :uname, :pointa, :pointb, :pointc, :pointd, :level, :parent_id, :agent_level
   form do |f|
     f.inputs "用户详情" do
       f.input :uname
@@ -25,8 +26,12 @@ ActiveAdmin.register User do
       f.input :pointc
       f.input :pointd
 
-      f.input :level, :label => '级别', :as => :select, :collection => [['注册用户', '注册用户'], ['一级会员', '一级会员']],
+      f.input :level, :label => '级别', :as => :select, :collection => [['注册用户', '注册用户'], ['一级会员', '一级会员'], ['囤货商', '囤货商']],
               :include_blank => false
+      if user.level == "囤货商"
+        f.input :agent_level, :label => '囤货商级别', :as => :select, :collection => [['一级', 1], ['二级', 2],['三级', 3]],
+                :include_blank => false
+      end
       f.input :parent, :label => '上级', :as => :select, :collection =>User.members.map { |u| ["#{u.mobile}", u.id] },
               :include_blank => false
       # f.input :level
@@ -50,11 +55,28 @@ ActiveAdmin.register User do
       row :pointc
       row :pointd
       row :level
+      if user.level == "囤货商"
+        row :agent_level
+      end
+
+      # row :代理级别 do |ad|
+      #   if ad.level == "囤货商"
+      #     ad.agent_level
+      #   else
+      #     "无"
+      #   end
+      # end
       row :parent do |ad|
         if ad.parent
           link_to ad.parent.mobile, admin_user_path(ad.parent)
         end
       end
+
+      row "通知用户" do |ad|
+        button_to "通知#{ad.mobile}", "/notice/" + ad.id.to_s, remote: true
+      end
+
+
 
 
 
@@ -86,7 +108,46 @@ ActiveAdmin.register User do
       #   "0"
       # end
     end
+
+    div do
+
+      table_for user.analyzes do
+
+        column :mon
+        column :pointa
+        column :returna
+        column :pointb
+        column :returnb
+        column :pointc
+        column :returnc
+        column :processed
+        column "操作" do |child|
+          if child.processed
+            "无"
+          else
+            link_to "返点", "/payback/#{user.id}/#{child.mon}"
+          end
+        end
+
+
+
+
+      end
+      # if user.children.size > 0
+      #   user.children.each do |c|
+      #     link_to "下级", admin_user_path(user)
+      #   end
+      # else
+      #   "0"
+      # end
+    end
+
+
+
   end
+
+
+
 
 
   member_action :approve, method: :get do
@@ -107,14 +168,35 @@ ActiveAdmin.register User do
 
 
   index do
-    column("姓名", :uname){|user| link_to "#{user.uname} ", user_path(user) }
+    column("姓名", :uname){|user| link_to "#{user.uname} ", admin_user_path(user) }
+    column("级别", :level)
     column("电话", :mobile)
     column("地址", :address)
-    column("支付宝", :alipay)
     column("邮件", :sortable => :id)
     column("初始密码", :pass)
     column("余额", :balance)
     actions
+  end
+
+
+
+  controller do
+    # This code is evaluated within the controller class
+
+    def payback
+      analyze = Analyze.where(:user_id => params[:uid], :mon => params[:mon]).first
+      if analyze
+         u = User.find(params[:uid].to_i)
+         point = analyze.returna + analyze.returnb + analyze.returnc
+         u.balance += point
+         u.save!
+         analyze.processed = true
+         analyze.save!
+         # puts "helloworld + #{u.balance}"
+      end
+      # resource.processed = true
+      redirect_to admin_user_path(params[:uid]), notice: "付款" + "已经被处理成功"
+    end
   end
 
 

@@ -27,6 +27,11 @@ class ProductsController < BaseController
     @product = Product.find(params[:id])
     price = params[:product][:discounted_value]
     @cart.add(@product, price, params[:product][:amount].to_i)
+    if params[:product][:source]
+      redirect_to  put_store_path(:id => @product.id) and return
+    end
+
+
     redirect_to product_path(@product)
   end
 

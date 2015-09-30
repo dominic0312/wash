@@ -15,8 +15,9 @@ class OrdersController < BaseController
 
   def payment
     #
-    # @product = Product.find(params[:id])
+     # @product = Product.find(params[:id])
     # @cart.add(@product, @product.price)
+    @order = Order.new
   end
 
   #
@@ -53,6 +54,11 @@ class OrdersController < BaseController
       p.amount = t.quantity
       order.order_items<<p
     end
+    order.phone = params[:order][:phone]
+    order.address = params[:order][:address]
+    order.city = params[:city]
+    order.province = params[:province]
+    order.district = params[:district]
     order.save!
     current_user.orders<<order
     # current_user.add_point(@cart.subtotal.to_i)
@@ -61,6 +67,11 @@ class OrdersController < BaseController
     # flash[:info] = "购买完成"
 
     render "payment"
+
+  end
+
+
+  def create
 
   end
 end
