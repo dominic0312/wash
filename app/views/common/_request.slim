@@ -1,0 +1,65 @@
+.store-box
+  = form_tag(request_store_path, method: "post", id:"reqForm") do |f|
+    .left-comment
+      .title
+        |您还不是囤货商, 请输入以下信息并提交申请
+      br
+      .reg-form
+        .p12.person-id
+          .detail-title
+            |商户名称(*)
+          .detail-info
+            = text_field(:user, :brand_name, size: 30, :placeholder => "请输入法人姓名或者公司名称")
+          /input#req_id type="text" name="req_id" placeholder="请输入18位身份证号码" maxlength="32"
+          /= text_field(:req_id, :size => 30)
+          #error-msg
+        .p12.person-id
+          .detail-title
+            |身份证号码(*)
+          .detail-info
+            = text_field(:user, :person_id, size: 30, :placeholder => "请输入18位身份证号码")
+            /input#req_id type="text" name="req_id" placeholder="请输入18位身份证号码" maxlength="32"
+            /= text_field(:req_id, :size => 30)
+          #error-msg
+        .p12.person-id
+          .detail-title
+            |收款银行卡号
+          .detail-info
+            = text_field(:user, :bank_card, size: 30)
+        .p12.person-id
+          .detail-title
+            |支付宝账号
+          .detail-info
+            = text_field(:user, :alipay, size: 30)
+        .p12.address-group
+          |送货地区
+
+          .city-group.city-group-req
+            /select.city-select
+            = select_tag(:province, options_for_select(ChinaCity.list), {:class => 'city-select', :prompt=> "省份"})
+
+            /= options_for_select(ChinaCity.list)
+            /select.city-select
+            = select_tag(:city, options_for_select([]),   {:class => 'city-select', :prompt=> "城市"})
+
+            /= select_tag "city",  {:class => "exit"}
+            = select_tag(:district, options_for_select([]), {:class => 'city-select', :prompt=> "地区"})
+
+
+          br
+
+          .p12
+
+
+          .address-info.address-group
+            .detail-title
+              |详细地址
+            .detail-info
+              = text_field(:user, :address, size: 30)
+            .detail-title
+            .detail-info
+
+    hr
+    = submit_tag "申请成为囤货商", :class => "btn btn-info btn-small"
+      /= link_to "申请成为囤货商", request_store_path, :class => "btn btn-info"
+      /= flash[:info]

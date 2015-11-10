@@ -1,4 +1,9 @@
 "zh-CN":
+  will_paginate:
+      previous_label: " 上一页"
+      next_label: "下一页 "
+      page_gap: "&hellip;"
+
   devise:
     failure:
       admin_user:
@@ -12,6 +17,7 @@
 
   time:
     formats:
+      default: "%Y-%m-%d %H:%M:%S"
       long: "%D"
   active_admin:
     dashboard: "首页"
@@ -149,6 +155,9 @@
       product:
         one: "产品"
         other: "产品"
+      provider:
+        one: "厂商"
+        other: "厂商"
       site:
         one: "账户"
         other: "账户"
@@ -182,6 +191,7 @@
         storage: "可否囤货"
         is_storage: "可否囤货"
         kind: "种类"
+        provider: "厂商"
       picture:
         pic: "上传图片"
         id: "编号"
@@ -203,14 +213,20 @@
         pointd: "D类积分"
         agent_level: "囤货级别"
         level: "级别"
+        province: "省份"
+        city: "城市"
+        district: "县区"
         parent: "上级"
         children: "下级"
+        person_id: "身份证"
         created_at: "登记时间"
         id: "下线序列号"
         uname: "名称"
+        brand_name: "商户名"
 
       analyze:
         mon: "月份"
+        year: "年份"
         pointa: "A类积分"
         pointb: "B类积分"
         pointc: "C类积分"
@@ -219,6 +235,18 @@
         returnb: "B类返点"
         returnc: "C类返点"
         processed: "有无支付"
+
+      coupon:
+        year: "年份"
+        pointa: "A类积分(剩余)"
+        pointb: "B类积分(剩余)"
+        pointc: "C类积分(剩余)"
+        returna: "A类返点"
+        returnb: "B类返点"
+        returnc: "C类返点"
+        processed: "有无支付"
+        follower: "下线数"
+        follower_inc: "本年新增下线"
 
       category:
         name: "名称"
@@ -232,10 +260,14 @@
         storage: "是否囤货"
         processed: "处理状况"
         shipment: "运费"
-
+      provider:
+        name: "名称"
+        created_at: "创建时间"
+        updated_at: "更新时间"
       kind:
         id: "序号"
         name: "种类名称"
+        products: "产品"
         created_at: "创建时间"
         updated_at: "更新时间"
 

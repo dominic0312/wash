@@ -51,9 +51,16 @@
              = t.point
 
            td
-             = t.last_sign_in_at
+             - if t.last_sign_in_at
+               = t.last_sign_in_at.strftime("%Y-%m-%d %H:%M:%S" )
+             - else
+               |无登陆记录
 
       hr
+      - if @notice
+        .error-area#err-flash
+          .err-info
+            = @notice
       - if current_user.pointa < 200
         h4 您目前还不是会员, 添加会员请充值.
       - else
@@ -115,3 +122,18 @@
 /      = simple_form_for @user, :url => url_for(:action => 'create', :controller => 'network'), :method => 'post' do |f|
 /        = f.input :mobile
 /        = f.button :submit, "添加下线"
+javascript:
+
+
+  $(document).ready(function () {
+
+    setTimeout("hide_alert()", 5000);
+
+
+  });
+
+  function hide_alert() {
+    if ($("#err-flash")) {
+      $("#err-flash").hide("slideUp");
+    }
+  }

@@ -1,95 +1,203 @@
 .md-store.center.clear
-  .left.fl
+
+
+  - if !(current_user.level == "囤货商") && current_user.storage != "request" && current_user.storage != "rejected"
+    = render :partial => "common/request"
+
+
+  -elsif current_user.storage == "request"
     .store-box
-      - if current_user.storage == "empty"
-        h4 您还不是囤货商, 成为囤货商的条件为:
-        br
-        .comment
-          |1.成交货款在10万以上
-          br
-        .comment
-          |2.通过电话与实名验证
-          br
-        .comment
-          |3.通过支付宝充值过家家商城
-        hr
-        = link_to "申请成为囤货商", request_store_path, :class => "btn btn-info"
-        = flash[:info]
+      h5 您的囤货商申请正在处理, 请等待. 如有疑问, 请致电 400-877-1383
+    .empty-list
+      .empty-prompt
+        |没有囤货物品可以展示
 
+  - elsif current_user.storage == "rejected"
+    .store-box
+      .reject-title
+        |您的囤货申请被驳回. 驳回原因为
+      .reject-info
+        = current_user.reject_msg
+      .reject-title
+        | 请确认后再次申请, 如有疑问, 请致电400-877-1383
+    = render :partial => "common/request"
+  - else
+    = render :partial => "common/storebar"
+    .goods-list.center.m-t-30.clear
+      .category-box
 
-      -elsif current_user.storage == "request"
-        h4 您的囤货申请正在处理, 请等待.
+        - if @category == "all" || !@category
+          = link_to "全部类型", store_path(:category => "all", :kind => @kind,  :provider => @provider), class:"category-item category-item-active"
+        - else
+          = link_to "全部类型", store_path(:category => "all", :kind => @kind,  :provider => @provider), class:"category-item"
+        - @categories.each do |category|
+          - if category.id == @category.to_i
+            = link_to category.name, store_path(:category => category, :kind => @kind, :provider => @provider), class:"category-item category-item-active"
+          - else
+            = link_to category.name, store_path(:category => category, :kind => @kind, :provider => @provider), class:"category-item"
 
-      -elsif current_user.storage == "rejected"
-        h4 您的囤货申请被驳回. 驳回原因为：
-        h4
-          = current_user.reject_msg
-        hr
-        .comment 成为囤货商的条件为:
+      .category-box
 
-        .comment
-          |1.成交货款在10万以上
-        br
-        .comment
-          |2.通过电话与实名验证
-        br
-        .comment
-          |3.通过支付宝充值过家家商城
-        hr
-        = link_to "申请成为囤货商", request_store_path, :class => "btn btn-info"
-      -else
-       h3
-         |囤货商 -  -
-         = current_user.mobile
-         br
-         br
-         |囤货级别 - -
-         = current_user.agent_level
+        - if @kind == "all" || !@kind
+          = link_to "全部品种", store_path(:category => @category, :kind => "all",  :provider => @provider), class:"category-item category-item-active"
+        - else
+          = link_to "全部品种", store_path(:category => @category, :kind => "all", :provider => @provider), class:"category-item"
+        - @kinds.each do |kind|
+          - if kind.id == @kind.to_i
+            = link_to kind.name, store_path(:kind => kind.id, :category => @category , :provider => @provider), class:"category-item category-item-active"
+          - else
+            = link_to kind.name, store_path(:kind => kind.id, :category => @category, :provider => @provider), class:"category-item"
+      .category-box
 
-
-
-
-
-
-
-  .right.fr
-    .profile-box
-
-      h4 以下是系统中可囤货的产品
-      br
+        - if @provider == "all" || !@provider
+          = link_to "全部厂商", store_path(:category => @category, :kind => @kind, :provider=> "all"), class:"category-item category-item-active"
+        - else
+          = link_to "全部厂商", store_path(:category => @category, :kind => @kind, :provider=> "all"), class:"category-item"
+        - @providers.each do |provider|
+          - if provider.id == @provider.to_i
+            = link_to provider.name, store_path(:kind => @kind, :category => @category, :provider => provider.id), class:"category-item category-item-active"
+          - else
+            = link_to provider.name, store_path(:kind => @kind, :category => @category, :provider => provider.id), class:"category-item"
+    .goods-list.center.m-t-30.clear
+      - if @products.size == 0
+        .empty-list
+          .empty-prompt
+            |本分类没有商品可以展示
       - @products.each do |p|
-        .panel.panel-default.col-xs-3.grid
-          h4
-            = p.name
-          hr
-          h5
+        .item
+          .product-wrap
+            .productimg-wrap
+              a.productimg data-p="1-10" href= put_store_path(:id => p.id)
+                = image_tag(p.pic.url(:medium))
+            p.productprice.m-t-6
+              span.f-f00.f18
+                |零售价:
+                span.f14> ¥
+                = p.price
+              br
 
-            |库存数量:
-            = p.amount
-          br
-          h5
-            |说明:
-            = p.desc
-          h5
-            = image_tag(p.pic.url(:medium))
-          = link_to "囤货", put_store_path(:id => p.id), :class => "btn btn-info"
-      /- else
-      /  | 您没有正在囤货的商品
+              span.f-f00.f18
+                |会员价:
+                span.f14> ¥
+                = number_with_precision p.price * p.category.discount / 100, precision: 2, delimiter: '.'
+                br
+              - if current_user
+                span.f-f00.f18
+                  = p.category.level
+                  span.f14
+                    |:¥
+                  = number_with_precision p.price * p.category.discount * p.category.store_discount / 10000, precision: 2, delimiter: '.'
+                  br
+
+            p.producttitle.f12.m-t-6
+              a href= put_store_path(:id => p.id) target="_blank" title=p.name
+                =p.name
+            p.productstatus.f12.m-t-6
+              span.f-999
+                = link_to "囤货", put_store_path(:id => p.id), :class => "btn btn-info"
 
 
 
 
-          /- if current_user.storage == "normal"
-                    /  h4 以下是您的当前囤货
-                    /  - @storages.each do |s|
-                    /    |产品:
-                    /    = s.order_items[0].product.name
-                    /    |----价格:
-                    /    = s.order_items[0].product.price
-                    /    |----数量:
-                    /    = s.order_items[0].amount
-                    /    br
-                    /  hr
+
+
+
+
+
+
+      /  .profile-box
+      /
+      /    h4 以下是系统中可囤货的产品
+      /    br
+      /    - @products.each do |p|
+      /      .panel.panel-default.col-xs-3.grid
+      /        h4
+      /          = p.name
+      /        hr
+      /        h5
+      /
+      /          |库存数量:
+      /          = p.amount
+      /        br
+      /        h5
+      /          |说明:
+      /          = p.desc
+      /        h5
+      /          = image_tag(p.pic.url(:medium))
+      /        = link_to "囤货", put_store_path(:id => p.id), :class => "btn btn-info"
+      /    /- else
+      /    /  | 您没有正在囤货的商品
+
+
+javascript:
+
+
+  $(document).ready(function () {
+
+    var optionsphone = {
+      beforeSubmit: function () {
+        return $('#reqForm').validate().form()
+      },
+
+      url: '/request_store', // override for form's 'action' attribute
+      type: 'post', // 'get' or 'post', override for form's 'method' attribute
+      dataType: 'script', // 'xml', 'script', or 'json' (expected server response type)
+      clearForm: false // clear all form fields after successful submit
+      //resetForm: true        // reset the form after successful submit
+    };
+
+
+    $("#reqForm").validate({
+      focusInvalid: false,
+      focusCleanup: true,
+      onkeyup: false,
+      rules: {
+        'user[person_id]': {
+          required: true,
+          minlength: 18,
+          maxlength: 18
+        },
+        'user[brand_name]': {
+          required: true
+        }
+
+
+      },
+      messages: {
+        'user[person_id]': {
+          required: "身份证号码不能为空",
+          minlength: "请确认身份证号码长度",
+          maxlength: "请确认身份证号码长度"
+        },
+        'user[brand_name]': {
+          required: "请填入商户名称"
+        }
+      },
+
+      success: function (label, element) {
+        $(element).popover('destroy');
+      },
+      submitHandler: function (form) {
+
+        // do other things for a valid form
+        if ($('#reqForm').validate().form()) {
+          form.submit();
+        }
+        else {
+          alert("no");
+        }
+      },
+
+      errorPlacement: function (error, element) {
+            error.appendTo(element.parent().next());
+      },
+      errorClass: "alert errmsg",
+      errorElement: "span"
+    });
+
+
+  });
+
 
 
 

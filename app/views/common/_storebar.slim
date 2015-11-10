@@ -1,0 +1,40 @@
+.store-box
+  .store-title.store-no
+    |囤货商编号:
+    = current_user.mobile
+    .store-title.store-level
+      |囤货商级别:
+      = current_user.agent_level_cn
+
+    div class=(controller.action_name == "storecart" ?  'store-cart-active' : 'store-cart')
+
+
+      = link_to storecart_path , class:'no-underline'
+
+        |要货购物车&nbsp;&nbsp;
+
+
+        = "#{@storecart.cart_items.size} 件"
+    div class=(controller.action_name == "orders" ?  'store-cart-active store-list' : 'store-cart store-list')
+
+
+      = link_to store_orders_path , class:'no-underline'
+
+        |要货请求&nbsp;&nbsp;
+
+        = "#{current_user.orders.stored.unprocessed.size} 个"
+    /.store-cart.store-list
+    div class=(controller.action_name == "list" ?  'store-cart-active store-list' : 'store-cart store-list')
+
+      = link_to store_list_path , class:'no-underline'
+
+        |囤货查看&nbsp;&nbsp;
+
+        = "#{current_user.order_items.size} 种"
+    div class=(controller.action_name == "sent" ?  'store-cart-active store-list' : 'store-cart store-list')
+
+      = link_to sent_list_path , class:'no-underline'
+
+        |送货记录&nbsp;&nbsp;
+
+        = "#{current_user.orders.sent.size} 次"

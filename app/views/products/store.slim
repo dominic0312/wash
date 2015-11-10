@@ -1,3 +1,29 @@
+.md-store.center.clear
+  - if !(current_user.level == "囤货商") && current_user.storage != "request" && current_user.storage != "rejected"
+    = render :partial => "common/request"
+
+
+  -elsif current_user.storage == "request"
+    .store-box
+      h5 您的囤货商申请正在处理, 请等待. 如有疑问, 请致电 400-877-1383
+    .empty-list
+      .empty-prompt
+        |没有囤货物品可以展示
+
+  - elsif current_user.storage == "rejected"
+    .store-box
+      .reject-title
+        |您的囤货申请被驳回. 驳回原因为
+      .reject-info
+        = current_user.reject_msg
+      .reject-title
+        | 请确认后再次申请, 如有疑问, 请致电400-877-1383
+    = render :partial => "common/request"
+  - else
+    = render :partial => "common/storebar"
+
+
+
 .md-goods.center.m-t-20.clear
   .left.fl
     = image_tag(@product.pic.url(:medium))
@@ -6,16 +32,17 @@
     h1.f18
       = @product.name
     .goods-price.m-t-20
-      p
-        |零售价：  ¥
-        = @product.price
-      p
-        | 囤货价：  ¥ &nbsp;
-        b.f24.f-f00
-          - store_price = @product.price *  @product.category.discount * @product.category.store_discount / 10000
-          = number_with_precision store_price, precision: 2, delimiter: '.'
 
-    = form_tag(buy_product_path(@product.id), method: "post") do |f|
+
+      p
+        | 囤货价：
+        b.f24.f-f00
+          | ¥ &nbsp;
+          = @product.price
+          - store_price = @product.price *  @product.category.discount * @product.category.store_discount / 10000
+          /= number_with_precision store_price, precision: 2, delimiter: '.'
+
+    = form_tag(addcart_store_path(@product.id), method: "post") do |f|
       .goods-count.m-t-20.clear
         span.fl.f12.f-999 采购量
         .count-op.fl.m-l-20
@@ -39,10 +66,10 @@
           | 个可售)
       .buybtn.m-t-30
         - if current_user
-          = submit_tag "加入购物车", class:"f16 f-fff input-sub"
+          = submit_tag "加入囤货清单", class:"f16 f-fff input-sub"
         - else
 
-          = link_to "加入购物车", new_user_session_path, class:"f16 f-fff input-sub"
+          = link_to "加入囤货清单", new_user_session_path, class:"f16 f-fff input-sub"
         /a.f16.f-fff href="#"  加入购物车
 .md-goodsbox.m-t-20.center.clear
   .left.fl
@@ -103,49 +130,28 @@
                   = image_tag(@product.pic7)
 
 
-  javascript:
-    $(function () {
+javascript:
+  $(function () {
 
-      $(".goods-count .reduce").on("click", function () {
+    $(".goods-count .reduce").on("click", function () {
 
-        var count = Number($("#product_amount").val());
-        if (count - 1 >= 0) {
-          $("#product_amount").val(count - 1);
-        }
-      });
-
-      $(".goods-count .add").on("click", function () {
-        var count = Number($("#product_amount").val());
-        var store = Number($("#store").html());
-        if (count + 1 <= store) {
-          $("#product_amount").val(count + 1);
-        }
-      });
-
-      $(".flexslider").flexslider();
-
+      var count = Number($("#product_amount").val());
+      if (count - 1 >= 0) {
+        $("#product_amount").val(count - 1);
+      }
     });
 
+    $(".goods-count .add").on("click", function () {
+      var count = Number($("#product_amount").val());
+      var store = Number($("#store").html());
+      if (count + 1 <= store) {
+        $("#product_amount").val(count + 1);
+      }
+    });
+
+    $(".flexslider").flexslider();
+
+  });
 
 
-/.container
-/  .panel.panel-default.clear-fix.content-box
-/    .panel-body.container
-/
-/
-/      = form_tag(push_store_path(:id => @product.id), method: "post") do |f|
-/        .panel.panel-default.col-xs-3.grid
-/          h4
-/            = @product.name
-/          hr
-/          h5
-/            |库存
-/            = @product.amount
-/          br
-/          h5
-/            |数量
-/            = number_field(:product, :amount, in: 1..100, step: 1, value:1)
-/          h5
-/            |说明
-/            = @product.desc
-/          = submit_tag("结算")
+

@@ -29,6 +29,10 @@ class RegController < Devise::RegistrationsController
     super
   end
 
+  def forget
+
+  end
+
 
   def create_mobile(params)
     # valid = true
@@ -49,11 +53,11 @@ class RegController < Devise::RegistrationsController
           end
         end
         u.save!
-        # valid.phonestatus = "verified"
-        # u.verification = valid
+         valid.phonestatus = "verified"
+         # u.verification = valid
         # u.user_info.mobile = valid.phone
         # u.user_info.save!
-        # valid.save!
+         valid.save!
         render "success" and return
 
       else
@@ -70,8 +74,77 @@ class RegController < Devise::RegistrationsController
 
 
 
+  def forget_mobile(params)
+
+    valid = Verification.where(:phone => params[:reg_phone]).first
+    if valid
+      if !User.exists?(:mobile => valid.phone)
+        @message = "用户不存在"
+        render "fail_forget"
+      end
+
+      if valid.verify_code == params[:reg_code]
+        u = User.where(:mobile => valid.phone).first
+        u.mobile = valid.phone
+        # u.mobile = params[:reg_phone]
+        u.password = u.password_confirmation = params[:reg_password]
+        if params[:promotion]
+          if User.exists?(:promotion_code => params[:promotion])
+            u.parent_id = User.where(:promotion_code => params[:promotion]).first.id
+          end
+        end
+        u.save!
+        valid.phonestatus = "verified"
+        # u.verification = valid
+        # u.user_info.mobile = valid.phone
+        # u.user_info.save!
+        valid.save!
+        render "success" and return
+
+      else
+        @message = "验证码不正确，请重新验证"
+        render "fail"
+        # render :js => "alert('验证没有通过')" and return
+      end
+    else
+      @message = "手机验证失败，请重新注册"
+      render "fail"
+      # render :js => "alert('验证码无效,请重新申请')" and return
+    end
+
+  end
 
 
+
+
+
+
+  def get_code_forget
+    valid = Verification.where(:phone => params[:phone_num]).first
+    if !User.exists?(:mobile => params[:phone_num])
+      render :js => "alert('该手机号码没有被注册')" and return
+    end
+    verify_code = rand(10 ** 6)
+
+    # send_sms(params[:phone_num], verify_code)
+    if valid
+      if valid.phonestatus == "verified"
+        valid.verify_code = verify_code
+        valid.save!
+        # send_sms(params[:phone_num], verify_code)
+        render :js => "alert('验证码为#{verify_code}')"  and return
+
+      else
+
+        render :js => "alert('该手机号码还未被验证')" and return
+        # return
+        # render :js => "alert('验证码为#{verify_code}')" and return
+      end
+    else
+
+      render :js => "alert('该手机号码没有被注册')" and return
+    end
+  end
 
 
 
@@ -93,6 +166,9 @@ class RegController < Devise::RegistrationsController
       puts response.body
     end
   end
+
+
+
 
 
 
@@ -119,9 +195,9 @@ class RegController < Devise::RegistrationsController
       valid.phone = params[:phone_num]
       valid.verify_code = verify_code
       valid.save!
-      send_sms(params[:phone_num], verify_code)
+      # send_sms(params[:phone_num], verify_code)
       # return
-      # render :js => "alert('验证码为#{verify_code}')"  and return
+      render :js => "alert('验证码为#{verify_code}')"  and return
     end
   end
 
@@ -139,6 +215,51 @@ class RegController < Devise::RegistrationsController
     else
       render :json => "true" and return
     end
+  end
+
+
+  def check_forget_code
+    if !User.exists?(:mobile => params[:phone])
+      render :json => "false" and return
+    end
+
+     valid = Verification.where(:phone => params[:phone]).first
+     if !valid
+       render :json => "false" and return
+     else
+       if valid.verify_code == params[:reg_code]
+         render :json => "true" and return
+       else
+         render :json => "false" and return
+       end
+
+     end
+
+  end
+
+  def checkmobile_exist
+    if User.exists?(:mobile => params[:reg_phone])
+      render :json => "true" and return
+    else
+      render :json => "false" and return
+    end
+  end
+
+
+  def fill_pass
+    @reg_phone = params[:reg_phone]
+
+    # render "fill_pass"
+  end
+
+
+  def reset_pass
+
+    u = User.where(:mobile => params[:reg_phone]).first
+    u.password = u.password_confirmation = params[:reg_password]
+    u.save!
+
+
   end
 
 

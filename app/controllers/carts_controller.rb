@@ -16,6 +16,12 @@ class CartsController < BaseController
     redirect_to payment_path
   end
 
+  def delete_store
+    @cart_item = CartItem.find(params[:cart_item])
+    @cart_item.destroy!
+    redirect_to storecart_path
+  end
+
 
 
 

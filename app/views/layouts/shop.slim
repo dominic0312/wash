@@ -14,16 +14,26 @@ html
         ul.nav.fr
           li
             a href="/products"
-              span.f16 商品
-              br
-              span.f12.f-999 PRODUCTS
+              - if controller.controller_name == "products"
+                span.f16.selected 商品
+                br
+                span.f12.selected PRODUCTS
+              - else
+                span.f16 商品
+                br
+                span.f12.f-999 PRODUCTS
 
           - if current_user
             li
-              a href="/store"
-                span.f16 囤货
-                br
-                span.f12.f-999 STORAGE
+              a href="/store" data-method="get"
+                - if controller.controller_name == "store"
+                  span.f16.selected 囤货
+                  br
+                  span.f12.selected STORAGE
+                - else
+                  span.f16 囤货
+                  br
+                  span.f12.f-999 STORAGE
             /li
             /  a href="#"
             /    span.f16 订单
@@ -31,20 +41,31 @@ html
             /    span.f12.f-999 ORDERS
             li
               a href="/network"
-                span.f16 营销网络
-                br
-                span.f12.f-999 NETWORK
+                - if controller.controller_name == "network"
+                  span.f16.selected 营销网络
+                  br
+                  span.f12.selected NETWORK
+                - else
+                  span.f16 营销网络
+                  br
+                  span.f12.f-999 NETWORK
+
             li
               a href="/orders"
-                span.f16 订单
-                br
-                span.f12.f-999 ORDER
+                - if controller.controller_name == "orders"
+                  span.f16.selected 订单
+                  br
+                  span.f12.selected ORDER
+                - else
+                  span.f16 订单
+                  br
+                  span.f12.f-999 ORDER
 
 
 
             .login_info.f12
               p.f-999.cart.red
-                = link_to payment_path , class:'no-underline'
+                = link_to payment_path , class:'no-underline', method: :get
                   i.fa.fa-shopping-cart.user-icon
                   |购物车内有#{@cart.cart_items.size}组商品
                   =

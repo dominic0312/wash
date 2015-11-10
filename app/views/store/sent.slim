@@ -1,0 +1,59 @@
+.md-order.center.m-t-20
+  = render :partial => "common/storebar"
+
+
+
+  .order-list
+    p.order-hd.clear.f12.dn
+      span.fl.f14 订单编号：2015050821074
+      a.fr.f-3366cc href="javascript:;"  再买一次
+    table cellpadding="10" cellspacing="0" width="100%"
+      tr
+        th align="left" bgcolor="#f3f3f3" width="30%"  订单编号
+        th align="center" bgcolor="#f3f3f3" width="20%"  订单商品
+        th align="center" bgcolor="#f3f3f3" width="14%"  处理时间
+        th align="center" bgcolor="#f3f3f3" width="15%"  订单金额
+        th align="center" bgcolor="#f3f3f3" width="10%"  运费
+      - @orders.each do |order|
+        tr
+          td
+            = link_to order.sn, store_order_detail_path(:id => order)
+          td
+            = link_to "查看详情", store_order_detail_path(:id => order)
+
+
+          td
+            = order.updated_at.strftime("%Y-%m-%d %H:%M:%S" )
+
+          td
+            = order.total_value
+          td
+            = order.ship_fee
+
+
+
+
+
+
+  .order-info.clear.f12
+
+    .fr.right
+      p
+
+
+      p.buybtn.m-t-20
+        .payment
+          = "请打款到账号:"
+          span.highlight
+            = Site.account
+          br
+          br
+          = "注明用户名:"
+          span.highlight
+            = current_user.mobile
+
+
+
+
+
+

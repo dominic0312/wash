@@ -1,0 +1,116 @@
+.md-order.center.m-t-20
+  .order-list
+    p.order-hd.clear.f12
+      .store-detail-title
+        = "囤货订单编号:"
+        = @order.sn
+
+      .store-detail-title
+        = "订单类型:"
+        = @order.send_type
+      .store-detail-back
+        a href= store_orders_path
+          |<<返回囤货请求列表
+    table cellpadding="10" cellspacing="0" width="100%"
+      tr
+        th align="left" bgcolor="#f3f3f3" width="30%"  商品名称
+        th align="center" bgcolor="#f3f3f3" width="20%"  商品数量
+        th align="center" bgcolor="#f3f3f3" width="14%"  商品单价
+        th align="center" bgcolor="#f3f3f3" width="14%"  商品类别
+        th align="center" bgcolor="#f3f3f3" width="35%"  金额小计
+
+
+      - @order.order_items.each do |item|
+        tr
+          td
+            =link_to item.product.name, product_path(item.product)
+          td
+            = item.amount
+
+          td
+            = item.order_price
+          td
+            = item.product.category.name
+          td
+            = item.order_price * item.amount
+
+      /
+      /
+      /tr
+      /  td
+      /    | DX123322333
+      /  td
+      /    | 查看详情
+      /
+      /  td 自提
+      /  td 未付款
+      /  td ￥118.0元
+
+
+  - if @order.storage_method == "囤货"
+    .order-info.clear.f12
+
+      .fr.right
+        p
+
+
+        b.f24.f-f00
+
+          span#payMoney
+          - if @order.sent
+            |运费
+            = @order.ship_fee
+          - else
+            |囤货订单无货款
+
+  - else
+    .order-info.clear.f12
+
+      .fr.right
+        p
+
+        p.m-t-10
+          | 货款：
+          b.f24.f-f00
+            | ￥
+            span#payMoney
+              = @order.total_value
+            | 元
+        p.m-t-10
+          | 运费：
+          b.f24.f-f00
+            | ￥
+            span#payMoney
+              = @order.shipment
+            | 元
+        p.buybtn.m-t-20
+          .payment
+            = "请打款到账号:"
+            span.highlight
+              = Site.account
+            br
+            br
+            = "注明用户名:"
+            span.highlight
+              = current_user.mobile
+            br
+            br
+            = "注明订单号:"
+            span.highlight
+              = @order.sn
+            br
+            br
+            = "送货地址:"
+            span.highlight
+              = @order.full_address
+            br
+            br
+            = "送货联系电话:"
+            span.highlight
+              = @order.phone
+
+
+
+
+
+

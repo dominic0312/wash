@@ -1,10 +1,16 @@
 .md-order.center.m-t-20
   .order-list
     p.order-hd.clear.f12
-      span.fl.f14
+      .store-detail-title
         = "订单编号:"
         = @order.sn
-      a.fr.f-3366cc href="/orders"  返回订单列表
+      .store-detail-title
+        = "订单状态:"
+        = @order.is_processed
+
+      .store-detail-back
+        a href="/orders"
+         |返回订单列表
     table cellpadding="10" cellspacing="0" width="100%"
       tr
         th align="left" bgcolor="#f3f3f3" width="30%"  商品名称
@@ -50,17 +56,15 @@
       p.m-t-10
         | 货款：
         b.f24.f-f00
-          | ￥
           span#payMoney
             = @order.total_value
           | 元
       p.m-t-10
         | 运费：
         b.f24.f-f00
-          | ￥
+
           span#payMoney
-            = @order.shipment
-          | 元
+            = @order.ship_fee
       p.buybtn.m-t-20
         .payment
           = "请打款到账号:"

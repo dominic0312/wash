@@ -4,9 +4,16 @@ ActiveAdmin.register Order do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
 
-
+  actions :index, :show, :edit, :destroy, :update
   filter :storage
-  filter :processed
+  filter :processed, :default => false
+
+  # before_filter :only => [:index] do
+  #   # if params['commit'].blank?
+  #     #country_contains or country_eq .. or depending of your filter type
+  #     params['q'] = {:processed => false}
+  #   # end
+  # end
   # filter :desc
 
 
@@ -33,11 +40,16 @@ ActiveAdmin.register Order do
       end
 
       row "客户手机" do
-        ad.user.mobile
+        link_to "#{ad.user.mobile}", admin_user_path(ad.user)
+
       end
 
       row "是否囤货" do
         ad.is_storage
+      end
+
+      row "囤货方式" do
+        ad.storage_method
       end
 
       row "是否处理" do
@@ -170,37 +182,119 @@ ActiveAdmin.register Order do
     # This code is evaluated within the controller class
 
     def finish
-      # resource.processed = true
-      # resource.save(:validate => false)
+      resource.processed = true
+      resource.save(:validate => false)
       pointa = 0
       pointb = 0
       pointc = 0
       pointd = 0
-      resource.order_items.each do |item|
-        puts "订单价格" + item.order_price.to_s
-        puts "产品类别" + item.product.category.name
-        cat = item.product.category.name
-        point = item.order_price.to_i
-        if cat == "A类"
-          pointa += point
-        elsif cat == "B类"
-          pointb += point
-        elsif cat == "C类"
-          pointc += point
-        elsif cat == "D类"
-          pointd += point
-        else
+      if resource.storage_method == "囤货"
+        ids = resource.user.order_items.map(&:product_id)
+        resource.order_items.each do |item|
+          puts ids.to_s
+          puts "product id is#{item.product.id}"
+          if ids.include?(item.product.id)
+             puts "ids not included"
+             curr_item = resource.user.order_items.where(:product_id => item.product.id).first
+             curr_item.amount += item.amount
+             curr_item.save!
+
+          else
+            puts "ids  included"
+            new_item = OrderItem.new(:product_id => item.product.id, :amount => item.amount)
+            new_item.user_id = resource.user.id
+            new_item.save!
+          end
         end
 
-        resource.user.pointa += pointa
+      else
+
+        resource.order_items.each do |item|
+          puts "订单价格" + item.order_price.to_s
+          puts "产品类别" + item.product.category.name
+          cat = item.product.category.name
+          if item.product.amount < item.amount
+            item.product.amount = 0
+          else
+            item.product.amount -= item.amount
+          end
+            item.product.save!
+
+          point = item.total_value.to_i
+          if cat == "A类"
+            puts "A类##########"
+            pointa += point
+          elsif cat == "B类"
+            pointb += point
+          elsif cat == "C类"
+            pointc += point
+          elsif cat == "D类"
+            pointd += point
+          else
+          end
+
+
+        end
+        puts "A类########## POINTA is #{pointa}"
+        if pointa > 199 && resource.user.level == "注册用户"
+          resource.user.pointa += 200
+          resource.user.level = "一级会员"
+          Order.send_sms(resource.user.mobile)
+          if resource.user.parent
+            t = Time.now
+            year_no = t.strftime("%Y")
+            coupon = resource.user.parent.coupons.where(:year => year_no).first rescue nil
+            if coupon
+              coupon.follower_inc += 1
+              coupon.save!
+            end
+          end
+          puts "&&&&&&&&&&&&&&"
+        else
+          resource.user.pointa += pointa
+        end
+
+
         resource.user.pointb += pointb
         resource.user.pointc += pointc
         resource.user.pointd += pointd
         resource.user.save!
         resource.user.record(pointa, pointb, pointc, pointd)
 
+      end
+
+      if resource.sent
+        order_sent = Order.create
+        order_sent.sn = resource.sn
+        resource.order_items.each do |t|
+          p_sent = OrderItem.create
+          p_sent.product_id = t.product_id
+          p_sent.order_price = t.order_price
+          p_sent.amount = t.amount
+          order_sent.order_items<<p_sent
+        end
+        order_sent.phone = resource.phone
+        order_sent.address = resource.address
+        order_sent.city = resource.city
+        order_sent.province = resource.province
+        order_sent.district = resource.district
+        order_sent.shipment = resource.shipment
+        order_sent.sent = true
+        order_sent.user_id = resource.agent_id
+        user = User.find(resource.agent_id)
+        if user
+          user.deal_sent(order_sent)
+        end
+
+
+
+        order_sent.save!
+
+        # current_user.add_point(@cart.subtotal.to_i)
 
       end
+
+
 
 
       redirect_to admin_order_path(params[:id]), notice: "订单" + "已经被处理成功"

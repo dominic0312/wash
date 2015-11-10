@@ -1,13 +1,25 @@
 .md-cart.center.m-t-30.clear
 
+  - if @notice
+    .error-area#err-flash
+
+      - if @notice == "购买完成"
+        |购买成功
+      - else
+        - @notice.each do |n|
+          = n.to_s
+          br
   - if @cart.cart_items.size == 0
-    .panel
-      h4
-        |当前购物车中没有商品, 请前往商城购买
+
+    .empty-list
+      .empty-prompt
+        |购物车中没有商品, 请前往商城购买
   - else
     /form#cartForm
     /= form_for @order, as: :order, url: (alipay_order_path(@cart)) do |f|
-    = form_tag(alipay_order_path(@cart), method: "post") do |f|
+
+
+    = form_tag(alipay_order_path, method: "post", id:"cartform") do |f|
       table.f12 cellpadding="0" cellspacing="0" width="100%"
         thead
           tr
@@ -32,16 +44,17 @@
             tr
 
               td
-                a.fl href="#{product_path(item.item)}"  target="_blank"
+                a.fl href="#{product_path(item.item)}" target="_blank"
                   = image_tag(item.item.pic.url(:thumb))
-                  /img height="80" src="images/goods_info.jpg" width="80" /
+                /img height="80" src="images/goods_info.jpg" width="80" /
                 a.gdsname.fl
                   = item.item.name
-                  /产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称
+              /产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称
               td
                 span
-                  = number_with_precision member_price, precision: 2, delimiter: '.'
-                  /= member_price
+                  /= number_with_precision member_price, precision: 2, delimiter: '.'
+                  = item.price
+              /= member_price
               td
                 span
 
@@ -53,52 +66,215 @@
                   = item.quantity
               td
                 span
-                  = number_with_precision member_price * item.quantity, precision: 2, delimiter: '.'
-                  /= member_price * item.quantity
+                  = number_with_precision item.price * item.quantity, precision: 2
+                  =
+              /= member_price * item.quantity
               td
                 = link_to "删除", delete_item_cart_path(:cart_item => item)
-                /a href="javascript:void(0)"  删除
+      /a href="javascript:void(0)"  删除
 
-      .p12.address-group
-        |送货地区
 
-        .city-group
-          /select.city-select
-          = select_tag(:province, options_for_select(ChinaCity.list), {:class => 'city-select', :prompt=> "省份"})
+      .reg-form
+
+
+
+        .p12.address-group
+          |送货地区
+
+          .city-group.city-group-req
+            /select.city-select
+            = select_tag(:province, options_for_select(ChinaCity.list), {:class => 'city-select', :prompt=> "省份"})
 
             /= options_for_select(ChinaCity.list)
-          /select.city-select
-          = select_tag(:city, options_for_select([]), {:class => 'city-select', :prompt=> "城市"})
+            /select.city-select
+            = select_tag(:city, options_for_select([]),   {:class => 'city-select', :prompt=> "城市"})
 
-          /= select_tag "city",  {:class => "exit"}
-          = select_tag(:district, options_for_select([]), {:class => 'city-select', :prompt=> "地区"})
-
-
-      br
-
-      .p12
+            /= select_tag "city",  {:class => "exit"}
+            = select_tag(:district, options_for_select([]), {:class => 'city-select', :prompt=> "地区"})
 
 
-      .address-info.address-group
-        .detail-title
-          |详细地址
-        .detail-info
-          = text_field(:order, :address, size: 30)
-        .detail-title.detail-phone
-          |联系电话
-        .detail-info
-          = text_field(:order, :phone, size: 20)
+          br
+
+          .p12
+
+
+          .address-info.address-group
+            .detail-title
+              |详细地址
+            .detail-info
+              = text_field(:order, :address, size: 30)
+            .err-info
+            br
+            br
+
+            .detail-title
+              |联系电话
+            .detail-info
+              = text_field(:order, :phone, size: 20)
+            .err-info
+
+
+
 
 
 
       /= link_to "提交订单", alipay_order_path(@cart), class:"buybtn"
-      = submit_tag "提交订单", class:"buybtn"
+      /= submit_tag "提交订单", class:"buybtn"
+      = submit_tag "申请发货", class:"buybtn", name:"store", value:"申请发货"
+      = link_to "申请送货", "#", class:"sm-btn", name:"deliver", id:"apply", value:"申请送货", type:"button", remote: true
+      .address-area
+        #address.address-list
+          |可送货代理商
+
+        .address-empty
+          |您选择的地点没有囤货商可以送货, 请选择-申请发货
+
+javascript:
+
+
+  $(document).ready(function () {
+
+    var optionsphone = {
+      beforeSubmit: function () {
+        return $('#cartform').validate().form()
+      },
+
+      url: '/alipay_order', // override for form's 'action' attribute
+      type: 'post', // 'get' or 'post', override for form's 'method' attribute
+      dataType: 'script', // 'xml', 'script', or 'json' (expected server response type)
+      clearForm: false // clear all form fields after successful submit
+      //resetForm: true        // reset the form after successful submit
+    };
+
+
+    $("#cartform").validate({
+      focusInvalid: false,
+      focusCleanup: false,
+      onkeyup: false,
+      rules: {
+        'order[address]': {
+          required: true
+        },
+        'order[phone]': {
+          required: true,
+          minlength: 11,
+          maxlength: 11
+        }
+
+
+      },
+      messages: {
+        'order[address]': {
+          required: "地址不能为空"
+        },
+        'order[phone]': {
+          required: "手机号码不能为空",
+          minlength: "手机号码长度为11位",
+          maxlength: "手机号码长度为11位"
+        }
+      },
+
+      success: function (label, element) {
+        $(element).popover('destroy');
+      },
+      submitHandler: function (form) {
+
+        // do other things for a valid form
+        if ($('#reqForm').validate().form()) {
+          form.submit();
+        }
+        else {
+          alert("no");
+        }
+      },
+
+      errorPlacement: function (error, element) {
+        error.appendTo(element.parent().next());
+      },
+      errorClass: "alert errmsg",
+      errorElement: "span"
+    });
+
+
+
+    $("#apply").click(function () {
+
+
+      dis = $("#district").val();
+      $.ajax({
+        type: "GET",
+        url: "/request_dealer?district=" + dis,
+        dataType: "json",
+        success: function (response) {
+           if (response.length > 0) {
+             $(".address-area").show();
+             $(".address-list").show();
+             $(".address-empty").hide();
+             render_radio(response);
+           }
+           else {
+
+             $(".address-area").show();
+             $(".address-list").hide();
+             $(".address-empty").show();
+
+           }
+
+        }
+
+      });
+
+      return false;
+
+    });
+
+    setTimeout("hide_alert()", 5000);
+
+
+  });
+
+   function hide_alert(){
+     if ($("#err-flash")){
+       $("#err-flash").hide("slideUp");
+     }
+   }
+
+
+
+
+  function render_radio(response){
+    sels = "";
+    for (var user in response) {
+      mobile = response[user].username;
+      uid = response[user].id;
+      brand = response[user].brand_name;
+      if (sels === "")
+      {
+       str = "<div class='agent-phone'>囤货商电话</div><div class='agent-name'>囤货商</div><div class='agents'><div class='agent'><input type='radio' name='agent' value="  + uid + " checked='checked'/>" + "<span class= 'agents-phone'>" +mobile + "</span>"
+               +  "<span class= 'agents-name'>" + brand+ "</span></div>"  +"</br>";
+
+      }
+
+      else {
+        str = "<div class='agent'><input type='radio' name='agent' value="  + uid +" />" + "<span class='agents-phone'>" + mobile + "</span>" +  "<span class= 'agents-name'>" + brand+ "</span></div>"  +"</br>";
+        }
+
+      sels = sels + str;
+    }
+     sels = sels + "</div>";
+     sub_btn = "<input type='submit' name='send' value='送货' class=buybtn>";
+     sels = sels + sub_btn;
+
+
+
+
+    $("#address").html(sels);
+  }
 
 
 
 
 
-            /.container
 /  .panel.panel-default
 /    .panel-heading
 /      h4 付款信息
@@ -136,8 +312,6 @@
 /          |元
 /        hr
 /        = link_to "支付", alipay_order_path(@cart), class:"btn btn-success btn-lg"
-/
-/
 /
 /
 /

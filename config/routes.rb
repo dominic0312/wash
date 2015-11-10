@@ -8,9 +8,16 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "reg", sessions: "login", passwords:"passwds"}
   devise_scope :user do
     get 'promotion/:id' => 'reg#promotion'
+    get 'forget' => 'reg#forget'
+    post 'fill_pass' => 'reg#fill_pass'
+    post 'reset_pass' => 'reg#reset_pass'
     get 'logout' => 'login#destroy'
     post "get_code" => "reg#get_code"
+
+    post "get_code_forget" => "reg#get_code_forget"
     post "/checkmobile" => "reg#checkmobile"
+    post "/check_forget_code" => "reg#check_forget_code"
+    post "/checkmobile_exist" => "reg#checkmobile_exist"
   end
   # devise_for :users, :controllers => {:registrations => "reg"}
   # The priority is based upon order of creation: first created -> highest priority.
@@ -32,7 +39,8 @@ Rails.application.routes.draw do
   get 'news' => 'news#index'
 
   get 'process_order/:id' => 'admin/orders#finish'
-  get 'payback/:uid/:mon' => 'admin/users#payback'
+  get 'payback/:uid/:anatype/:year/:mon' => 'admin/users#payback'
+  get 'paycoupon/:uid/:year' => 'admin/users#paycoupon'
   # get 'reg' => 'reg#new'
   post 'newaccount' => 'reg#create'
 
@@ -42,9 +50,20 @@ Rails.application.routes.draw do
   post 'notice/:id' => 'users#notice'
   # get 'logout' => 'users#logout'
   get 'store' => 'store#index'
-  get 'request_store' => 'store#req_store'
+  post 'request_store' => 'store#req_store'
+  get 'request_dealer' => 'store#req_dealer'
   get 'put_store' => 'store#put_store'
   post 'push_store' => 'store#push_store'
+
+  post 'alipay_order' => "orders#alipay"
+
+
+  get 'storecart' => 'store#storecart'
+  get 'store_orders' => 'store#orders'
+  get 'store_list' => 'store#list'
+  get 'sent_list' => 'store#sent'
+  get 'store_order_detail' => 'store#store_order_detail'
+
   get 'network' => 'network#index'
   post 'network_create' => 'network#create'
 
@@ -56,6 +75,7 @@ Rails.application.routes.draw do
   resource :cart do
     member do
       get 'delete_item'
+      get 'delete_store'
     end
   end
 
@@ -65,13 +85,21 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :store do
+    member do
+      post 'addcart'
+
+    end
+  end
+
 
 
 
 
   resources :orders do
     member do
-      post 'alipay'
+      # post 'alipay'
+      post 'store'
 
     end
   end
