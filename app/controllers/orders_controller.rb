@@ -122,8 +122,8 @@ class OrdersController < BaseController
     # current_user.save
 
 
-    # @cart.clear
-    @notice = "购买完成"
+    @cart.clear
+    @notice = "订单已经提交, 请付款"
 
     render "payment" and return
 
