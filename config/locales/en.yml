@@ -192,6 +192,7 @@
         is_storage: "可否囤货"
         kind: "种类"
         provider: "厂商"
+        is_member: "会员专享"
       picture:
         pic: "上传图片"
         id: "编号"

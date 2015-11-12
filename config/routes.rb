@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   get 'process_order/:id' => 'admin/orders#finish'
   get 'payback/:uid/:anatype/:year/:mon' => 'admin/users#payback'
   get 'paycoupon/:uid/:year' => 'admin/users#paycoupon'
+  get 'members' => 'products#members'
   # get 'reg' => 'reg#new'
   post 'newaccount' => 'reg#create'
 

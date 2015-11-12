@@ -1,0 +1,81 @@
+
+.goods-list.center.m-t-30.clear
+  .category-box
+
+    - if @category == "all" || !@category
+      = link_to "全部类型", products_path(:category => "all", :kind => @kind,  :provider => @provider), class:"category-item category-item-active"
+    - else
+      = link_to "全部类型", products_path(:category => "all", :kind => @kind,  :provider => @provider), class:"category-item"
+    - @categories.each do |category|
+      - if category.id == @category.to_i
+        = link_to category.name, products_path(:category => category, :kind => @kind, :provider => @provider), class:"category-item category-item-active"
+      - else
+        = link_to category.name, products_path(:category => category, :kind => @kind, :provider => @provider), class:"category-item"
+
+  .category-box
+
+    - if @kind == "all" || !@kind
+      = link_to "全部品种", products_path(:category => @category, :kind => "all",  :provider => @provider), class:"category-item category-item-active"
+    - else
+      = link_to "全部品种", products_path(:category => @category, :kind => "all", :provider => @provider), class:"category-item"
+    - @kinds.each do |kind|
+      - if kind.id == @kind.to_i
+        = link_to kind.name, products_path(:kind => kind.id, :category => @category , :provider => @provider), class:"category-item category-item-active"
+      - else
+        = link_to kind.name, products_path(:kind => kind.id, :category => @category, :provider => @provider), class:"category-item"
+  .category-box
+
+    - if @provider == "all" || !@provider
+      = link_to "全部厂商", products_path(:category => @category, :kind => @kind, :provider=> "all"), class:"category-item category-item-active"
+    - else
+      = link_to "全部厂商", products_path(:category => @category, :kind => @kind, :provider=> "all"), class:"category-item"
+    - @providers.each do |provider|
+      - if provider.id == @provider.to_i
+        = link_to provider.name, products_path(:kind => @kind, :category => @category, :provider => provider.id), class:"category-item category-item-active"
+      - else
+        = link_to provider.name, products_path(:kind => @kind, :category => @category, :provider => provider.id), class:"category-item"
+
+
+
+
+.goods-list.center.m-t-30.clear
+  - if @products.size == 0
+    .empty-list
+      .empty-prompt
+        |本分类没有商品可以展示
+  - @products.each do |p|
+    .item
+      .product-wrap
+        .productimg-wrap
+          a.productimg data-p="1-10" href="/products/#{p.id}" target="_blank"
+            = image_tag(p.pic.url(:medium))
+        p.productprice.m-t-6
+          span.f-f00.f18
+            |零售价:
+            span.f14> ¥
+            = p.price
+          br
+
+          span.f-f00.f18
+            |会员价:
+            span.f14> ¥
+            = number_with_precision p.price * p.category.discount / 100, precision: 2, delimiter: '.'
+            br
+          - if current_user
+            span.f-f00.f18
+              = p.category.level
+              span.f14
+                |:¥
+              = number_with_precision p.price * p.category.discount * p.category.store_discount / 10000, precision: 2, delimiter: '.'
+              br
+
+        p.producttitle.f12.m-t-6
+          a href="/products/#{p.id}" target="_blank" title=p.name
+            =p.name
+
+
+
+
+
+
+

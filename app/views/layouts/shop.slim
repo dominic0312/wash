@@ -14,7 +14,7 @@ html
         ul.nav.fr
           li
             a href="/products"
-              - if controller.controller_name == "products"
+              - if controller.controller_name == "products" && controller.action_name == "index"
                 span.f16.selected 商品
                 br
                 span.f12.selected PRODUCTS
@@ -22,6 +22,16 @@ html
                 span.f16 商品
                 br
                 span.f12.f-999 PRODUCTS
+          li
+            a href="/members"
+              - if controller.action_name == "members"
+                span.f16.selected 会员专享
+                br
+                span.f12.selected MEMBERS
+              - else
+                span.f16 会员专享
+                br
+                span.f12.f-999 MEMBERS
 
           - if current_user
             li

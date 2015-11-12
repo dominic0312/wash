@@ -74,6 +74,10 @@ class Product < ActiveRecord::Base
     self.storage ? "可" : "否"
   end
 
+  def member_status
+    self.is_member ? "是" : "否"
+  end
+
   protected
   # def set_default_category
   #   self.category = Category.first()

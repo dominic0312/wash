@@ -10,14 +10,17 @@ ActiveAdmin.register Product do
   filter :desc
 
 
-  permit_params :name, :amount, :desc, :pic, :price, :kind_id, :category_id, :provider_id, :storage, :pic1, :pic2, :pic3, :pic4, :pic5, :pic6, :pic7
+  permit_params :name, :is_member, :amount, :desc, :pic, :price, :kind_id, :category_id, :provider_id, :storage, :pic1, :pic2, :pic3, :pic4, :pic5, :pic6, :pic7
   form do |f|
     f.inputs "产品详情" do
       f.input :name
       f.input :amount
       f.input :price
       f.input :desc
+      f.input :is_member
       f.input :storage
+
+
 
       f.input :category, :label => '分类', :as => :select, :collection => Category.all.map { |u| ["#{u.name}", u.id] },
               :include_blank => false
@@ -51,6 +54,9 @@ ActiveAdmin.register Product do
       row :amount
       row :price
       row :category, ad.category.name
+      row "会员专享" do
+        ad.member_status
+      end
       row :kind, ad.kind_name
       row :provider, ad.provider_name
       row :desc
@@ -101,6 +107,30 @@ ActiveAdmin.register Product do
       end
       # Will display the image on show object page
     end
+
+    # panel "产品类型" do
+    #
+    #   table_for ad do
+    #     column :id
+    #     # column :mobile do |child|
+    #     #   link_to "#{child.mobile} ", admin_user_path(child)
+    #     # end
+    #     # column :uname
+    #     # column :pointa
+    #     # column :pointb
+    #     # column :pointc
+    #     # column :pointd
+    #     # column :created_at
+    #
+    #
+    #   end
+    #
+    # end
+
+
+
+
+
   end
 
 
@@ -109,6 +139,7 @@ ActiveAdmin.register Product do
     column("名称", :sortable => :id) { |product| link_to "#{product.name} ", admin_product_path(product) }
     column("数量", :amount)
     column("价格", :price)
+    column("会员专享", :member_status)
     column("类别", :category) {|product| link_to "#{product.category.name} ", admin_category_path(product.category)}
     column("种类", :kind)
     column("可否囤货", :is_storage)

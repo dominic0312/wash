@@ -3,10 +3,10 @@ class ProductsController < BaseController
   layout "shop"
   before_filter :extract_shopping_cart
   def index
-    @categories = Category.all
+    @categories = Category.where.not(name: "会员专享")
     @kinds = Kind.all
     @providers = Provider.all
-    @products = Product.all
+    @products = Product.where(:is_member => false)
 
 
     if params[:kind] == "all" || !params[:kind]
@@ -66,6 +66,57 @@ class ProductsController < BaseController
   def show
     @product = Product.find(params[:id])
     @items = Product.limit(5)
+  end
+
+
+  def members
+
+    if !current_user
+      redirect_to new_user_session_path
+    end
+
+    @categories = Category.where.not(name: "会员专享")
+    @kinds = Kind.all
+    @providers = Provider.all
+    @products = Product.where(:is_member => true)
+
+
+    if params[:kind] == "all" || !params[:kind]
+
+    else
+      # category = Category.find(params[:category])
+      @products = @products.where(:kind_id => params[:kind].to_i )
+    end
+
+    if params[:provider] == "all" || !params[:provider]
+
+    else
+      # category = Category.find(params[:category])
+      @products = @products.where(:provider_id => params[:provider].to_i )
+    end
+
+    if params[:category] == "all" || !params[:category]
+
+    else
+      category = Category.find(params[:category])
+      if category
+        @products = @products.where(:category_id => params[:category].to_i )
+        if category.name == "会员专享"
+          if !current_user || current_user.level == "注册用户"
+            @products = []
+          end
+        end
+      end
+
+    end
+
+
+    if current_user.level == "注册用户"
+      render "invalid" and return
+    end
+
+
+
   end
 
 
