@@ -131,8 +131,9 @@ class RegController < Devise::RegistrationsController
       if valid.phonestatus == "verified"
         valid.verify_code = verify_code
         valid.save!
-        # send_sms(params[:phone_num], verify_code)
-        render :js => "alert('验证码为#{verify_code}')"  and return
+        send_sms(params[:phone_num], verify_code)
+        render :js => ""  and return
+        # render :js => "alert('验证码为#{verify_code}')"  and return
 
       else
 
@@ -141,8 +142,15 @@ class RegController < Devise::RegistrationsController
         # render :js => "alert('验证码为#{verify_code}')" and return
       end
     else
+        valid = Verification.new
+        valid.phone = params[:phone_num]
+        valid.verify_code = verify_code
+        valid.save!
+        send_sms(params[:phone_num], verify_code)
+        render :js => ""  and return
+        # render :js => "alert('验证码为#{verify_code}')"  and return
 
-      render :js => "alert('该手机号码没有被注册')" and return
+      # render :js => "alert('该手机号码没有被注册')" and return
     end
   end
 
@@ -179,7 +187,7 @@ class RegController < Devise::RegistrationsController
     end
     verify_code = rand(10 ** 6)
 
-    # send_sms(params[:phone_num], verify_code)
+
     if valid
       if valid.phonestatus == "verified"
         render :js => "alert('该手机号码已经被注册')" and return
@@ -187,17 +195,17 @@ class RegController < Devise::RegistrationsController
         valid.verify_code = verify_code
         valid.save!
         send_sms(params[:phone_num], verify_code)
-        # return
-       render :js => "alert('验证码为#{verify_code}')" and return
+        render :js => "" and return
+       # render :js => "alert('验证码为#{verify_code}')" and return
       end
     else
       valid = Verification.new
       valid.phone = params[:phone_num]
       valid.verify_code = verify_code
       valid.save!
-      # send_sms(params[:phone_num], verify_code)
-      # return
-      render :js => "alert('验证码为#{verify_code}')"  and return
+      send_sms(params[:phone_num], verify_code)
+      render :js => "" and return
+      # render :js => "alert('验证码为#{verify_code}')"  and return
     end
   end
 
