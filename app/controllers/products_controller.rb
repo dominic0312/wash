@@ -72,7 +72,7 @@ class ProductsController < BaseController
   def members
 
     if !current_user
-      redirect_to new_user_session_path
+      redirect_to new_user_session_path and return 
     end
 
     @categories = Category.where.not(name: "会员专享")
@@ -111,7 +111,7 @@ class ProductsController < BaseController
     end
 
 
-    if current_user.level == "注册用户"
+    if !current_user || current_user.level == "注册用户"
       render "invalid" and return
     end
 
