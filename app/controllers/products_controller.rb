@@ -72,21 +72,13 @@ class ProductsController < BaseController
   def members
 
     if !current_user
-      redirect_to new_user_session_path and return 
+      redirect_to new_user_session_path and return
     end
 
-    @categories = Category.where.not(name: "会员专享")
-    @kinds = Kind.all
     @providers = Provider.all
     @products = Product.where(:is_member => true)
 
 
-    if params[:kind] == "all" || !params[:kind]
-
-    else
-      # category = Category.find(params[:category])
-      @products = @products.where(:kind_id => params[:kind].to_i )
-    end
 
     if params[:provider] == "all" || !params[:provider]
 
@@ -95,20 +87,8 @@ class ProductsController < BaseController
       @products = @products.where(:provider_id => params[:provider].to_i )
     end
 
-    if params[:category] == "all" || !params[:category]
+    @provider = params[:provider]
 
-    else
-      category = Category.find(params[:category])
-      if category
-        @products = @products.where(:category_id => params[:category].to_i )
-        if category.name == "会员专享"
-          if !current_user || current_user.level == "注册用户"
-            @products = []
-          end
-        end
-      end
-
-    end
 
 
     if !current_user || current_user.level == "注册用户"
