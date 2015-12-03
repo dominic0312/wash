@@ -146,8 +146,17 @@ class StoreController < BaseController
 
   def addcart
     @product = Product.find(params[:id])
-    price = params[:product][:discounted_value]
-    @storecart.add(@product, price, params[:product][:amount].to_i)
+    # price = params[:product][:discounted_value]
+    price = @product.price
+    # @storecart.add(@product, price, params[:product][:amount].to_i)
+
+
+    if  params[:product][:label_id]
+
+      @storecart.add(@product, price, params[:product][:amount].to_i, attributes: {label: params[:product][:label_id]})
+    else
+      @storecart.add(@product, price, params[:product][:amount].to_i)
+    end
 
       redirect_to  put_store_path(:id => @product.id) and return
   end

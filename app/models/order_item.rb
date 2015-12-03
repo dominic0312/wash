@@ -7,4 +7,12 @@ class OrderItem < ActiveRecord::Base
   def total_value
     self.order_price * self.amount
   end
+
+  def label_cn
+    if self.label
+      self.label
+    else
+      "普通"
+    end
+  end
 end

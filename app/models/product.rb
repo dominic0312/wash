@@ -3,6 +3,8 @@ class Product < ActiveRecord::Base
   belongs_to :kind
   belongs_to :provider
   has_many :order_items, dependent: :destroy
+  has_many :sub_products, dependent: :destroy
+  accepts_nested_attributes_for :sub_products, :allow_destroy => true
   # after_initialize :set_default_category
   has_attached_file :pic, :styles => {:medium => "300x300>", :thumb => "100x100>"}, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :pic, :content_type => /\Aimage\/.*\Z/

@@ -103,6 +103,7 @@ class OrdersController < BaseController
       p = OrderItem.create
       p.product_id = t.item.id
       p.order_price = t.price
+      p.label = t.label
 
 
       p.amount = t.quantity
@@ -123,7 +124,7 @@ class OrdersController < BaseController
 
 
     @cart.clear
-    @notice = "订单已经提交, 请付款"
+    @notice = "购买完成"
 
     render "payment" and return
 
@@ -138,6 +139,7 @@ class OrdersController < BaseController
         p = OrderItem.create
         p.product_id = t.item.id
         p.order_price = 0
+        p.label = t.label
         p.amount = t.quantity
         order.order_items<<p
       end

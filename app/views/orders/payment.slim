@@ -4,7 +4,7 @@
     .error-area#err-flash
 
       - if @notice == "购买完成"
-        |购买成功
+        |订单已经提交, 请前往付款
       - else
         - @notice.each do |n|
           = n.to_s
@@ -24,9 +24,10 @@
         thead
           tr
 
-            th width="50%"  商品信息
+            th width="40%"  商品信息
             th width="10%"  单价
             th width="10%"  种类
+            th width="10%"  规格
             th width="7%"   数量
             th width="13%"  金额
             th width="10%"  操作
@@ -59,6 +60,11 @@
                 span
 
                   = item.item.category.name
+
+              td
+                span
+
+                  = item.label_cn
 
               td
                 .count-op.fl

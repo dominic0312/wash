@@ -2,25 +2,24 @@ class ProductsController < BaseController
 
   layout "shop"
   before_filter :extract_shopping_cart
+
   def index
     @categories = Category.where.not(name: "会员专享")
     @kinds = Kind.all
     @providers = Provider.all
     @products = Product.where(:is_member => false)
 
-
     if params[:kind] == "all" || !params[:kind]
-
     else
       # category = Category.find(params[:category])
-      @products = @products.where(:kind_id => params[:kind].to_i )
+      @products = @products.where(:kind_id => params[:kind].to_i)
     end
 
     if params[:provider] == "all" || !params[:provider]
 
     else
       # category = Category.find(params[:category])
-      @products = @products.where(:provider_id => params[:provider].to_i )
+      @products = @products.where(:provider_id => params[:provider].to_i)
     end
 
     if params[:category] == "all" || !params[:category]
@@ -28,7 +27,7 @@ class ProductsController < BaseController
     else
       category = Category.find(params[:category])
       if category
-        @products = @products.where(:category_id => params[:category].to_i )
+        @products = @products.where(:category_id => params[:category].to_i)
         if category.name == "会员专享"
           if !current_user || current_user.level == "注册用户"
             @products = []
@@ -39,11 +38,10 @@ class ProductsController < BaseController
     end
 
 
-
     @category = params[:category]
     @kind = params[:kind]
     @provider = params[:provider]
- end
+  end
 
   def buy
     @product = Product.find(params[:id])
@@ -54,12 +52,15 @@ class ProductsController < BaseController
       price = @product.price
     end
 
-    @cart.add(@product, price, params[:product][:amount].to_i)
-    if params[:product][:source]
-      redirect_to  put_store_path(:id => @product.id) and return
+    if  params[:product][:label_id]
+
+      @cart.add(@product, price, params[:product][:amount].to_i, attributes: {label: params[:product][:label_id]})
+    else
+      @cart.add(@product, price, params[:product][:amount].to_i)
     end
-
-
+    if params[:product][:source]
+      redirect_to put_store_path(:id => @product.id) and return
+    end
     redirect_to product_path(@product)
   end
 
@@ -79,16 +80,14 @@ class ProductsController < BaseController
     @products = Product.where(:is_member => true)
 
 
-
     if params[:provider] == "all" || !params[:provider]
 
     else
       # category = Category.find(params[:category])
-      @products = @products.where(:provider_id => params[:provider].to_i )
+      @products = @products.where(:provider_id => params[:provider].to_i)
     end
 
     @provider = params[:provider]
-
 
 
     if !current_user || current_user.level == "注册用户"
@@ -96,10 +95,7 @@ class ProductsController < BaseController
     end
 
 
-
   end
-
-
 
 
   # private

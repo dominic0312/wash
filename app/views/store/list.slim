@@ -9,17 +9,19 @@
       a.fr.f-3366cc href="javascript:;"  再买一次
     table cellpadding="10" cellspacing="0" width="100%"
       tr
-        th align="left" bgcolor="#f3f3f3" width="30%"  产品名称
+        th align="left" bgcolor="#f3f3f3" width="35%"  产品名称
+
         th align="center" bgcolor="#f3f3f3" width="10%"  囤货数量
-        th align="center" bgcolor="#f3f3f3" width="14%"  最近进货时间
+        th align="center" bgcolor="#f3f3f3" width="20%"  最近进货时间
         th align="center" bgcolor="#f3f3f3" width="10%"  总库存
         th align="center" bgcolor="#f3f3f3" width="10%"  产品价格
 
-        th align="center" bgcolor="#f3f3f3" width="14%"  囤货总金额
+        th align="center" bgcolor="#f3f3f3" width="15%"  囤货总金额
       - @items.each do |item|
         tr
           td
             = link_to item.product.name, products_path(:id => item.product.id)
+
           td
             = item.amount
 

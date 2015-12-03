@@ -18,8 +18,9 @@
         thead
           tr
 
-            th width="50%"  商品信息
+            th width="40%"  商品信息
             th width="10%"  单价
+            th width="10%"  规格
             th width="10%"  种类
             th width="7%"   数量
             th width="13%"  金额
@@ -27,14 +28,7 @@
         tbody
 
           - @storecart.cart_items.each do |item|
-            - if item.item.category.name == "D类"
-              - member_price = item.item.price *  item.item.category.discount / 100
-              - member_price = item.item.price *  item.item.category.discount * item.item.category.store_discount / 10000
-            - else
-              - if current_user.level == "一级会员"
-                - member_price = item.item.price *  item.item.category.discount / 100
-              - else
-                - member_price = item.item.price
+
             tr
 
               td
@@ -42,12 +36,18 @@
                   = image_tag(item.item.pic.url(:thumb))
                   /img height="80" src="images/goods_info.jpg" width="80" /
                 a.gdsname.fl
-                  = item.item.name
+                  span
+                    = item.item.name
                   /产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称
               td
                 span
-                  = number_with_precision member_price, precision: 2, delimiter: '.'
+                  = number_with_precision item.item.price, precision: 2, delimiter: '.'
                   /= member_price
+              td
+                span
+
+                  = item.label_cn
+
               td
                 span
 
@@ -59,7 +59,7 @@
                   = item.quantity
               td
                 span
-                  = number_with_precision member_price * item.quantity, precision: 2, delimiter: '.'
+                  = number_with_precision item.item.price    * item.quantity, precision: 2, delimiter: '.'
                   /= member_price * item.quantity
               td
                 = link_to "删除", delete_store_cart_path(:cart_item => item)

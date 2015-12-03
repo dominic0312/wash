@@ -99,6 +99,10 @@ ActiveAdmin.register Order do
           link_to "#{item.product.name} ", admin_product_path(item.product)
         end
 
+        column "产品规格" do |item|
+          item.label_cn
+        end
+
         column "产品原价" do |item|
           item.product.price
         end
@@ -270,6 +274,7 @@ ActiveAdmin.register Order do
           p_sent = OrderItem.create
           p_sent.product_id = t.product_id
           p_sent.order_price = t.order_price
+          p_sent.label = t.label
           p_sent.amount = t.amount
           order_sent.order_items<<p_sent
         end

@@ -14,7 +14,8 @@
     table cellpadding="10" cellspacing="0" width="100%"
       tr
         th align="left" bgcolor="#f3f3f3" width="30%"  商品名称
-        th align="center" bgcolor="#f3f3f3" width="20%"  商品数量
+        th align="center" bgcolor="#f3f3f3" width="10%"  数量
+        th align="center" bgcolor="#f3f3f3" width="10%"  规格
         th align="center" bgcolor="#f3f3f3" width="14%"  商品单价
         th align="center" bgcolor="#f3f3f3" width="14%"  商品类别
         th align="center" bgcolor="#f3f3f3" width="35%"  金额小计
@@ -26,6 +27,8 @@
             =link_to item.product.name, product_path(item.product)
           td
             = item.amount
+          td
+            = item.label_cn
 
           td
             = item.order_price

@@ -10,13 +10,15 @@ ActiveAdmin.register Product do
   filter :desc
 
 
-  permit_params :name, :is_member, :amount, :desc, :pic, :price, :kind_id, :category_id, :provider_id, :storage, :pic1, :pic2, :pic3, :pic4, :pic5, :pic6, :pic7
+  permit_params :name, :is_member, :amount, :desc, :pic, :price, :kind_id, :category_id, :provider_id, :storage, :pic1, :pic2, :pic3, :pic4, :pic5, :pic6, :pic7,
+                sub_products_attributes: [:id, :kind, :_destroy]
   form do |f|
     f.inputs "产品详情" do
       f.input :name
       f.input :amount
       f.input :price
       f.input :desc
+
       f.input :is_member
       f.input :storage
 
@@ -30,6 +32,12 @@ ActiveAdmin.register Product do
 
       f.input :provider, :label => '厂商', :as => :select, :collection => Provider.all.map { |u| ["#{u.name}", u.id] },
               :include_blank => false
+      f.has_many :sub_products do |sub|
+        sub.input :kind
+        sub.input :_destroy, :as => :boolean, :label => '删除'
+      end
+
+
       # f.input :description
 
       f.input :pic, :required => false, :as => :file
@@ -45,6 +53,8 @@ ActiveAdmin.register Product do
       # Will preview the image when the object is edited
     end
     f.actions
+
+
   end
 
 
@@ -128,7 +138,26 @@ ActiveAdmin.register Product do
     # end
 
 
+    panel "规格列表" do
 
+      table_for ad.sub_products do
+
+
+        column :kind
+
+        # column "操作" do |child|
+        #   if child.processed
+        #     "无"
+        #   else
+        #     link_to "返点", "/payback/#{user.id}/#{child.anatype}/#{child.year}/#{child.mon}"
+        #   end
+        # end
+
+      end
+
+
+
+    end
 
 
   end

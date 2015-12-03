@@ -38,7 +38,7 @@ gem 'simple_form'
 gem "paperclip", "~> 4.2"
 
 gem "font-awesome-rails"
-gem 'acts_as_shopping_cart', '~> 0.2.1'
+gem 'acts_as_shopping_cart', :github => 'dominic0312/acts_as_shopping_cart', :branch => 'master'
 gem 'china_city'
 gem 'will_paginate', '~> 3.0.6'
 

@@ -155,6 +155,9 @@
       product:
         one: "产品"
         other: "产品"
+      sub_product:
+        one: "规格"
+        other: "规格"
       provider:
         one: "厂商"
         other: "厂商"
@@ -224,7 +227,8 @@
         id: "下线序列号"
         uname: "名称"
         brand_name: "商户名"
-
+      sub_product:
+        kind: "规格名称"
       analyze:
         mon: "月份"
         year: "年份"

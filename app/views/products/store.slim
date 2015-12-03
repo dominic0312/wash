@@ -31,6 +31,15 @@
   .right.fr
     h1.f18
       = @product.name
+    - if @product.sub_products.size > 0
+      .labels
+        - @product.sub_products.each_with_index do |p, index|
+          - if index == 0
+            .label.label-active
+              = p.kind
+          - else
+            .label
+              = p.kind
     .goods-price.m-t-20
 
 
@@ -49,6 +58,8 @@
           span.reduce.fl
             i.heng
           span.fl.count-input
+            - if @product.sub_products.size > 0
+              = hidden_field(:product, :label_id, size: 10, value:@product.sub_products.first.kind)
             = text_field(:product, :amount, size: 10, value:1)
             - if current_user
               = hidden_field(:product, :discounted_value, size: 10, value:store_price)
@@ -140,6 +151,15 @@ javascript:
         $("#product_amount").val(count - 1);
       }
     });
+
+    $(".label").on("click", function () {
+      $(".label").removeClass("label-active");
+      $(this).addClass("label-active");
+      $("#product_label_id").val($(this).html());
+
+    });
+
+
 
     $(".goods-count .add").on("click", function () {
       var count = Number($("#product_amount").val());
