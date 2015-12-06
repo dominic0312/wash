@@ -5,6 +5,6 @@ ActiveAdmin.register Category do
 #
   permit_params  :name, :level, :discount, :store_discount
 
-  menu label: "分类"
+  menu label: "分类", :if =>  proc{ current_admin_user.role == "product" ||  current_admin_user.role == "root" }
 
 end

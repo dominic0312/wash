@@ -40,6 +40,6 @@ ActiveAdmin.register Site do
 #   permitted << :other if resource.something?
 #   permitted
 # end
-  menu label: "账户"
+  menu label: "账户", :if =>  proc{ current_admin_user.role == "root" }
 
 end

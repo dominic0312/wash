@@ -5,7 +5,7 @@ ActiveAdmin.register Provider do
 #
   permit_params  :name
 
-  menu label: "厂商"
+  menu label: "厂商", :if =>  proc{ current_admin_user.role == "product" || current_admin_user.role == "root" }
 
 
 

@@ -9,6 +9,20 @@ class AdminUser < ActiveRecord::Base
     @login = login
   end
 
+  def role_name
+    if self.role == "root"
+      return "管理员"
+    end
+
+    if self.role == "product"
+      return "产品管理"
+    end
+
+    if self.role == "order"
+      return "订单管理"
+    end
+  end
+
   def login
     @login || self.mobile|| self.email
   end

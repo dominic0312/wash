@@ -136,6 +136,13 @@
   activerecord:
     errors:
       models:
+        admin_user:
+          attributes:
+            password:
+              blank: "密码不能为空"
+              too_short: "密码太短"
+            password_confirmation:
+              confirmation: "重复密码不一致"
         user:
           attributes:
             password:
@@ -282,5 +289,10 @@
         current_sign_in_at: "本次登入时间"
         sign_in_count: "登入次数"
         created_at: "创建时间"
+        last_sign_in_at: "上次登入时间"
+        role: "身份"
+        role_name: "身份"
+        password: "密码"
+        password_confirmation: "密码确认"
 
 

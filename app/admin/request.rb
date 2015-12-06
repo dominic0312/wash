@@ -1,5 +1,5 @@
 ActiveAdmin.register_page "Reque" do
-  menu priority: 10, label: proc{ "囤货申请" }
+  menu priority: 10, label: proc{ "囤货申请" }, :if =>  proc{ current_admin_user.role == "product" ||  current_admin_user.role == "root" }
 
   content title: proc{ "囤货审批" } do
     # div class: "blank_slate_container", id: "dashboard_default_message" do

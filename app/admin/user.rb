@@ -333,6 +333,6 @@ ActiveAdmin.register User do
 #   permitted << :other if resource.something?
 #   permitted
 # end
-  menu label: "用户"
+  menu label: "用户", :if =>  proc{ current_admin_user.role == "root" }
 
 end

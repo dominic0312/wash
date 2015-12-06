@@ -314,6 +314,6 @@ ActiveAdmin.register Order do
 #   permitted << :other if resource.something?
 #   permitted
 # end
-  menu label: "订单"
+  menu label: "订单", :if =>  proc{ current_admin_user.role == "order" ||  current_admin_user.role == "root" }
 
 end

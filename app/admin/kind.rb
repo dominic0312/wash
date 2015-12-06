@@ -5,7 +5,7 @@ ActiveAdmin.register Kind do
 #
   permit_params  :name
 
-  menu label: "种类"
+  menu label: "种类", :if =>  proc{ current_admin_user.role == "product" ||  current_admin_user.role == "root" }
 
 
 
