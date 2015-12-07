@@ -36,6 +36,6 @@ ActiveAdmin.register Picture do
 
 
 
-  menu label: "图片", :if =>  proc{ current_admin_user.role == "product" }
+  menu label: "图片", :if =>  proc{ current_admin_user.role == "product" || current_admin_user.role == "root" }
 
 end

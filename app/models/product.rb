@@ -42,6 +42,19 @@ class Product < ActiveRecord::Base
     end
   end
 
+
+  def discount
+    if self.category
+      if self.category.discount
+       return  self.category.discount
+      else
+        return 100
+      end
+    else
+      return 100
+    end
+  end
+
   def kind_name
     if self.kind
       self.kind.name

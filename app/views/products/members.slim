@@ -39,7 +39,7 @@
           span.f-f00.f18
             |会员价:
             span.f14> ¥
-            = number_with_precision p.price * p.category.discount / 100, precision: 2, delimiter: '.'
+            = number_with_precision p.price * p.discount / 100, precision: 2, delimiter: '.'
             br
           - if current_user
             span.f-f00.f18
