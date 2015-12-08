@@ -11,8 +11,8 @@ class ApplicationController < ActionController::Base
   #   session[:shopping_cart_id] = @cart.id
   # end
 
-  # before_action :configure_permitted_parameters, if: :devise_controller?
-  skip_before_filter :verify_authenticity_token
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   # def after_sign_in_path_for(user)
   #   front_path
   # end

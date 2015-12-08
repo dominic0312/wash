@@ -1,7 +1,7 @@
 class UsersController < InheritedResources::Base
   include Cartable
   # before_filter :extract_shopping_cart
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :notice
 
   layout "shop"
   def profile
