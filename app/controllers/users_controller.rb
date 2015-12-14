@@ -33,8 +33,7 @@ class UsersController < InheritedResources::Base
 
 
   def send_sms(mobile, password)
-    message = "您已经被家家商城邀请为会员，您的登录手机号是#{mobile}, 初始密码是#{password},
-    请登录 www.jiajiaxishangcheng.com 来购物.【家家商城】"
+    message = "尊敬的会员您好，您的账户已经开通成功，用户名为手机号，初始密码为#{password}，请及时登录修改密码【家家商城】"
     uri = URI('https://sms-api.luosimao.com/v1/send.json')
     Net::HTTP.start(uri.host, uri.port,
                     :use_ssl => uri.scheme == 'https',
