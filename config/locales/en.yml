@@ -219,6 +219,7 @@
         updated_at: "支付时间"
         user_id: 用户
         user: 用户
+        chr_type: 充值类型
       site:
         account1: 银行账户
         alipay: 支付宝
@@ -284,6 +285,8 @@
         storage: "是否囤货"
         processed: "处理状况"
         shipment: "运费"
+        sn: "订单号"
+        paid: 支付情况
       provider:
         name: "名称"
         created_at: "创建时间"

@@ -6,6 +6,8 @@ ActiveAdmin.register Order do
 
   actions :index, :show, :edit, :destroy, :update
   filter :storage
+  filter :sn
+  filter :paid
   filter :processed, :default => false
 
   # before_filter :only => [:index] do
@@ -48,8 +50,12 @@ ActiveAdmin.register Order do
         ad.is_storage
       end
 
-      row "囤货方式" do
+      row "发送方式" do
         ad.storage_method
+      end
+
+      row "付款情况" do
+        ad.paid_status
       end
 
       row "是否处理" do
@@ -167,8 +173,10 @@ ActiveAdmin.register Order do
     selectable_column
     column("订单号") { |order| order.sn }
     column("客户", :sortable => :id) { |order| link_to "#{order.user.mobile} ", admin_user_path(order.user) }
-    column("下单时间") { |order| order.created_at }
+    column("下单时间") { |order| order.created_at.strftime("%Y-%m-%d %H:%M:%S" ) }
     column("是否囤货") { |order| order.is_storage }
+    column("发送方式") { |order| order.storage_method}
+    column("支付状况") { |order| order.paid_status}
     column("处理状况") { |order| order.is_processed }
     column("查看详情") { |order| link_to "查看", admin_order_path(order) }
   end

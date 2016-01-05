@@ -26,6 +26,11 @@ ActiveAdmin.register Charge do
 
       end
 
+      row "类型" do
+        ad.chr_type
+
+      end
+
 
       row "客户姓名" do
         ad.user.uname
@@ -41,20 +46,29 @@ ActiveAdmin.register Charge do
 
       end
 
+      row "相关订单" do
+        if ad.chr_type == "购物"
+          link_to "#{ad.order.sn}", "/admin/orders/#{ad.order.id}"
+        else
+          "无相关订单"
+        end
+
+      end
+
     end
 
 
 
-      # row :amount
-      # row :price
-      # row :category, ad.category.name
-      # row :desc
-      # row :is_storage
-      # row :pic do
-      #   image_tag(ad.pic.url(:thumb))
-      # end
-      # Will display the image on show object page
-    end
+    # row :amount
+    # row :price
+    # row :category, ad.category.name
+    # row :desc
+    # row :is_storage
+    # row :pic do
+    #   image_tag(ad.pic.url(:thumb))
+    # end
+    # Will display the image on show object page
+  end
 
 
 end

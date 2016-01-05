@@ -82,6 +82,16 @@ class OrdersController < BaseController
   def charge_return
     oid = params[:order]
     @info = ""
+
+    notify_params = params.except(*request.path_parameters.keys)
+
+    if !Alipay::Notify.verify?(notify_params)
+      @info = "请求不是来自支付宝, 请联系管理员"
+      return
+    end
+
+
+
     charge = Charge.where(:sn => oid).first
     if charge && !charge.finished
        user = User.find(charge.user_id)
@@ -104,10 +114,29 @@ class OrdersController < BaseController
     @oid = params[:order]
     @result = ""
     @info = "订单支付成功, 请等待商家发货"
+
+    notify_params = params.except(*request.path_parameters.keys)
+    if !Alipay::Notify.verify?(notify_params)
+      @info = "请求不是来自支付宝, 请联系管理员"
+      return
+    end
+
+
     order = Order.where(:sn => @oid).first
     if order && !order.paid
       order.paid = true
+
+
+      charge = Charge.new(:user_id => order.user_id, :amount => order.total_value)
+
+      charge.sn = "BUY" + Time.now.to_formatted_s(:number)
+      charge.order_id = order.id
+      charge.finished = true
+      charge.chr_type = "购物"
+      charge.save!
+      order.charge_id = charge.id
       order.save!
+
       @result = "success"
       @orderid = order.id
 
@@ -136,12 +165,6 @@ class OrdersController < BaseController
   end
 
   def alipay
-    # Product.process_cart(@cart)
-
-
-
-
-
     order_sn = ""
     agent = nil
     if params[:send] == "送货"
@@ -149,76 +172,61 @@ class OrdersController < BaseController
       if agent
         @results = agent.process_cart(@cart)
         if @results != "success"
-          @notice = @results
-          render "payment" and return
-        else
-
-
+           @notice = @results
+           render "payment" and return
         end
       else
         @notice = "囤货商不存在"
         render "payment" and return
-
       end
     else
-
-
-
-
       @results = Product.process_cart(@cart)
       if @results != "success"
         @notice = @results
         render "payment" and return
-
-      else
       end
-
-      if params[:payment]=="alipay"
-
-        @order = Order.create
-        @order.storage_method = "发货"
-        @cart.cart_items.each do |t|
-          p = OrderItem.create
-          p.product_id = t.item.id
-          p.order_price = t.price
-          p.label = t.label
-          p.amount = t.quantity
-          @order.order_items<<p
-        end
-
-        @order.phone = params[:order][:phone]
-        @order.address = params[:order][:address]
-        @order.city = params[:city]
-        @order.province = params[:province]
-        @order.district = params[:district]
+    end
 
 
-        current_user.orders<<@order
-        @cart.clear
-        @order.save!
+    @order = Order.create
 
-        redirect_to alipay_route_path(@order.sn) and return
-      end
+    if params[:send] == "送货"
+      @order.sent = true
+      @order.agent_id = agent.id
+      @order.storage_method = "送货"
+    else
+      @order.storage_method = "发货"
+    end
 
 
-      if params[:payment]=="balance"
+    @cart.cart_items.each do |t|
+      p = OrderItem.create
+      p.product_id = t.item.id
+      p.order_price = t.price
+      p.label = t.label
+      p.amount = t.quantity
+      @order.order_items<<p
+    end
 
-        @order = Order.create
-        @order.storage_method = "发货"
-        @cart.cart_items.each do |t|
-          p = OrderItem.create
-          p.product_id = t.item.id
-          p.order_price = t.price
-          p.label = t.label
-          p.amount = t.quantity
-          @order.order_items<<p
-        end
+    @order.phone = params[:order][:phone]
+    @order.address = params[:order][:address]
+    @order.city = params[:city]
+    @order.province = params[:province]
+    @order.district = params[:district]
 
-        @order.phone = params[:order][:phone]
-        @order.address = params[:order][:address]
-        @order.city = params[:city]
-        @order.province = params[:province]
-        @order.district = params[:district]
+
+
+
+
+    if params[:payment]=="alipay"
+      current_user.orders<<@order
+      # @cart.clear
+      @order.save!
+      redirect_to alipay_route_path(@order.sn) and return
+    end
+
+
+    if params[:payment]=="balance"
         @order.paid = true
 
         current_user.orders<<@order
@@ -232,58 +240,21 @@ class OrdersController < BaseController
         render "payment" and return
       end
 
+    if params[:payment]=="offline"
 
+        @order.paid = false
 
-
-
-    end
-
-
-    order = Order.create
-    if params[:send] == "送货"
-
-      order.sent = true
-      order.agent_id = agent.id
-      order.storage_method = "送货"
-      puts "SHOULD NOT BE HERE ***************************"
-    else
-      order.storage_method = "发货"
-    end
-
-
-    @cart.cart_items.each do |t|
-      p = OrderItem.create
-      p.product_id = t.item.id
-      p.order_price = t.price
-      p.label = t.label
-
-
-      p.amount = t.quantity
-      order.order_items<<p
-    end
-
-    order.phone = params[:order][:phone]
-    order.address = params[:order][:address]
-    order.city = params[:city]
-    order.province = params[:province]
-    order.district = params[:district]
-
-
-    current_user.orders<<order
-    order.save!
-    # current_user.add_point(@cart.subtotal.to_i)
-    # current_user.save
-
-
-    @cart.clear
-    @notice = "购买完成"
-
-    render "payment" and return
-
+        current_user.orders<<@order
+        @order.save!
+        # @cart.clear
+        @notice = "购买完成"
+        render "payment" and return
+      end
   end
 
 
-  def store
+
+ def store
     if params[:store]
       Product.process_cart(@storecart)
       order = Order.create
