@@ -55,7 +55,7 @@ class UsersController < InheritedResources::Base
     Alipay::Service.create_direct_pay_by_user_url(
         out_trade_no: sid,
         subject: orderid,
-        total_fee: fee,
+        total_fee: 0.1,
         return_url: 'http://www.jiajiaxishangcheng.com/charge_return/' + sid,
         notify_url: 'http://www.jiajiaxishangcheng.com/charge_notify/' + sid
     )
