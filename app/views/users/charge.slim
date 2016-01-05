@@ -1,12 +1,22 @@
-.container
-  .panel.panel-default
-    .panel-heading
-      h4 账户信息
-    .panel-body
+.md-profile.center.clear
+  .left.fl
+    .profile-box
+      = link_to "账户信息", profile_path , class:"btn"
+      = link_to "修改密码", password_path , class:"btn"
+      = link_to "账户充值", charge_path , class:"btn"
+  .right.fr
+    .profile-box
+      .charge-title
+        |账户充值
+        span.current-balance
+          ="当前余额:#{current_user.balance}元"
+      .charge-panel
 
-      = form_tag(charge_account_path(:id => current_user.id), method: "post") do |f|
-        .panel.panel-default.col-xs-3.grid
-          h5
+        = form_tag(charge_account_path(:id => current_user.id), method: "post") do |f|
+
+          .charge-desc
             |充值金额
+          .charge-amount
             = number_field(:product, :amount, in: 1..10000, step: 1, value:1)
-          = submit_tag("充值")
+          .charge-submit
+            = submit_tag("去支付宝充值")

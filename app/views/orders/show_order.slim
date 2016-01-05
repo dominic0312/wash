@@ -1,0 +1,107 @@
+.md-cart.center.m-t-30.clear
+  .order-confirm
+    | 订单已经生成，请确认订单信息, 然后前往支付宝付款
+  table.f12 cellpadding="0" cellspacing="0" width="100%"
+    thead
+      tr
+
+        th width="40%"  商品信息
+        th width="10%"  单价
+        th width="10%"  种类
+        th width="10%"  规格
+        th width="7%"   数量
+        th width="13%"  金额
+
+    tbody
+
+      - @order.order_items.each do |item|
+
+        tr
+
+          td
+            a.fl href="#{product_path(item.product)}" target="_blank"
+              = image_tag(item.product.pic.url(:thumb))
+            /img height="80" src="images/goods_info.jpg" width="80" /
+            a.gdsname.fl
+              = item.product.name
+          /产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称
+          td
+            span
+              /= number_with_precision member_price, precision: 2, delimiter: '.'
+              = item.order_price
+          /= member_price
+          td
+            span
+
+              = item.product.category.name
+
+          td
+            span
+
+              = item.label_cn
+
+          td
+            .count-op.fl
+              .tips.dn
+              = item.amount
+          td
+            span
+              = number_with_precision item.order_price * item.amount, precision: 2
+              =
+
+
+
+
+  .reg-form
+
+
+
+  .p12.address-group
+
+    .alipay-group
+      .payment-title
+        |订单金额
+      .payment-value
+        = @order.total_value
+        |元
+    .alipay-group
+      .payment-title
+        |送货地区
+
+      .city-info
+        span.city-area
+          =  ChinaCity.get(@order.province)
+
+        span.city-area
+          = ChinaCity.get(@order.city)
+
+        span.city-area
+          = ChinaCity.get(@order.district)
+
+
+    .alipay-group
+      .payment-title
+        |详细地址
+      .payment-content
+        = @order.address
+      .err-info
+
+    .alipay-group
+      .payment-title
+        |联系电话
+      .payment-content
+        = @order.phone
+      .err-info
+
+
+
+
+
+
+
+
+
+
+  = link_to "前往支付宝付款", @url, class:"sm-btn alipaybtn", name:"alipay", id:"apply", value:"申请送货", target:"_blank"
+
+

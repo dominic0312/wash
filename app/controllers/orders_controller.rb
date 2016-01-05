@@ -8,11 +8,13 @@ class OrdersController < BaseController
     # @orders = current_user.orders.normal.order("created_at desc").paginate(:page => params[:page], :per_page => 10)
     if params[:status]
       @status = params[:status]
-    else @status = "unprocessed"
+    else @status = "unpaid"
     end
 
-    if @status == "unprocessed"
-      @orders = current_user.orders.normal.unprocessed.order("created_at desc").paginate(:page => params[:page], :per_page => 10)
+    if @status == "unpaid"
+      @orders = current_user.orders.normal.unpaid.order("created_at desc").paginate(:page => params[:page], :per_page => 10)
+    elsif @status == "paid"
+      @orders = current_user.orders.normal.paid.order("created_at desc").paginate(:page => params[:page], :per_page => 10)
     else
       @orders = current_user.orders.normal.history.order("created_at desc").paginate(:page => params[:page], :per_page => 10)
     end
@@ -55,8 +57,90 @@ class OrdersController < BaseController
   #   render "payment"
   # end
 
+  def go_alipay(sid, orderid, fee)
+
+    Alipay::Service.create_direct_pay_by_user_url(
+        out_trade_no: sid,
+        subject: orderid,
+        total_fee: 0.1,
+        return_url: 'http://www.jiajiaxishangcheng.com/alipay_return/' + sid,
+        notify_url: 'http://www.jiajiaxishangcheng.com/alipay_notify/' + sid
+    )
+
+  end
+
+
+  def charge_notify
+    render plain: "success"
+  end
+
+  def alipay_notify
+    render plain: "success"
+  end
+
+
+  def charge_return
+    oid = params[:order]
+    @info = ""
+    charge = Charge.where(:sn => oid).first
+    if charge && !charge.finished
+       user = User.find(charge.user_id)
+       if user
+         user.balance += charge.amount
+         user.save!
+         charge.finished = true
+         charge.save!
+         @info = "充值成功, 充值金额为#{charge.amount}"
+       else
+         @info = "充值失败, 请咨询管理员"
+       end
+    else
+      @info = "充值失败, 请咨询管理员"
+    end
+  end
+
+  def alipay_return
+
+    @oid = params[:order]
+    @result = ""
+    @info = "订单支付成功, 请等待商家发货"
+    order = Order.where(:sn => @oid).first
+    if order && !order.paid
+      order.paid = true
+      order.save!
+      @result = "success"
+      @orderid = order.id
+
+    else
+      @info = "购买失败, 请咨询管理员"
+      @result = "failed"
+    end
+
+  end
+
+
+  def alipay_route
+
+  end
+
+
+
+  def show_order
+    @order = Order.where(:sn => params[:order]).first
+
+    if !@order | @order.is_processed == "已处理"
+      redirect_to error_path and return
+    end
+
+    @url = go_alipay(@order.sn, "家家商城订单" + @order.sn, @order.total_value)
+  end
+
   def alipay
     # Product.process_cart(@cart)
+
+
+
+
 
     order_sn = ""
     agent = nil
@@ -77,6 +161,10 @@ class OrdersController < BaseController
 
       end
     else
+
+
+
+
       @results = Product.process_cart(@cart)
       if @results != "success"
         @notice = @results
@@ -84,6 +172,70 @@ class OrdersController < BaseController
 
       else
       end
+
+      if params[:payment]=="alipay"
+
+        @order = Order.create
+        @order.storage_method = "发货"
+        @cart.cart_items.each do |t|
+          p = OrderItem.create
+          p.product_id = t.item.id
+          p.order_price = t.price
+          p.label = t.label
+          p.amount = t.quantity
+          @order.order_items<<p
+        end
+
+        @order.phone = params[:order][:phone]
+        @order.address = params[:order][:address]
+        @order.city = params[:city]
+        @order.province = params[:province]
+        @order.district = params[:district]
+
+
+        current_user.orders<<@order
+        @cart.clear
+        @order.save!
+
+        redirect_to alipay_route_path(@order.sn) and return
+      end
+
+
+      if params[:payment]=="balance"
+
+        @order = Order.create
+        @order.storage_method = "发货"
+        @cart.cart_items.each do |t|
+          p = OrderItem.create
+          p.product_id = t.item.id
+          p.order_price = t.price
+          p.label = t.label
+          p.amount = t.quantity
+          @order.order_items<<p
+        end
+
+        @order.phone = params[:order][:phone]
+        @order.address = params[:order][:address]
+        @order.city = params[:city]
+        @order.province = params[:province]
+        @order.district = params[:district]
+        @order.paid = true
+
+        current_user.orders<<@order
+        current_user.balance -= @cart.total.to_i
+        current_user.save!
+
+        @order.save!
+        @cart.clear
+        @notice = "支付完成"
+
+        render "payment" and return
+      end
+
+
+
+
+
     end
 
 

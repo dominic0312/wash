@@ -5,6 +5,8 @@
 
       - if @notice == "购买完成"
         |订单已经提交, 请前往付款
+      - elsif @notice == "支付完成"
+        |订单已经完成支付, 请等待商家发货
       - else
         - @notice.each do |n|
           = n.to_s
@@ -118,6 +120,47 @@
             .detail-info
               = text_field(:order, :phone, size: 20)
             .err-info
+          .payment-group
+            .payment-title
+              |订单金额
+            .payment-value
+              = @cart.total
+              |元
+          .payment-group
+            .payment-title
+              |支付方式
+            .payment-methods
+              .payment-info
+                input type='radio' name='payment' value="alipay" checked='checked'
+                span.payment-name
+                  |支付宝支付
+              .payment-info
+                - if current_user.balance.to_f < @cart.total.to_f
+                  input type='radio' name='payment' value="balance" disabled="true"
+                  span.payment-name
+                    |余额支付
+                    span.payment-name
+                      |账户余额:
+                      span.balance
+                        = "#{current_user.balance}元"
+                  .payment-charge
+                    |余额不足,
+                    = link_to "前往充值", charge_path, :target => "_blank"
+
+                - else
+                  input type='radio' name='payment' value="balance"
+                  span.payment-name
+                    |余额支付
+                  span.payment-name
+                    |账户余额:
+                    span.balance
+                      = "#{current_user.balance}元"
+
+              .payment-info
+                input type='radio' name='payment' value="offline"
+                span.payment-name
+                  |线下支付
+              .err-info
 
 
 

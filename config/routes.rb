@@ -32,11 +32,18 @@ Rails.application.routes.draw do
   post 'charge_account' => "users#charge_account"
   # Example of regular route:
   get 'profile' => 'users#profile'
+  get 'error' => 'products#error'
   get 'password' => 'users#password'
   post 'change_pass' => 'users#change_pass'
   get 'products' => 'products#index'
   get 'orders' => 'orders#index'
   get 'news' => 'news#index'
+  get 'alipay_route/:order' => 'orders#show_order', :as => "alipay_route"
+  get 'charge_return/:order' => 'orders#charge_return', :as => "charge_return"
+  get 'charge_notify/:order' => 'orders#charge_notify', :as => "charge_notify"
+  get 'alipay_return/:order' => 'orders#alipay_return', :as => "alipay_return"
+  get 'alipay_notify/:order' => 'orders#alipay_notify', :as => "alipay_notify"
+
 
   get 'process_order/:id' => 'admin/orders#finish'
   get 'payback/:uid/:anatype/:year/:mon' => 'admin/users#payback'

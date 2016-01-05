@@ -50,10 +50,26 @@ class UsersController < InheritedResources::Base
     end
   end
 
+  def go_alipay(sid, orderid, fee)
+
+    Alipay::Service.create_direct_pay_by_user_url(
+        out_trade_no: sid,
+        subject: orderid,
+        total_fee: fee,
+        return_url: 'http://www.jiajiaxishangcheng.com/charge_return/' + sid,
+        notify_url: 'http://www.jiajiaxishangcheng.com/charge_notify/' + sid
+    )
+
+  end
 
   def charge_account
 
-    redirect_to profile_path
+    charge = Charge.new(:user_id => current_user.id, :amount => params[:product][:amount].to_i)
+
+    charge.sn = "CHR" + Time.now.to_formatted_s(:number)
+    charge.save!
+    url = go_alipay(charge.sn, "充值订单"+charge.sn, charge.amount.to_f)
+    redirect_to url and return
   end
 
 

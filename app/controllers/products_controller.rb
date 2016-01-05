@@ -3,6 +3,11 @@ class ProductsController < BaseController
   layout "shop"
   before_filter :extract_shopping_cart
 
+  def error
+
+  end
+
+
   def index
     @categories = Category.where.not(name: "会员专享")
     @kinds = Kind.all

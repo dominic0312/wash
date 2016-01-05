@@ -4,12 +4,19 @@
     .store-title.store-no
 
 
-      div class=(@status == "unprocessed" ?  'orders-active' : 'orders')
+      div class=(@status == "unpaid" ?  'orders-active' : 'orders')
 
 
         = link_to orders_path , class:'no-underline'
 
           |待付款订单&nbsp;&nbsp;
+
+      div class=(@status == "paid" ?  'orders-active orders-history' : 'orders orders-history')
+
+
+        = link_to orders_path(:status => 'paid') , class:'no-underline'
+
+          |待发货订单&nbsp;&nbsp;
 
       div class=(@status == "history" ?  'orders-active orders-history' : 'orders orders-history')
 
@@ -28,14 +35,16 @@
       a.fr.f-3366cc href="javascript:;"  再买一次
     table cellpadding="10" cellspacing="0" width="100%"
       tr
-        th align="left" bgcolor="#f3f3f3" width="20%"  订单编号
+        th align="left" bgcolor="#f3f3f3" width="15%"  订单编号
         th align="center" bgcolor="#f3f3f3" width="10%"  订单商品
-        th align="center" bgcolor="#f3f3f3" width="10%"  渠道
+        th align="center" bgcolor="#f3f3f3" width="8%"  渠道
+        th align="center" bgcolor="#f3f3f3" width="10%"  付款状态
+
         th align="center" bgcolor="#f3f3f3" width="10%"  订单状态
         th align="center" bgcolor="#f3f3f3" width="15%"  创建时间
 
         th align="center" bgcolor="#f3f3f3" width="10%"  订单金额
-        th align="center" bgcolor="#f3f3f3" width="10%"  运费
+        th align="center" bgcolor="#f3f3f3" width="7%"  运费
       - @orders.each do |order|
         tr
           td
@@ -46,6 +55,8 @@
 
           td
             = order.send_type
+          td
+            = order.paid_status
           td
             = order.is_processed
           td

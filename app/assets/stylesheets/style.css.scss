@@ -638,3 +638,132 @@ cursor:pointer}
   color:white;background-color:#ff7300;
 
 }
+
+.payment-methods{
+//  margin-top:8px;
+
+  margin-left:35px;
+  display: inline-block;
+  vertical-align:top;
+}
+
+.payment-title{
+
+  vertical-align:top;
+  display: inline-block;
+}
+
+.payment-info{
+
+  width:190px;
+  margin-bottom:10px;
+}
+
+.payment-name{
+  margin-left:5px;
+
+}
+
+.payment-group{
+ margin-bottom:14px;
+
+}
+
+
+.alipay-group{
+
+  margin-bottom: 15px;
+  font-size: 18px;
+
+}
+
+.payment-value{
+  display: inline-block;
+  margin-left:35px;
+  color: red;
+}
+
+.balance{
+  margin-left:4px;
+  color:red;
+}
+
+.payment-charge{
+  margin-left:17px;
+  margin-top:5px;
+}
+
+.order-confirm
+{
+  padding-left:250px;
+  margin-bottom:30px;
+  font-size: 20px;
+  color:red;
+}
+
+
+.city-area{
+  margin-right:5px;
+
+}
+
+.city-info{
+  display: inline-block;
+  margin-left:35px;
+}
+
+.payment-content{
+  display: inline-block;
+  margin-left:35px;
+}
+
+
+.alipaybtn{
+  display:block;
+  background-color: orange;
+}
+
+.charge-panel{
+  margin-top:10px;
+  border:1px solid #eee;
+
+}
+
+.charge-desc{
+  margin-top:15px;
+  margin-left:10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.charge-amount{
+  margin-top:10px;
+  margin-left:10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.charge-submit{
+  height:50px;
+  margin-left:85px;
+}
+
+.charge-submit input{
+  height:30px;
+}
+
+
+.current-balance{
+  color:red;
+  font-size: 14px;
+  margin-left:5px;
+}
+
+.red-info{
+  font-size:22px;
+  color:red;
+}
+
+.order_link{
+  font-size:17px;
+}

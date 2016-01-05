@@ -47,7 +47,7 @@ gem 'will_paginate', '~> 3.0.6'
 
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'jekyll', '2.5.3'
-
+gem 'alipay', '~> 0.11.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -165,6 +165,9 @@
       sub_product:
         one: "规格"
         other: "规格"
+      charge:
+        one: "充值记录"
+        other: "充值记录"
       provider:
         one: "厂商"
         other: "厂商"
@@ -207,6 +210,15 @@
         pic: "上传图片"
         id: "编号"
         full_url: "地址"
+      charge:
+        id: "序号"
+        sn: "流水号"
+        amount: "金额"
+        finished: "是否完成"
+        created_at: "申请时间"
+        updated_at: "支付时间"
+        user_id: 用户
+        user: 用户
       site:
         account1: 银行账户
         alipay: 支付宝

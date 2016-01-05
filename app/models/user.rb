@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   attr_accessor :login, :promotion_address, :promotion
 
   has_many :orders, dependent: :destroy
+  has_many :charges, dependent: :destroy
   has_many :analyzes, dependent: :destroy
   has_many :coupons, dependent: :destroy
   has_many :order_items

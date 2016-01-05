@@ -4,6 +4,8 @@ class Order < ActiveRecord::Base
  scope :recent, ->(size) { limit(size).order(created_at: :desc)}
  scope :stored, -> { where(storage: true) }
  scope :unprocessed, -> { where(processed: false) }
+ scope :unpaid, -> { where(paid: false) }
+ scope :paid, -> { where(paid: true, processed: false) }
  scope :history, -> { where(processed: true) }
  scope :normal, -> { where(storage: false) }
  scope :sent, -> { where(sent:true, agent_id: nil) }
@@ -23,6 +25,10 @@ class Order < ActiveRecord::Base
 
  def send_type
    self.sent ? "送货" : "发货"
+ end
+
+ def paid_status
+   self.paid ? "已付款" : "未付款"
  end
 
  def ship_fee
