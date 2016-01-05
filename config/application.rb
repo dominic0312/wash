@@ -23,5 +23,8 @@ module Wash
     # config.assets.paths << Rails.root.join("app", "assets", "fonts")
     # config.assets.paths << "#{Rails.root}/app/assets/fonts"
     config.i18n.default_locale = 'zh-CN'
+
+    config.time_zone = 'Beijing'
+    config.active_record.default_timezone = :local
   end
 end

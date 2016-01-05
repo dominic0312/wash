@@ -62,7 +62,7 @@ class OrdersController < BaseController
     Alipay::Service.create_direct_pay_by_user_url(
         out_trade_no: sid,
         subject: orderid,
-        total_fee: 0.1,
+        total_fee: fee,
         return_url: 'http://www.jiajiaxishangcheng.com/alipay_return/' + sid,
         notify_url: 'http://www.jiajiaxishangcheng.com/alipay_notify/' + sid
     )
@@ -220,7 +220,7 @@ class OrdersController < BaseController
 
     if params[:payment]=="alipay"
       current_user.orders<<@order
-      # @cart.clear
+      @cart.clear
       @order.save!
       redirect_to alipay_route_path(@order.sn) and return
     end
