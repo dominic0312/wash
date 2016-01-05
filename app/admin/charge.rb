@@ -14,6 +14,13 @@ ActiveAdmin.register Charge do
 # end
   actions :index, :show
 
+  filter :sn
+  filter :finished
+  filter :created_at
+  filter :updated_at
+  filter :chr_type
+  filter :amount
+
   show do |ad|
     attributes_table do
 
@@ -70,5 +77,5 @@ ActiveAdmin.register Charge do
     # Will display the image on show object page
   end
 
-
+  menu label: "充值记录", :if =>  proc{ current_admin_user.role == "order" ||  current_admin_user.role == "root" }
 end
