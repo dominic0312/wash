@@ -9,33 +9,61 @@ html
     .md-header
       .center
         span.logos.fl
-          = image_tag ("jjx.png")
+          a href= root_path
+            = image_tag ("jjx.png")
         ul.nav.fr
           li
             a href="/products" target="_blank"
               span.f16 进入商城
               br
               span.f12.f-999 HOME PAGE
+
+
             li
-              a href="#"
-                span.f16 品牌优势
-                br/
-                span.f12.f-999 ADVANTAGE
+              a href="/advice"
+                - if controller.controller_name == "front" && controller.action_name == "advice"
+                  span.f16.selected 招商公告
+                  br
+                  span.f12.selected AGENTS
+                - else
+                  span.f16 招商公告
+                  br
+                  span.f12.f-999 AGENTS
+
+
             li
-              a href="#"
-                span.f16 权益保障
-                br/
-                span.f12.f-999 RIGHTS
+              a href="/brand"
+                - if controller.controller_name == "front" && controller.action_name == "brand"
+                  span.f16.selected 品牌优势
+                  br
+                  span.f12.selected BRANDING
+                - else
+                  span.f16 品牌优势
+                  br
+                  span.f12.f-999 BRANDING
+
+
+
             li
-              a href="#"
-                span.f16 招商联盟
-                br/
-                span.f12.f-999 AGENTS
+              a href="/benefit"
+                - if controller.controller_name == "front" && controller.action_name == "benefit"
+                  span.f16.selected 权益保障
+                  br
+                  span.f12.selected RIGHTS
+                - else
+                  span.f16 权益保障
+                  br
+                  span.f12.f-999 RIGHTS
             li
-              a href="#"
-                span.f16 联系我们
-                br/
-                span.f12.f-999 CONTACT
+              a href="/member"
+                - if controller.controller_name == "front" && controller.action_name == "members"
+                  span.f16.selected 会员解析
+                  br
+                  span.f12.selected MEMBER
+                - else
+                  span.f16 会员解析
+                  br
+                  span.f12.f-999 MEMBER
 
 
     = yield

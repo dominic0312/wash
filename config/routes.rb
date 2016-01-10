@@ -27,6 +27,10 @@ Rails.application.routes.draw do
   # root 'front#index'
   root 'front#index'
   get 'front' => "front#index"
+  get 'advice' => "front#advice"
+  get 'brand' => "front#brand"
+  get 'benefit' => "front#benefit"
+  get 'member' => "front#member"
   get 'logout' => "login#destroy"
   get 'charge' => "users#charge"
   post 'charge_account' => "users#charge_account"

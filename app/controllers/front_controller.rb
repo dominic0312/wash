@@ -6,6 +6,24 @@ class FrontController < ApplicationController
   end
 
 
+  def advice
+
+  end
+
+
+  def  brand
+
+  end
+
+  def benefit
+
+  end
+
+  def member
+
+  end
+
+
 end
 
 
