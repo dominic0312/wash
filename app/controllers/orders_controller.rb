@@ -285,7 +285,7 @@ class OrdersController < BaseController
 
     if params[:payment]=="alipay"
       current_user.orders<<@order
-      # @cart.clear
+      @cart.clear
       @order.save!
       redirect_to alipay_route_path(@order.sn) and return
     end
@@ -295,7 +295,7 @@ class OrdersController < BaseController
 
 
         @order.save!
-        # @cart.clear
+        @cart.clear
         @notice = "支付完成"
 
         redirect_to balance_route_path(@order.sn) and return
@@ -309,7 +309,7 @@ class OrdersController < BaseController
 
         current_user.orders<<@order
         @order.save!
-        # @cart.clear
+        @cart.clear
         # @notice = "购买完成"
         redirect_to offline_route_path(@order.sn) and return
       end
