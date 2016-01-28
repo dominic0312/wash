@@ -11,6 +11,9 @@ class Analyze < ActiveRecord::Base
   def returna
     if is_member
       pointa = self.pointa - 200
+      if pointa < 0
+        return 0 
+      end
       if pointa < 1000
         return (pointa * 0.2).to_i
       elsif pointa > 1000 && pointa < 2000

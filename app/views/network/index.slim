@@ -31,10 +31,14 @@
         th
           |初始密码
         th
-          |A类点数
-
+          |A类积分
         th
-          |最后登录
+          |B类积分
+        th
+          |C类积分
+
+
+
 
         - @children.each do |t|
          tr
@@ -48,13 +52,13 @@
              = t.pass
 
            td
-             = t.point
-
+             = t.pointa
            td
-             - if t.last_sign_in_at
-               = t.last_sign_in_at.strftime("%Y-%m-%d %H:%M:%S" )
-             - else
-               |无登陆记录
+             = t.pointb
+           td
+             = t.pointc
+
+
 
       hr
       - if @notice
