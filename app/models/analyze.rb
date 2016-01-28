@@ -12,7 +12,7 @@ class Analyze < ActiveRecord::Base
     if is_member
       pointa = self.pointa - 200
       if pointa < 0
-        return 0 
+        return 0
       end
       if pointa < 1000
         return (pointa * 0.2).to_i

@@ -1,0 +1,23 @@
+.goods-list.center.m-t-30.clear
+
+
+
+
+  .goods-list.center.m-t-30.clear
+
+    .empty-list
+      .empty-prompt.red-info
+        =@info
+        br
+        br
+        - if @result =="success"
+          .order_link
+            = link_to "前往查看已经支付的订单", "/orders/#{@orderid}"
+
+
+
+
+
+
+
+

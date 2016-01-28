@@ -36,14 +36,7 @@
         tbody
 
           - @cart.cart_items.each do |item|
-            - if item.item.category.name == "D类"
-              - member_price = item.item.price *  item.item.category.discount / 100
-              - member_price = item.item.price *  item.item.category.discount * item.item.category.store_discount / 10000
-            - else
-              - if current_user.level == "一级会员"
-                - member_price = item.item.price *  item.item.category.discount / 100
-              - else
-                - member_price = item.item.price
+
             tr
 
               td
@@ -126,6 +119,10 @@
             .payment-value
               = @cart.total
               |元
+
+
+
+
           .payment-group
             .payment-title
               |支付方式

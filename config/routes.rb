@@ -43,6 +43,9 @@ Rails.application.routes.draw do
   get 'orders' => 'orders#index'
   get 'news' => 'news#index'
   get 'alipay_route/:order' => 'orders#show_order', :as => "alipay_route"
+  get 'balance_route/:order' => 'orders#balance_order', :as => "balance_route"
+  get 'offline_route/:order' => 'orders#offline_order', :as => "offline_route"
+  get 'balance_pay/:order' => 'orders#balance_pay', :as => "balance_pay"
   get 'charge_return/:order' => 'orders#charge_return', :as => "charge_return"
   get 'charge_notify/:order' => 'orders#charge_notify', :as => "charge_notify"
   get 'alipay_return/:order' => 'orders#alipay_return', :as => "alipay_return"

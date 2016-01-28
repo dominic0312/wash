@@ -148,6 +148,34 @@ class OrdersController < BaseController
   end
 
 
+  def balance_pay
+
+    @oid = params[:order]
+    @result = ""
+    @info = "订单支付成功, 请等待商家发货"
+
+    order = Order.where(:sn => @oid).first
+    if order && !order.paid
+      order.paid = true
+      current_user.orders<<order
+      current_user.balance -= (order.total_value + order.shipment)
+      current_user.save!
+      order.save!
+
+      @result = "success"
+      @orderid = order.id
+
+    else
+      @info = "购买失败, 请咨询管理员"
+      @result = "failed"
+    end
+
+  end
+
+
+
+
+
   def alipay_route
 
   end
@@ -161,7 +189,31 @@ class OrdersController < BaseController
       redirect_to error_path and return
     end
 
-    @url = go_alipay(@order.sn, "家家商城订单" + @order.sn, @order.total_value)
+    @url = go_alipay(@order.sn, "家家商城订单" + @order.sn, @order.total_value + @order.shipment)
+  end
+
+
+
+  def balance_order
+    @order = Order.where(:sn => params[:order]).first
+
+    if !@order | @order.is_processed == "已处理"
+      redirect_to error_path and return
+    end
+
+     @url = balance_pay_path(@order.sn)
+  end
+
+
+
+  def offline_order
+    @order = Order.where(:sn => params[:order]).first
+
+    if !@order | @order.is_processed == "已处理"
+      redirect_to error_path and return
+    end
+
+    @url = balance_pay_path(@order.sn)
   end
 
   def alipay
@@ -213,6 +265,19 @@ class OrdersController < BaseController
     @order.city = params[:city]
     @order.province = params[:province]
     @order.district = params[:district]
+    shipment = 0
+    if @order.province == "370000"
+       if @cart.total < 200
+         shipment = 15
+       end
+    else
+      if @cart.total < 300
+        shipment = 25
+      end
+
+    end
+
+    @order.shipment = shipment
 
 
 
@@ -220,24 +285,22 @@ class OrdersController < BaseController
 
     if params[:payment]=="alipay"
       current_user.orders<<@order
-      @cart.clear
+      # @cart.clear
       @order.save!
       redirect_to alipay_route_path(@order.sn) and return
     end
 
 
     if params[:payment]=="balance"
-        @order.paid = true
 
-        current_user.orders<<@order
-        current_user.balance -= @cart.total.to_i
-        current_user.save!
 
         @order.save!
-        @cart.clear
+        # @cart.clear
         @notice = "支付完成"
 
-        render "payment" and return
+        redirect_to balance_route_path(@order.sn) and return
+
+        # render "payment" and return
       end
 
     if params[:payment]=="offline"
@@ -247,8 +310,8 @@ class OrdersController < BaseController
         current_user.orders<<@order
         @order.save!
         # @cart.clear
-        @notice = "购买完成"
-        render "payment" and return
+        # @notice = "购买完成"
+        redirect_to offline_route_path(@order.sn) and return
       end
   end
 

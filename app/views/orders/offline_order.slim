@@ -1,6 +1,6 @@
 .md-cart.center.m-t-30.clear
   .order-confirm
-    | 订单已经生成，请确认订单信息, 然后前往支付宝付款
+    | 订单已经生成，请确认订单信息, 然后按照下面的信息付款
   table.f12 cellpadding="0" cellspacing="0" width="100%"
     thead
       tr
@@ -79,6 +79,25 @@
       .shipment-value
         = @order.total_value + @order.shipment
         |元
+
+    .alipay-group
+      .payment-title
+        |收款账户
+      .payment-content
+        = Site.account
+    .alipay-group
+      .payment-title
+        |注明用户名
+      .account-content
+        = current_user.mobile
+    .alipay-group
+      .payment-title
+        |注明订单号
+      .account-content
+        = @order.sn
+
+
+
     .alipay-group
       .payment-title
         |送货地区
@@ -107,16 +126,5 @@
       .payment-content
         = @order.phone
       .err-info
-
-
-
-
-
-
-
-
-
-
-  = link_to "前往支付宝付款", @url, class:"sm-btn alipaybtn", name:"alipay", id:"apply", value:"申请送货", target:"_blank"
 
 

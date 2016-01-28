@@ -673,7 +673,7 @@ cursor:pointer}
 .alipay-group{
 
   margin-bottom: 15px;
-  font-size: 18px;
+  font-size: 16px;
 
 }
 
@@ -681,6 +681,20 @@ cursor:pointer}
   display: inline-block;
   margin-left:35px;
   color: red;
+}
+
+
+.shipment-value{
+  display: inline-block;
+  margin-left:65px;
+  color: red;
+}
+
+.shipment-desc{
+  display: inline-block;
+  margin-left:10px;
+  color: grey;
+
 }
 
 .balance{
@@ -715,6 +729,13 @@ cursor:pointer}
 .payment-content{
   display: inline-block;
   margin-left:35px;
+  color: red;
+}
+
+.account-content{
+  display: inline-block;
+  margin-left:18px;
+  color:red;
 }
 
 
