@@ -44,7 +44,8 @@ class NetworkController < BaseController
       # mobile2='13590296140'
       data = {'mobile' => mobile, 'cb' => 'callback', 'message' => message}
       request.form_data = data
-      request.basic_auth 'api', '618b92cc656f8e532bb2c08a0d8d205a'
+    
+                    
       response = http.request request # Net::HTTPResponse object
       puts response
       puts response.body
